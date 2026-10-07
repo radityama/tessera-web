@@ -5,6 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --header-h: 56px;
   --canvas: #fdfcfc;
   --ink: #201d1d;
   --ink-deep: #0f0000;
@@ -28,9 +29,12 @@
   /* Tessera brand accent (blue) doubles as the shadcn accent token. */
   --accent: #007aff;
   --accent-foreground: #ffffff;
+  --accent-text: #005fc9;
   --danger: #ff3b30;
+  --danger-text: #c81e1e;
   --warning: #ff9f0a;
   --success: #30d158;
+  --success-text: #0d7a2f;
 
   --site-width: 1080px;
   --page-width: 1080px;
@@ -91,12 +95,26 @@
   --hairline-strong: var(--line-strong);
 
   --accent: #3b9eff;
+  --accent-text: #7dbdff;
   --danger: #ff453a;
+  --danger-text: #ff8a80;
   --warning: #ffd60a;
   --success: #32d74b;
+  --success-text: #5ee87a;
 }
 
 /* Force monospace font on everything */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+section[id],
+[id].scroll-target {
+  scroll-margin-top: calc(var(--header-h) + 8px);
+}
+
 html,
 body,
 input,
@@ -238,34 +256,6 @@ body {
   height: 100%;
   width: 100%;
   position: relative;
-}
-
-/* Subtle monospaced skeleton shimmer */
-@keyframes skeleton-sweep {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.skeleton-shimmer {
-  background: linear-gradient(
-    90deg,
-    var(--surface-soft) 25%,
-    var(--surface-card) 50%,
-    var(--surface-soft) 75%
-  );
-  background-size: 200% 100%;
-  animation: skeleton-sweep 1.8s infinite ease-in-out;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .skeleton-shimmer {
-    animation: none;
-    background: var(--surface-card);
-  }
 }
 
 /* Animated underline sweep for text links: 1px line draws left-to-right */

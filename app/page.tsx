@@ -123,7 +123,7 @@ export default function HomePage() {
         <SectionSeparator />
 
         {/* 16. Installation: npx, npm, pnpm */}
-        <Panel id="installation">
+        <Panel id="install">
           <Installation />
         </Panel>
 

@@ -392,3 +392,119 @@ next step:  adapt component tokens to match local design system.`,
 [mcp] ready for coding agent requests on stdin.`,
   },
 ];
+
+// Real outputs captured from `@tessera-dev/cli@0.1.0`
+// (`tessera search "<query>"`, 2026-10-07). Trimmed to top 3 for display.
+export const SEARCH_EXAMPLES: Record<string, string> = {
+  'dark technical terminal hero': `01  efferd/hero-1
+    score       0.640
+    category    hero
+    source      efferd
+    framework   react
+    license     unknown — verify upstream terms before reuse
+    artifact    retrievable
+
+    why
+    [+] exact category match: hero
+    [+] matches query terms in name/description/tags
+    [+] zero runtime dependencies
+
+02  magicui/terminal
+    score       0.628
+    category    terminal
+    source      magicui
+    framework   react
+    license     MIT
+    artifact    retrievable
+
+03  aceternity/terminal
+    score       0.588
+    category    terminal
+    source      aceternity
+    framework   react
+    license     LicenseRef-Aceternity, redistribution restricted
+    artifact    retrievable`,
+  'minimal data table': `01  heroui/table
+    score       0.765
+    category    table
+    source      heroui
+    framework   react
+    license     MIT
+    artifact    not retrievable (npm-package)
+
+    why
+    [+] exact category match: table
+    [+] matches aesthetics: minimal
+    [+] known license (MIT)
+
+02  beui/table
+    score       0.641
+    category    table
+    source      beui
+    framework   react
+    license     MIT
+    artifact    retrievable
+
+03  beui/table-editable
+    score       0.641
+    category    table
+    source      beui
+    framework   react
+    license     MIT
+    artifact    retrievable`,
+  'lamp lighting effect': `01  magicui/aurora-text
+    score       0.622
+    category    background
+    source      magicui
+    framework   react
+    license     MIT
+    artifact    retrievable
+
+    why
+    [+] no required runtime dependencies
+    [+] known license (MIT)
+
+02  magicui/meteors
+    score       0.622
+    category    background
+    source      magicui
+    framework   react
+    license     MIT
+    artifact    retrievable
+
+03  magicui/neon-gradient-card
+    score       0.622
+    category    card
+    source      magicui
+    framework   react
+    license     MIT
+    artifact    retrievable`,
+  'marquee cards': `01  efferd/pricing-1
+    score       0.680
+    category    pricing
+    source      efferd
+    framework   react
+    license     MIT
+    artifact    retrievable
+
+    why
+    [+] matches query terms in name/description/tags
+    [+] no required runtime dependencies
+    [+] known license (MIT)
+
+02  magicui/marquee
+    score       0.680
+    category    animation
+    source      magicui
+    framework   react
+    license     MIT
+    artifact    retrievable
+
+03  beui/marquee
+    score       0.550
+    category    animation
+    source      beui
+    framework   react
+    license     MIT
+    artifact    retrievable`,
+};

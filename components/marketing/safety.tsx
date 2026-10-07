@@ -55,7 +55,7 @@ export function Safety() {
           {safetyPrinciples.slice(0, 3).map((item) => (
             <div key={item.title} className="p-6 md:p-8 space-y-2 hover:bg-[var(--surface-soft)] transition-colors">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-mono font-bold text-[var(--success)] select-none">
+                <span className="text-xs font-mono font-bold text-[var(--success-text)] select-none">
                   {item.marker}
                 </span>
                 <h3 className="text-xs md:text-sm font-bold text-[var(--ink)]">
@@ -74,7 +74,7 @@ export function Safety() {
           {safetyPrinciples.slice(3, 6).map((item) => (
             <div key={item.title} className="p-6 md:p-8 space-y-2 hover:bg-[var(--surface-soft)] transition-colors">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-mono font-bold text-[var(--success)] select-none">
+                <span className="text-xs font-mono font-bold text-[var(--success-text)] select-none">
                   {item.marker}
                 </span>
                 <h3 className="text-xs md:text-sm font-bold text-[var(--ink)]">

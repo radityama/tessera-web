@@ -60,7 +60,7 @@ export function AgentSkill() {
             <div className="text-[var(--mute)] select-none">↓</div>
             <div>inspect project design tokens</div>
             <div className="text-[var(--mute)] select-none">↓</div>
-            <div className="font-semibold text-[var(--accent)]">tessera search & inspect</div>
+            <div className="font-semibold text-[var(--accent-text)]">tessera search & inspect</div>
             <div className="text-[var(--mute)] select-none">↓</div>
             <div>evaluate ranking factors</div>
             <div className="text-[var(--mute)] select-none">↓</div>
@@ -70,7 +70,7 @@ export function AgentSkill() {
             <div className="text-[var(--mute)] select-none">↓</div>
             <div>strip original visual identity</div>
             <div className="text-[var(--mute)] select-none">↓</div>
-            <div className="font-semibold text-[var(--success)]">commit coherent implementation</div>
+            <div className="font-semibold text-[var(--success-text)]">commit coherent implementation</div>
           </div>
         </div>
 

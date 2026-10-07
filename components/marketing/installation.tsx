@@ -28,7 +28,7 @@ export function Installation() {
   const activeSnippet = installSnippets[packageManager];
 
   return (
-    <div id="install" className="w-full">
+    <div className="w-full">
       <PanelHeader
         kicker="installation"
         title="One command to look before generating."

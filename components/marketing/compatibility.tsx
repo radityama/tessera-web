@@ -27,11 +27,11 @@ export function Compatibility() {
   const getBadgeIcon = (status: VerificationStatus) => {
     switch (status) {
       case 'runtime verified':
-        return <ShieldCheck className="w-3 h-3 text-[var(--success)] shrink-0" aria-hidden="true" />;
+        return <ShieldCheck className="w-3 h-3 text-[var(--success-text)] shrink-0" aria-hidden="true" />;
       case 'config verified':
         return <FileCode className="w-3 h-3 text-[var(--mute)] shrink-0" aria-hidden="true" />;
       case 'protocol verified':
-        return <Cpu className="w-3 h-3 text-[var(--accent)] shrink-0" aria-hidden="true" />;
+        return <Cpu className="w-3 h-3 text-[var(--accent-text)] shrink-0" aria-hidden="true" />;
     }
   };
 
@@ -44,9 +44,9 @@ export function Compatibility() {
         aside={
           <div className="text-xs text-[var(--mute)]">
             <span>status transparency: </span>
-            <span className="text-[var(--success)] font-medium">1 runtime</span> ·{' '}
+            <span className="text-[var(--success-text)] font-medium">1 runtime</span> ·{' '}
             <span className="text-[var(--stone)]">10 config</span> ·{' '}
-            <span className="text-[var(--accent)]">1 protocol</span>
+            <span className="text-[var(--accent-text)]">1 protocol</span>
           </div>
         }
       />

@@ -3,15 +3,22 @@
 import React, { useState } from 'react';
 import { Terminal, Search, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { TERMINAL_DEMOS } from '@/lib/constants';
+import { TERMINAL_DEMOS, SEARCH_EXAMPLES } from '@/lib/constants';
+import { siteConfig } from '@/lib/site';
 import { CopyButton } from '@/components/ui/copy-button';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
+const SEARCH_QUERIES = Object.keys(SEARCH_EXAMPLES);
+
 export function TerminalDemo() {
   const [activeTab, setActiveTab] = useState<'search' | 'inspect' | 'fetch' | 'mcp'>('search');
-  const [searchQuery, setSearchQuery] = useState('dark technical terminal hero');
+  const [searchQuery, setSearchQuery] = useState(SEARCH_QUERIES[0]);
 
   const currentDemo = TERMINAL_DEMOS.find((d) => d.id === activeTab) || TERMINAL_DEMOS[0];
+  const searchOutput =
+    activeTab === 'search'
+      ? (SEARCH_EXAMPLES[searchQuery] ?? currentDemo.output)
+      : currentDemo.output;
 
   return (
     <div className="w-full bg-[#201d1d] text-[#fdfcfc] border-t border-[var(--line)] overflow-hidden font-mono text-xs md:text-sm">
@@ -22,7 +29,7 @@ export function TerminalDemo() {
             <Terminal className="w-3.5 h-3.5" aria-hidden="true" />
             <span>tessera / {activeTab}</span>
           </span>
-          <span className="text-[#646262] hidden sm:inline">· v0.1.0</span>
+          <span className="text-[#8a8787] hidden sm:inline">· {siteConfig.version}</span>
         </div>
 
         {/* Tab Controls */}
@@ -86,12 +93,7 @@ export function TerminalDemo() {
             <span>filter query:</span>
           </span>
           <div className="flex flex-wrap gap-1.5">
-            {[
-              'dark technical terminal hero',
-              'minimal data table',
-              'lamp lighting effect',
-              'marquee cards',
-            ].map((query) => (
+            {SEARCH_QUERIES.map((query) => (
               <button
                 key={query}
                 type="button"
@@ -120,30 +122,7 @@ export function TerminalDemo() {
             transition={{ duration: 0.1, ease: 'easeOut' }}
           >
             <pre className="font-mono text-xs md:text-[13px] whitespace-pre-wrap text-[#d6d4d4]">
-              {activeTab === 'search' && searchQuery !== 'dark technical terminal hero' ? (
-                `01  efferd/data-table
-    score       0.584
-    category    display
-    source      efferd
-    framework   react
-    license     MIT
-    artifact    retrievable
-
-    why
-    [+] keyword relevance match for query: "${searchQuery}"
-    [+] clean monospaced tabular typography
-    [+] zero third-party css bundle bloat
-
-02  beui/card-surface
-    score       0.412
-    category    surfaces
-    source      beui
-    framework   react
-    license     MIT
-    artifact    retrievable`
-              ) : (
-                currentDemo.output
-              )}
+              {searchOutput}
             </pre>
           </motion.div>
         </AnimatePresence>
@@ -156,12 +135,12 @@ export function TerminalDemo() {
             <CheckCircle2 className="w-3 h-3 text-[#30d158]" aria-hidden="true" />
             <span>search locally</span>
           </span>
-          <span className="text-[#646262]">·</span>
+          <span className="text-[#8a8787]">·</span>
           <span>fetch explicitly</span>
-          <span className="text-[#646262]">·</span>
+          <span className="text-[#8a8787]">·</span>
           <span>execute nothing</span>
         </div>
-        <div className="text-[#646262]">stdio / json-rpc 2.0</div>
+        <div className="text-[#8a8787]">stdio / json-rpc 2.0</div>
       </div>
     </div>
   );

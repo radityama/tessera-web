@@ -11,9 +11,9 @@ const badgeVariants = cva(
         muted:
           "bg-[var(--surface-soft)] text-[var(--ink)] border-[var(--hairline)]",
         success:
-          "text-[var(--success)] border-[var(--success)] bg-[#eafaf1]",
+          "text-[var(--success-text)] border-[var(--success)] bg-[#eafaf1]",
         accent:
-          "text-[var(--accent)] border-[var(--accent)] bg-[#ebf5ff]",
+          "text-[var(--accent-text)] border-[var(--accent)] bg-[#ebf5ff]",
         outline:
           "bg-[var(--canvas)] text-[var(--body)] border-[var(--line)]",
       },

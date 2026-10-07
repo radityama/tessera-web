@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
-import { JetBrains_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import { siteConfig } from '@/lib/site';
 import { ThemeProvider } from '@/context/theme-context';
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
+const jetbrainsMono = localFont({
+  src: [
+    { path: './fonts/JetBrainsMono-Regular.ttf', weight: '400', style: 'normal' },
+    { path: './fonts/JetBrainsMono-Bold.ttf', weight: '700', style: 'normal' },
+  ],
   variable: '--font-mono',
   display: 'swap',
 });
@@ -78,7 +81,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={jetbrainsMono.variable} suppressHydrationWarning>
+    <html lang="en" className={jetbrainsMono.variable}>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -90,7 +93,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[var(--canvas)] text-[var(--ink)] font-mono antialiased" suppressHydrationWarning>
+      <body className="min-h-screen bg-[var(--canvas)] text-[var(--ink)] font-mono antialiased">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

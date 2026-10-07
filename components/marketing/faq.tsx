@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { FAQS } from '@/lib/constants';
 import { PanelHeader } from '@/components/layout/panel';
 import {
@@ -11,8 +11,6 @@ import {
 } from '@/components/ui/accordion';
 
 export function Faq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
   return (
     <div className="w-full">
       <PanelHeader
@@ -25,10 +23,7 @@ export function Faq() {
       <Accordion
         type="single"
         collapsible
-        value={openIndex === null ? '' : `item-${openIndex}`}
-        onValueChange={(value) =>
-          setOpenIndex(value === '' ? null : Number(value.replace('item-', '')))
-        }
+        defaultValue="item-0"
         className="w-full bg-[var(--canvas)]"
       >
         {FAQS.map((faq, index) => (
@@ -47,7 +42,7 @@ export function Faq() {
                 >
                   [-]
                 </span>
-                <span className="text-xs sm:text-sm font-bold text-[var(--ink)] truncate sm:whitespace-normal">
+                <span className="text-xs sm:text-sm font-bold text-[var(--ink)] whitespace-normal break-words text-left">
                   {faq.question}
                 </span>
               </span>

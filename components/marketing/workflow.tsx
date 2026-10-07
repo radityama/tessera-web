@@ -28,7 +28,7 @@ export function Workflow() {
       />
 
       {/* 5-cell horizontal pipeline on desktop, stacked on mobile */}
-      <div className="grid grid-cols-1 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-[var(--line)]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 lg:divide-x divide-[var(--line)]">
         {WORKFLOW_STAGES.map((stage) => (
           <div
             key={stage.number}
@@ -51,7 +51,7 @@ export function Workflow() {
               </p>
             </div>
 
-            <div className="pt-2 border-t border-[var(--line)] text-[11px] text-[var(--mute)] font-mono truncate">
+            <div className="pt-2 border-t border-[var(--line)] text-[11px] text-[var(--mute)] font-mono break-words whitespace-normal">
               $ {stage.action}
             </div>
           </div>

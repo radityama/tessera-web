@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { siteConfig } from '@/lib/site';
@@ -9,6 +9,9 @@ import { Button } from '@/components/ui/button';
 
 export function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const wasOpen = useRef(false);
 
   const navLinks = [
     { label: 'Why', href: '#why' },
@@ -18,6 +21,38 @@ export function SiteHeader() {
     { label: 'MCP', href: '#mcp' },
     { label: 'Compatibility', href: '#compatibility' },
   ];
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    };
+    const onPointer = (e: PointerEvent) => {
+      const t = e.target as Node;
+      if (
+        drawerRef.current &&
+        !drawerRef.current.contains(t) &&
+        toggleRef.current &&
+        !toggleRef.current.contains(t)
+      ) {
+        setMobileMenuOpen(false);
+      }
+    };
+    const onHash = () => setMobileMenuOpen(false);
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('pointerdown', onPointer);
+    window.addEventListener('hashchange', onHash);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('pointerdown', onPointer);
+      window.removeEventListener('hashchange', onHash);
+    };
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    if (wasOpen.current && !mobileMenuOpen) toggleRef.current?.focus({ preventScroll: true });
+    wasOpen.current = mobileMenuOpen;
+  }, [mobileMenuOpen]);
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[var(--canvas)]">
@@ -77,6 +112,7 @@ export function SiteHeader() {
             <a href="#install">Get started</a>
           </Button>
           <Button
+            ref={toggleRef}
             type="button"
             variant="secondary"
             size="sm"
@@ -98,6 +134,7 @@ export function SiteHeader() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
+            ref={drawerRef}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}

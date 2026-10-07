@@ -1,8 +1,31 @@
 'use client';
 
-import React, { createContext, useContext, useEffect, useState, useTransition } from 'react';
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useSyncExternalStore,
+} from 'react';
 
 type Theme = 'light' | 'dark';
+
+function getSnapshot(): Theme {
+  const t = document.documentElement.dataset.theme;
+  return t === 'dark' ? 'dark' : 'light';
+}
+
+function getServerSnapshot(): Theme {
+  return 'light';
+}
+
+function subscribe(callback: () => void) {
+  const observer = new MutationObserver(callback);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme', 'class'],
+  });
+  return () => observer.disconnect();
+}
 
 interface ThemeContextType {
   theme: Theme;
@@ -13,37 +36,19 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('light');
-  const [, startTransition] = useTransition();
+  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem('tessera-theme') as Theme | null;
-      if (stored === 'light' || stored === 'dark') {
-        startTransition(() => {
-          setThemeState(stored);
-        });
-      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        startTransition(() => {
-          setThemeState('dark');
-        });
-      }
-    } catch {}
-  }, []);
-
-  const setTheme = (nextTheme: Theme) => {
-    setThemeState(nextTheme);
+  const setTheme = useCallback((nextTheme: Theme) => {
     try {
       localStorage.setItem('tessera-theme', nextTheme);
-      document.documentElement.setAttribute('data-theme', nextTheme);
-      document.documentElement.classList.toggle('dark', nextTheme === 'dark');
     } catch {}
-  };
+    document.documentElement.setAttribute('data-theme', nextTheme);
+    document.documentElement.classList.toggle('dark', nextTheme === 'dark');
+  }, []);
 
-  const toggleTheme = () => {
-    const next = theme === 'light' ? 'dark' : 'light';
-    setTheme(next);
-  };
+  const toggleTheme = useCallback(() => {
+    setTheme(getSnapshot() === 'light' ? 'dark' : 'light');
+  }, [setTheme]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>

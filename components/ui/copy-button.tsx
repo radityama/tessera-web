@@ -49,7 +49,7 @@ export function CopyButton({
     >
       {copied ? (
         <>
-          <Check className="w-3 h-3 text-[var(--success)]" strokeWidth={2} aria-hidden="true" />
+          <Check className="w-3 h-3 text-[var(--success-text)]" strokeWidth={2} aria-hidden="true" />
           <span>[copied]</span>
         </>
       ) : (
