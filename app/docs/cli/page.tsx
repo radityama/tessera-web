@@ -51,7 +51,7 @@ export default function CliDocsPage() {
         heading="h1"
         kicker="docs / cli"
         title="CLI reference."
-        description="Every command, every flag, with real examples run against @tessera-dev/cli v0.1.0. Only fetch touches the network; everything else reads the pinned local snapshot."
+        description={`Every command, every flag, with real examples run against @tessera-dev/cli ${siteConfig.version}. Only fetch touches the network; everything else reads the pinned local snapshot.`}
       />
       <div className="px-5 sm:px-8 py-6 space-y-10">
         <section id="search" className="scroll-target space-y-3">
