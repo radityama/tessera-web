@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Terminal, Search, CheckCircle2 } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { useInView, useReducedMotion } from 'motion/react';
 import { TERMINAL_DEMOS, SEARCH_EXAMPLES, TOTAL_COMPONENTS } from '@/lib/constants';
 import { siteConfig } from '@/lib/site';
 import { CopyButton } from '@/components/ui/copy-button';
@@ -10,18 +10,50 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const SEARCH_QUERIES = Object.keys(SEARCH_EXAMPLES);
 
+/** Animated replay: streams output line by line (~35ms/line). */
+function ReplayOutput({ output }: { output: string }) {
+  const lines = output.split('\n');
+  const [shown, setShown] = useState(0);
+
+  useEffect(() => {
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    for (let i = 1; i <= lines.length; i++) {
+      timers.push(setTimeout(() => setShown(i), i * 35));
+    }
+    return () => {
+      for (const t of timers) clearTimeout(t);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [output]);
+
+  return (
+    <pre
+      aria-hidden="true"
+      className="font-mono text-xs md:text-[13px] whitespace-pre-wrap text-[#d6d4d4]"
+    >
+      {lines.slice(0, shown).join('\n')}
+    </pre>
+  );
+}
+
 export function TerminalDemo() {
   const [activeTab, setActiveTab] = useState<'search' | 'inspect' | 'fetch' | 'mcp'>('search');
   const [searchQuery, setSearchQuery] = useState(SEARCH_QUERIES[0]);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const inView = useInView(rootRef, { once: true, margin: '-80px' });
+  const reduceMotion = useReducedMotion();
 
   const currentDemo = TERMINAL_DEMOS.find((d) => d.id === activeTab) || TERMINAL_DEMOS[0];
-  const searchOutput =
+  const fullOutput =
     activeTab === 'search'
       ? (SEARCH_EXAMPLES[searchQuery] ?? currentDemo.output)
       : currentDemo.output;
+  const fullCommand = currentDemo.command;
+  const replayKey = `${activeTab}-${activeTab === 'search' ? searchQuery : ''}`;
+  const animate = inView && !reduceMotion;
 
   return (
-    <div className="w-full bg-[#201d1d] text-[#fdfcfc] border-t border-[var(--line)] dark:border dark:border-[var(--line-strong)] overflow-hidden font-mono text-xs md:text-sm">
+    <div ref={rootRef} className="w-full bg-[#201d1d] text-[#fdfcfc] border-t border-[var(--line)] dark:border dark:border-[var(--line-strong)] overflow-hidden font-mono text-xs md:text-sm">
       {/* Terminal Title Bar */}
       <div className="flex flex-wrap items-center justify-between border-b border-[#383333] px-4 py-3 bg-[#191717] gap-2">
         <div className="flex items-center gap-3">
@@ -66,19 +98,15 @@ export function TerminalDemo() {
       <div className="px-5 py-4 border-b border-[#2d2828] bg-[#1e1a1a] flex items-center justify-between gap-4">
         <div className="flex items-center gap-2 overflow-x-auto text-[#fdfcfc]">
           <span className="text-[#30d158] select-none">$</span>
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={currentDemo.command}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.1 }}
-              className="text-[#fdfcfc] font-medium whitespace-nowrap"
-            >
-              {currentDemo.command}
-            </motion.span>
-          </AnimatePresence>
-          <span className="inline-block w-2 h-4 bg-[#fdfcfc] animate-pulse select-none shrink-0" />
+          {animate ? (
+            <ReplayCommand key={`cmd-${replayKey}`} command={fullCommand} />
+          ) : (
+            <>
+              <span className="text-[#fdfcfc] font-medium whitespace-nowrap">{fullCommand}</span>
+              <span className="terminal-cursor inline-block w-2 h-4 bg-[#fdfcfc] select-none shrink-0" aria-hidden="true" />
+            </>
+          )}
+          <span className="sr-only">{fullCommand}</span>
         </div>
         <span className="text-xs text-[#9a9898] uppercase tracking-wider shrink-0 hidden md:inline">
           local index · {TOTAL_COMPONENTS} items
@@ -111,21 +139,16 @@ export function TerminalDemo() {
         </div>
       )}
 
-      {/* Terminal Output Body with motion transition */}
+      {/* Terminal Output Body (min-h reserves space: no layout shift during replay) */}
       <div className="p-5 md:p-6 min-h-[320px] md:min-h-[380px] max-h-[500px] overflow-y-auto leading-relaxed selection:bg-[#fdfcfc] selection:text-[#201d1d]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`${activeTab}-${activeTab === 'search' ? searchQuery : ''}`}
-            initial={{ opacity: 0, y: 2 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -2 }}
-            transition={{ duration: 0.1, ease: 'easeOut' }}
-          >
-            <pre className="font-mono text-xs md:text-[13px] whitespace-pre-wrap text-[#d6d4d4]">
-              {searchOutput}
-            </pre>
-          </motion.div>
-        </AnimatePresence>
+        {animate ? (
+          <ReplayOutput key={replayKey} output={fullOutput} />
+        ) : (
+          <pre className="font-mono text-xs md:text-[13px] whitespace-pre-wrap text-[#d6d4d4]">
+            {fullOutput}
+          </pre>
+        )}
+        <span className="sr-only">{fullOutput}</span>
       </div>
 
       {/* Terminal Status Footer */}
@@ -143,5 +166,26 @@ export function TerminalDemo() {
         <div className="text-[#8a8787]">stdio / json-rpc 2.0</div>
       </div>
     </div>
+  );
+}
+
+function ReplayCommand({ command }: { command: string }) {
+  const [chars, setChars] = useState(0);
+  useEffect(() => {
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    for (let i = 1; i <= command.length; i++) {
+      timers.push(setTimeout(() => setChars(i), i * 25));
+    }
+    return () => {
+      for (const t of timers) clearTimeout(t);
+    };
+  }, [command]);
+  return (
+    <>
+      <span className="text-[#fdfcfc] font-medium whitespace-nowrap" aria-hidden="true">
+        {command.slice(0, chars)}
+      </span>
+      <span className="terminal-cursor inline-block w-2 h-4 bg-[#fdfcfc] select-none shrink-0" aria-hidden="true" />
+    </>
   );
 }
