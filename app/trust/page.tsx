@@ -22,7 +22,8 @@ export default function TrustPage() {
     <div className="flex flex-col min-h-screen bg-[var(--canvas)] selection:bg-[var(--ink)] selection:text-[var(--canvas)]">
       <SiteHeader />
       <Announcement />
-      <main className="flex-1 w-full">
+      <main id="main" className="flex-1 w-full">
+        <h1 className="sr-only">Trust and limits.</h1>
         <Panel id="guarantees" hasTopLine={false}>
           <LocalFirst />
         </Panel>

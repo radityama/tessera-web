@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import {
   Table,
   TableBody,
+  TableCaption,
   TableCell,
   TableFooter,
   TableHead,
@@ -40,6 +41,7 @@ heroui ─────────┘`}
 
       {/* Semantic Table of Supported Sources */}
       <Table className="text-xs md:text-sm">
+        <TableCaption className="sr-only">Indexed sources with component counts, retrieval method, and focus</TableCaption>
         <TableHeader>
           <TableRow className="border-[var(--line)] bg-[var(--canvas)] text-[var(--mute)] hover:bg-transparent">
             <TableHead className="py-3 px-5 sm:px-8 md:px-10">SOURCE</TableHead>

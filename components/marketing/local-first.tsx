@@ -5,6 +5,7 @@ import { LOCAL_OPERATIONS } from '@/lib/constants';
 import {
   Table,
   TableBody,
+  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -51,6 +52,7 @@ export function LocalFirst() {
 
       {/* Operations matrix table */}
       <Table>
+        <TableCaption className="sr-only">CLI operations with execution context and behavior</TableCaption>
         <TableHeader>
           <TableRow className="bg-[var(--canvas)] text-[var(--mute)] hover:bg-transparent">
             <TableHead className="py-3 px-5 sm:px-8 md:px-10">OPERATION</TableHead>

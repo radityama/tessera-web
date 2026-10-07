@@ -81,6 +81,7 @@ export default function McpDocsPage() {
   return (
     <div className="w-full">
       <PanelHeader
+        heading="h1"
         kicker="docs / mcp"
         title="MCP server."
         description="A thin protocol layer over the retrieval core. It must not contain ranking logic. Response shapes below are illustrative excerpts of real records; exact scores follow the pinned snapshot."

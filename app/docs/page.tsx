@@ -49,6 +49,7 @@ export default function DocsPage() {
   return (
     <div className="w-full">
       <PanelHeader
+        heading="h1"
         kicker="docs"
         title="Tessera documentation."
         description="Reference material for the CLI, the MCP server, harness setups, the agent skill, and the system behind them. The pitch stays on the homepage; the facts live here."

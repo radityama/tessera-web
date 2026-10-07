@@ -37,9 +37,10 @@ export default function ChangelogPage() {
     <div className="flex flex-col min-h-screen bg-[var(--canvas)] selection:bg-[var(--ink)] selection:text-[var(--canvas)]">
       <SiteHeader />
       <Announcement />
-      <main className="flex-1 w-full">
+      <main id="main" className="flex-1 w-full">
         <Panel id="changelog" hasTopLine={false} hasBottomLine={true}>
           <PanelHeader
+        heading="h1"
             kicker="changelog"
             title="Release notes."
             description="Summarised from the main repository CHANGELOG. Later versions append below v0.1.0 in the same shape."

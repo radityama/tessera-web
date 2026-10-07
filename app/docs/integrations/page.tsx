@@ -17,6 +17,7 @@ export default function IntegrationsPage() {
   return (
     <div className="w-full">
       <PanelHeader
+        heading="h1"
         kicker="docs / integrations"
         title="Twelve harnesses, one server."
         description="Copy-paste configs below. Configs follow each harness's official docs as checked in the main repo (last verified 2026-10-06). Only Claude Code is runtime-verified; the rest are config-verified against vendor schemas."

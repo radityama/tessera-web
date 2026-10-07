@@ -21,9 +21,10 @@ export default function CatalogPage() {
     <div className="flex flex-col min-h-screen bg-[var(--canvas)] selection:bg-[var(--ink)] selection:text-[var(--canvas)]">
       <SiteHeader />
       <Announcement />
-      <main className="flex-1 w-full">
+      <main id="main" className="flex-1 w-full">
         <Panel id="catalog" hasTopLine={false}>
           <PanelHeader
+        heading="h1"
             kicker="catalog"
             title="Every component in the index."
             description={`All ${CATALOG.length} indexed components with source, category, framework, license, retrieval method, and upstream link. Generated from the pinned registry snapshot — run bun scripts/sync-index.ts to refresh.`}

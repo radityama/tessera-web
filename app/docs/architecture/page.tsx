@@ -39,6 +39,7 @@ export default function ArchitectureDocsPage() {
   return (
     <div className="w-full">
       <PanelHeader
+        heading="h1"
         kicker="docs / architecture"
         title="System architecture."
         description="One unified retrieval core powers both the stdio MCP server for agents and the interactive CLI for developers."

@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import {
   Table,
   TableBody,
+  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -61,6 +62,7 @@ export function Compatibility({ limit }: { limit?: number }) {
       />
 
       <Table>
+        <TableCaption className="sr-only">Agent harnesses with verification level and evidence notes</TableCaption>
         <TableHeader>
           <TableRow className="bg-[var(--canvas)] text-[var(--mute)] hover:bg-transparent">
             <TableHead className="py-3 px-5 sm:px-8 md:px-10">HARNESS / ENVIRONMENT</TableHead>

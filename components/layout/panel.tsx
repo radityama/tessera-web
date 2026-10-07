@@ -44,6 +44,7 @@ export interface PanelHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   aside?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
+  heading?: 'h1' | 'h2';
 }
 
 export function PanelHeader({
@@ -53,8 +54,10 @@ export function PanelHeader({
   aside,
   children,
   className = '',
+  heading = 'h2',
   ...props
 }: PanelHeaderProps) {
+  const Title = heading;
   return (
     <div
       className={`border-b border-[var(--line)] px-5 py-6 sm:px-8 sm:py-8 md:px-10 md:py-8 bg-[var(--canvas)] ${className}`}
@@ -71,9 +74,9 @@ export function PanelHeader({
               </div>
             )}
             {title && (
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--ink)]">
+              <Title className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--ink)]">
                 {title}
-              </h2>
+              </Title>
             )}
             {description && (
               <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">

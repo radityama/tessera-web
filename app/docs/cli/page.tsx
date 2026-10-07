@@ -48,6 +48,7 @@ export default function CliDocsPage() {
   return (
     <div className="w-full">
       <PanelHeader
+        heading="h1"
         kicker="docs / cli"
         title="CLI reference."
         description="Every command, every flag, with real examples run against @tessera-dev/cli v0.1.0. Only fetch touches the network; everything else reads the pinned local snapshot."

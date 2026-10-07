@@ -106,7 +106,7 @@ export function SiteHeader() {
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-6 text-xs text-[var(--mute)]">
+        <nav aria-label="Primary" className="hidden lg:flex items-center gap-6 text-xs text-[var(--mute)]">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
@@ -178,7 +178,7 @@ export function SiteHeader() {
             className="lg:hidden panel-frame border-b border-[var(--line)] bg-[var(--canvas)] overflow-hidden"
           >
             <div className="p-4 space-y-4">
-              <nav className="flex flex-col space-y-3 text-xs text-[var(--body)]">
+              <nav aria-label="Primary" className="flex flex-col space-y-3 text-xs text-[var(--body)]">
                 {NAV_LINKS.map((link) => (
                   <a
                     key={link.href}

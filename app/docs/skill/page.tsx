@@ -26,6 +26,7 @@ export default function SkillDocsPage() {
   return (
     <div className="w-full">
       <PanelHeader
+        heading="h1"
         kicker="docs / skill"
         title="The agent skill."
         description="Retrieval alone does not guarantee a good UI. The skill teaches coding models when to search, how to evaluate ranking reasons, when to reject matches, and how to adapt components into one coherent page."

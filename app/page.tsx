@@ -25,7 +25,7 @@ export default function HomePage() {
       {/* 2. Announcement Row */}
       <Announcement />
 
-      <main className="flex-1 w-full">
+      <main id="main" className="flex-1 w-full">
         {/* 3. Hero & Dark Terminal Product Demo */}
         <Panel id="hero" hasTopLine={false}>
           <Hero />

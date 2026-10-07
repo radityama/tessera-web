@@ -10,7 +10,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
     <div className="flex flex-col min-h-screen bg-[var(--canvas)] selection:bg-[var(--ink)] selection:text-[var(--canvas)]">
       <SiteHeader />
       <Announcement />
-      <main className="flex-1 w-full">
+      <main id="main" className="flex-1 w-full">
         <div className="panel-frame relative bg-[var(--canvas)] screen-line-bottom">
           <div className="lg:flex lg:items-start">
             <DocsNav />

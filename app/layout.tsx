@@ -111,6 +111,12 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-[var(--canvas)] text-[var(--ink)] font-mono antialiased">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:px-3 focus:py-2 focus:bg-[var(--ink)] focus:text-[var(--canvas)] focus:text-xs"
+        >
+          Skip to content
+        </a>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
