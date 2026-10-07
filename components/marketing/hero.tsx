@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
+import { TOTAL_COMPONENTS, TOTAL_SOURCES } from '@/lib/constants';
 import { CopyButton } from '@/components/ui/copy-button';
 import { Button } from '@/components/ui/button';
 import { TerminalDemo } from './terminal-demo';
@@ -30,9 +31,9 @@ export function Hero() {
 
           {/* Support statement & philosophy */}
           <div className="flex flex-wrap items-center gap-3 pt-1 text-xs text-[var(--stone)]">
-            <span className="font-semibold text-[var(--ink)]">73 components</span>
+            <span className="font-semibold text-[var(--ink)]">{TOTAL_COMPONENTS} components</span>
             <span aria-hidden="true">·</span>
-            <span>5 sources</span>
+            <span>{TOTAL_SOURCES} sources</span>
             <span aria-hidden="true">·</span>
             <span>Local-first search</span>
             <span aria-hidden="true">·</span>

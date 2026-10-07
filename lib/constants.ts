@@ -107,47 +107,47 @@ export const CLI_COMMANDS: CliCommand[] = [
     args: '<query>',
     description: 'Rank indexed components locally using deterministic BM25-style lexical matching.',
     usage: 'tessera search "dark technical terminal hero"',
-    flags: ['--source <name>', '--limit <n>', '--json'],
+    flags: ['--source <name>', '--category <name>', '--limit <n>', '--json'],
   },
   {
     command: 'inspect',
     args: '<id>',
     description: 'Read canonical metadata, licensing evidence, upstream URL, and dependency tree.',
     usage: 'tessera inspect magicui/terminal',
-    flags: ['--full', '--json'],
+    flags: ['--json'],
   },
   {
     command: 'similar',
     args: '<id>',
     description: 'Find structurally adjacent components in the index to evaluate alternative implementations.',
-    usage: 'tessera similar aceternity/lamp',
-    flags: ['--limit <n>'],
+    usage: 'tessera similar magicui/terminal',
+    flags: ['--limit <n>', '--json'],
   },
   {
     command: 'add',
     args: '<id> --dry-run',
     description: 'Simulate component installation without modifying project files or running scripts.',
     usage: 'tessera add magicui/terminal --dry-run',
-    flags: ['--dry-run', '--target <path>'],
+    flags: ['--dry-run', '--no-dry-run', '--json'],
   },
   {
     command: 'fetch',
     args: '<id>',
     description: 'Retrieve real upstream source files from shadcn registry or npm package tarball.',
-    usage: 'tessera fetch magicui/terminal',
-    flags: ['--stdout', '--out-dir <path>'],
+    usage: 'tessera fetch magicui/terminal --dry-run',
+    flags: ['--dry-run', '--output <dir>', '--force', '--json'],
   },
   {
     command: 'mcp',
     description: 'Run the Model Context Protocol server over stdio for coding agent harnesses.',
     usage: 'tessera mcp',
-    flags: ['--verbose'],
+    flags: [],
   },
   {
     command: 'doctor',
     description: 'Validate local registry state, Node runtime version, and outbound retrieval hosts.',
     usage: 'tessera doctor',
-    flags: [],
+    flags: ['--json'],
   },
 ];
 
@@ -202,7 +202,7 @@ export const AGENT_HARNESSES: AgentHarness[] = [
   {
     name: 'Claude Code',
     status: 'runtime verified',
-    notes: 'Tested in live interactive sessions with Claude 3.7 / 3.5 Sonnet harness via stdio MCP.',
+    notes: 'Tested in live interactive sessions via stdio MCP.',
   },
   {
     name: 'Codex',
@@ -277,7 +277,7 @@ export const FAQS: FaqItem[] = [
   },
   {
     question: 'Does search require a network connection?',
-    answer: 'No. The search index is packaged locally inside the CLI. Searching, ranking, inspecting metadata, and finding similar components run completely offline on your machine with zero latency and zero data transfer.',
+    answer: 'No. The search index is packaged locally inside the CLI. Searching, ranking, inspecting metadata, and finding similar components run completely offline on your machine with no network round-trips and zero data transfer.',
   },
   {
     question: 'Does Tessera automatically install dependencies or execute code?',
@@ -306,82 +306,76 @@ export const TERMINAL_DEMOS = [
     id: 'search',
     label: 'tessera search',
     command: 'tessera search "dark technical terminal hero"',
-    output: `01  magicui/terminal
-    score       0.612
+    // TODO(verify-against-cli): display copy; canonical real outputs live in SEARCH_EXAMPLES.
+    output: `01  efferd/hero-1
+    score       0.640
+    category    hero
+    source      efferd
+    framework   react
+    license     unknown — verify upstream terms before reuse
+    artifact    retrievable
+
+    why
+    [+] exact category match: hero
+    [+] matches query terms in name/description/tags
+    [+] zero runtime dependencies
+
+02  magicui/terminal
+    score       0.628
     category    terminal
     source      magicui
     framework   react
     license     MIT
     artifact    retrievable
 
-    why
-    [+] exact category match: terminal
-    [+] matches aesthetics: technical, dark
-    [+] zero runtime dependencies beyond react
-
-02  efferd/code-block
-    score       0.448
-    category    display
-    source      efferd
-    framework   react
-    license     MIT
-    artifact    retrievable
-
-03  aceternity/macbook-scroll
-    score       0.321
-    category    hero
+03  aceternity/terminal
+    score       0.588
+    category    terminal
     source      aceternity
     framework   react
-    license     MIT
+    license     LicenseRef-Aceternity, redistribution restricted
     artifact    retrievable`,
   },
   {
     id: 'inspect',
     label: 'tessera inspect',
     command: 'tessera inspect magicui/terminal',
-    output: `component:      magicui/terminal
-version:        1.2.0
-upstream:       https://magicui.design/r/terminal.json
-retrieval:      shadcn registry
-license:        MIT (verified in repository root)
-framework:      react >= 18.0.0
-
-dependencies:
-  runtime:      clsx, tailwind-merge
-  peer:         react, react-dom
-  registry:     []
-
-files:
-  - components/magicui/terminal.tsx (4.2 kB)
-  - hooks/use-terminal-typing.ts   (1.8 kB)
-
-why matched:
-  category      terminal (1.00)
-  keywords      cli, terminal, monospaced, code (0.85)
-  provenance    canonical magicui distribution`,
+    output: `magicui/terminal — Terminal
+A terminal component
+category: terminal (secondary: —)
+frameworks: react
+visual: aesthetics=[terminal] tags=[terminal, component] motion=unknown density=unknown
+dependencies: none
+installation: command — npx shadcn@latest add https://magicui.design/r/terminal.json — Add through the shadcn CLI from the upstream registry URL, then adapt the copied source to your design tokens.
+retrieval: shadcn-registry — https://magicui.design/r/terminal.json
+license: MIT, redistribution permitted
+links: homepage=https://magicui.design/ docs=https://magicui.design/docs
+provenance: adapter=shadcn-registry upstream=terminal derived=[category, secondaryCategories, visual.aesthetics, visual.tags, visual.motion]`,
   },
   {
     id: 'fetch',
     label: 'tessera fetch',
-    command: 'tessera fetch magicui/terminal --out-dir ./components/upstream',
-    output: `[retrieval] resolving artifact for magicui/terminal...
-[network]   GET https://magicui.design/r/terminal.json [200 OK]
-[validate]  sha256 integrity matched pinned registry manifest
-[license]   MIT confirmed from upstream manifest
-[write]     components/upstream/terminal.tsx (4,218 bytes)
-[write]     components/upstream/use-terminal-typing.ts (1,842 bytes)
+    command: 'tessera fetch magicui/terminal --dry-run',
+    output: `magicui/terminal — 1 file(s) from magicui
+upstream: https://magicui.design/r/terminal.json
+license: MIT, redistribution permitted
+dependencies: none
+registry dependencies: none
+install: npx shadcn@latest add https://magicui.design/r/terminal.json
 
-status:     retrieved 2 files.
-note:       source not automatically added to project index.
-next step:  adapt component tokens to match local design system.`,
+files:
+  registry/magicui/terminal.tsx (7716 bytes)
+
+Tessera wrote these files only because you asked. Nothing was installed or executed.`,
   },
   {
     id: 'mcp',
     label: 'tessera mcp',
-    command: 'tessera mcp --verbose',
+    command: 'tessera mcp',
+    // TODO(verify-against-cli): startup banner captured from docs, not a live stdio session.
     output: `[mcp] initializing Tessera Model Context Protocol server v0.1.0
 [mcp] transport: stdio (JSON-RPC 2.0)
-[mcp] local index: 73 components loaded from memory
+[mcp] local index: ${TOTAL_COMPONENTS} components loaded from memory
 [mcp] registered 6 tools:
       - search_components (BM25 lexical ranking)
       - get_component (metadata, provenance, license)
@@ -508,3 +502,166 @@ export const SEARCH_EXAMPLES: Record<string, string> = {
     license     MIT
     artifact    retrievable`,
 };
+
+export interface AgentSkillStep {
+  step: string;
+  title: string;
+  desc: string;
+}
+
+export const AGENT_SKILL_STEPS: AgentSkillStep[] = [
+  {
+    step: '01',
+    title: 'Decompose Intent',
+    desc: 'Agent breaks complex UI requests into discrete primitive requirements (e.g. animated hero vs. metric counter).',
+  },
+  {
+    step: '02',
+    title: 'Detect Design Tokens',
+    desc: 'Agent reads the local project config (Tailwind tokens, CSS variables, border radius scale) before searching.',
+  },
+  {
+    step: '03',
+    title: 'Search & Evaluate',
+    desc: 'Agent calls Tessera MCP, inspects ranking explanations, and checks whether external dependencies conflict with local ones.',
+  },
+  {
+    step: '04',
+    title: 'License & Provenance Check',
+    desc: 'Agent confirms acceptable license terms and evidence before retrieving code files.',
+  },
+  {
+    step: '05',
+    title: 'Adapt Composition',
+    desc: 'Agent keeps the underlying layout and accessibility logic, but strips third-party styling classes to adopt local project tokens.',
+  },
+  {
+    step: '06',
+    title: 'Cohesion Audit',
+    desc: 'If a retrieved component feels visually discordant or over-engineered, the agent rejects it in favor of an intentional local design.',
+  },
+];
+
+export interface SafetyPrinciple {
+  marker: string;
+  title: string;
+  description: string;
+}
+
+export const SAFETY_PRINCIPLES: SafetyPrinciple[] = [
+  {
+    marker: '[+]',
+    title: 'License evidence when known',
+    description:
+      'When an upstream repository provides an explicit LICENSE file (e.g. MIT, Apache-2.0), Tessera records the license identifier and the evidence path.',
+  },
+  {
+    marker: '[+]',
+    title: 'Unknown stays unknown',
+    description:
+      'If a component’s licensing cannot be definitively verified, Tessera marks it as unknown. It never guesses or defaults to permissive licenses.',
+  },
+  {
+    marker: '[+]',
+    title: 'Restricted redistribution surfaced',
+    description:
+      'Components with non-commercial, attribution-only, or proprietary caveats are prominently flagged so agents do not accidentally commit non-compliant code.',
+  },
+  {
+    marker: '[+]',
+    title: 'Upstream source is never executed',
+    description:
+      'Tessera treats retrieved source code as plain text. It never executes npm lifecycle scripts, pre/postinstall hooks, or arbitrary code from remote registries.',
+  },
+  {
+    marker: '[+]',
+    title: 'No silent file overwriting',
+    description:
+      'The CLI requires explicit output directories or outputs directly to stdout. It will never overwrite existing codebase files without developer consent.',
+  },
+  {
+    marker: '[+]',
+    title: 'Pinned retrieval hosts',
+    description:
+      'Retrieval requests are constrained strictly to verified upstream registries and canonical npm package mirrors pinned in the metadata manifest.',
+  },
+];
+
+export interface Limitation {
+  marker: string;
+  title: string;
+  description: string;
+}
+
+export const LIMITATIONS: Limitation[] = [
+  {
+    marker: '[-]',
+    title: 'Five sources indexed',
+    description:
+      'v0.1 indexes 73 components across Aceternity UI, beUI, Efferd, Magic UI, and HeroUI. It is not an exhaustive index of all open-source frontend code.',
+  },
+  {
+    marker: '[-]',
+    title: 'React-focused ecosystem',
+    description:
+      'All current indexed components target modern React. Vue, Svelte, and vanilla web components are architecturally planned but not present in the v0.1 index.',
+  },
+  {
+    marker: '[-]',
+    title: 'Lexical ranking, not vector embeddings',
+    description:
+      'Tessera uses deterministic lexical keyword matching (BM25-style) with category and aesthetic weighting. It does not run opaque local embedding models.',
+  },
+  {
+    marker: '[-]',
+    title: 'add command is dry-run only',
+    description:
+      'tessera add simulates component installation and dependency manifests. To actually write files to disk, developers or agents use tessera fetch with explicit targets.',
+  },
+  {
+    marker: '[-]',
+    title: 'No recursive dependency tree fetching',
+    description:
+      'If a retrieved component references another internal component, fetch does not automatically spider upstream URLs. Dependencies are displayed in metadata for explicit retrieval.',
+  },
+  {
+    marker: '[-]',
+    title: 'Most harness integrations are config-verified',
+    description:
+      'Claude Code has undergone full runtime test suites. Other agent integrations (Cursor, Windsurf, Zed, etc.) are currently verified against standard config schemas.',
+  },
+];
+
+export interface LocalOperation {
+  operation: string;
+  network: string;
+  detail: string;
+}
+
+export const LOCAL_OPERATIONS: LocalOperation[] = [
+  {
+    operation: 'tessera search',
+    network: 'local',
+    detail: 'Indexed metadata is compiled directly into the CLI package. Queries evaluate offline with zero outbound packets.',
+  },
+  {
+    operation: 'tessera inspect',
+    network: 'local',
+    detail: 'Resolves dependency graph, ranking criteria, and license attributes from the embedded index.',
+  },
+  {
+    operation: 'tessera similar',
+    network: 'local',
+    detail: 'Computes nearest component neighbors across alternate sources using deterministic lexical scoring.',
+  },
+  {
+    operation: 'tessera fetch',
+    network: 'network (explicit)',
+    detail: 'Transfers upstream code files directly from shadcn registry hosts or npm. Occurs only when explicitly called.',
+  },
+  {
+    operation: 'tessera add --dry-run',
+    network: 'local',
+    detail: 'Simulates package installation and output directory writes without touching disks or executing scripts.',
+  },
+];

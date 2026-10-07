@@ -22,7 +22,7 @@ export function SiteFooter() {
             UI retrieval for coding agents. Reuse composition, not identity.
           </p>
           <div className="text-[11px] text-[var(--mute)]">
-            v0.1.0 · TypeScript · MIT
+            {siteConfig.version} · TypeScript · MIT
           </div>
         </div>
 
@@ -61,7 +61,7 @@ export function SiteFooter() {
                 rel="noopener noreferrer"
                 className="group hover:text-[var(--ink)] transition-colors inline-flex items-center gap-1"
               >
-                <span className="link-sweep">Releases (v0.1.0)</span>
+                <span className="link-sweep">Releases ({siteConfig.version})</span>
                 <ArrowUpRight className="w-3 h-3 text-[var(--mute)] transition-transform duration-150 ease-out motion-safe:group-hover:translate-x-[1px] motion-safe:group-hover:-translate-y-[1px]" aria-hidden="true" />
               </a>
             </li>

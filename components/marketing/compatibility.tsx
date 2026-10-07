@@ -44,9 +44,17 @@ export function Compatibility() {
         aside={
           <div className="text-xs text-[var(--mute)]">
             <span>status transparency: </span>
-            <span className="text-[var(--success-text)] font-medium">1 runtime</span> ·{' '}
-            <span className="text-[var(--stone)]">10 config</span> ·{' '}
-            <span className="text-[var(--accent-text)]">1 protocol</span>
+            <span className="text-[var(--success-text)] font-medium">
+              {AGENT_HARNESSES.filter((h) => h.status === 'runtime verified').length} runtime
+            </span>{' '}
+            ·{' '}
+            <span className="text-[var(--stone)]">
+              {AGENT_HARNESSES.filter((h) => h.status === 'config verified').length} config
+            </span>{' '}
+            ·{' '}
+            <span className="text-[var(--accent-text)]">
+              {AGENT_HARNESSES.filter((h) => h.status === 'protocol verified').length} protocol
+            </span>
           </div>
         }
       />

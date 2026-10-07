@@ -1,5 +1,6 @@
 import React from 'react';
 import { PanelHeader } from '@/components/layout/panel';
+import { TOTAL_COMPONENTS } from '@/lib/constants';
 
 export function Architecture() {
   const asciiDiagram = `                    coding agent (claude code / cursor / codex)
@@ -17,7 +18,7 @@ export function Architecture() {
                     (deterministic ranking & filtering)
                                  │
                           unified registry
-                      (73 indexed components)
+                      (${TOTAL_COMPONENTS} indexed components)
                                  │
             ┌────────────────────┼────────────────────┐
             │                    │                    │

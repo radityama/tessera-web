@@ -1,4 +1,6 @@
 import { ImageResponse } from 'next/og';
+import { siteConfig } from '@/lib/site';
+import { TOTAL_COMPONENTS, TOTAL_SOURCES } from '@/lib/constants';
 
 export const runtime = 'edge';
 
@@ -58,7 +60,7 @@ export default async function Image() {
             </span>
           </div>
           <div style={{ fontSize: '18px', color: '#646262' }}>
-            v0.1.0 · npm: @tessera-dev/cli
+            {siteConfig.version} · npm: @tessera-dev/cli
           </div>
         </div>
 
@@ -85,7 +87,7 @@ export default async function Image() {
           }}
         >
           <div>$ npx -y @tessera-dev/cli search &quot;terminal hero&quot;</div>
-          <div style={{ color: '#30d158' }}>[73 components · 5 sources]</div>
+          <div style={{ color: '#30d158' }}>[{TOTAL_COMPONENTS} components · {TOTAL_SOURCES} sources]</div>
         </div>
       </div>
     ),

@@ -1,5 +1,6 @@
 import React from 'react';
 import { siteConfig } from '@/lib/site';
+import { TOTAL_COMPONENTS, TOTAL_SOURCES } from '@/lib/constants';
 import { PanelHeader } from '@/components/layout/panel';
 import { CopyButton } from '@/components/ui/copy-button';
 import { Button } from '@/components/ui/button';
@@ -10,7 +11,7 @@ export function FinalCta() {
       <PanelHeader
         kicker="get started"
         title="Search before you generate another component."
-        description="One local index. 73 components. 5 sources. Zero accounts. Give your coding agent the retrieval layer it needs."
+        description={`One local index. ${TOTAL_COMPONENTS} components. ${TOTAL_SOURCES} sources. Zero accounts. Give your coding agent the retrieval layer it needs.`}
       />
 
       {/* Grounded Command & Action Bar */}

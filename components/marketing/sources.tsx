@@ -33,7 +33,7 @@ export function Sources() {
 {`aceternity ui ──┐
 beui ───────────┤
 efferd ─────────┼──> tessera local index ──> coding agent
-magic ui ───────┤     (73 components)
+magic ui ───────┤     (${TOTAL_COMPONENTS} components)
 heroui ─────────┘`}
         </div>
       </div>

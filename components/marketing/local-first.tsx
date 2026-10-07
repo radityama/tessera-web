@@ -1,6 +1,7 @@
 import React from 'react';
 import { PanelHeader } from '@/components/layout/panel';
 import { Badge } from '@/components/ui/badge';
+import { LOCAL_OPERATIONS } from '@/lib/constants';
 import {
   Table,
   TableBody,
@@ -11,45 +12,14 @@ import {
 } from '@/components/ui/table';
 
 export function LocalFirst() {
-  const operations = [
-    {
-      operation: 'tessera search',
-      network: 'local',
-      latency: '< 4ms',
-      detail: 'Indexed metadata is compiled directly into the CLI package. Queries evaluate offline with zero outbound packets.',
-    },
-    {
-      operation: 'tessera inspect',
-      network: 'local',
-      latency: '< 2ms',
-      detail: 'Resolves dependency graph, ranking criteria, and license attributes from the embedded index.',
-    },
-    {
-      operation: 'tessera similar',
-      network: 'local',
-      latency: '< 3ms',
-      detail: 'Computes nearest component neighbors across alternate sources using deterministic lexical scoring.',
-    },
-    {
-      operation: 'tessera fetch',
-      network: 'network (explicit)',
-      latency: '~ 150ms',
-      detail: 'Transfers upstream code files directly from shadcn registry hosts or npm. Occurs only when explicitly called.',
-    },
-    {
-      operation: 'tessera add --dry-run',
-      network: 'local',
-      latency: '< 5ms',
-      detail: 'Simulates package installation and output directory writes without touching disks or executing scripts.',
-    },
-  ];
+  const operations = LOCAL_OPERATIONS;
 
   return (
     <div className="w-full">
       <PanelHeader
         kicker="local-first"
         title="Search stays local."
-        description="Search should not require sending your prompt to another service. Tessera packages the entire registry directly inside the CLI binary."
+        description="Search should not require sending your prompt to another service. Tessera packages the entire registry directly inside the CLI package."
         aside={
           <div className="text-xs text-[var(--mute)]">
             <span>zero telemetry · zero accounts</span>
@@ -85,7 +55,6 @@ export function LocalFirst() {
           <TableRow className="bg-[var(--canvas)] text-[var(--mute)] hover:bg-transparent">
             <TableHead className="py-3 px-6 md:px-8">OPERATION</TableHead>
             <TableHead className="py-3 px-4">EXECUTION CONTEXT</TableHead>
-            <TableHead className="py-3 px-4">LOCAL LATENCY</TableHead>
             <TableHead className="py-3 px-6 md:px-8">BEHAVIOR</TableHead>
           </TableRow>
         </TableHeader>
@@ -100,9 +69,6 @@ export function LocalFirst() {
                   [{op.network}]
                 </Badge>
               </TableCell>
-              <TableCell className="py-3 px-4 tabular-nums text-[var(--mute)]">
-                {op.latency}
-              </TableCell>
               <TableCell className="py-3 px-6 md:px-8 text-xs text-[var(--stone)]">
                 {op.detail}
               </TableCell>
@@ -110,6 +76,12 @@ export function LocalFirst() {
           ))}
         </TableBody>
       </Table>
+
+      <div className="border-t border-[var(--line)] px-6 md:px-8 py-3 bg-[var(--surface-soft)] text-[11px] text-[var(--mute)]">
+        Local operations run fully offline with no network round-trips. End-to-end wall-clock time is dominated by
+        Node.js startup (about 2.5s via npx on the maintainer machine, Fedora / Node 22); no per-operation latency
+        is claimed until it is measured with a pinned benchmark.
+      </div>
     </div>
   );
 }

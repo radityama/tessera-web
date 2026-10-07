@@ -1,39 +1,9 @@
 import React from 'react';
 import { PanelHeader } from '@/components/layout/panel';
+import { AGENT_SKILL_STEPS } from '@/lib/constants';
 
 export function AgentSkill() {
-  const steps = [
-    {
-      step: '01',
-      title: 'Decompose Intent',
-      desc: 'Agent breaks complex UI requests into discrete primitive requirements (e.g. animated hero vs. metric counter).',
-    },
-    {
-      step: '02',
-      title: 'Detect Design Tokens',
-      desc: 'Agent reads the local project config (Tailwind tokens, CSS variables, border radius scale) before searching.',
-    },
-    {
-      step: '03',
-      title: 'Search & Evaluate',
-      desc: 'Agent calls Tessera MCP, inspects ranking explanations, and checks whether external dependencies conflict with local ones.',
-    },
-    {
-      step: '04',
-      title: 'License & Provenance Check',
-      desc: 'Agent confirms acceptable license terms and evidence before retrieving code files.',
-    },
-    {
-      step: '05',
-      title: 'Adapt Composition',
-      desc: 'Agent keeps the underlying layout and accessibility logic, but strips third-party styling classes to adopt local project tokens.',
-    },
-    {
-      step: '06',
-      title: 'Cohesion Audit',
-      desc: 'If a retrieved component feels visually discordant or over-engineered, the agent rejects it in favor of an intentional local design.',
-    },
-  ];
+  const steps = AGENT_SKILL_STEPS;
 
   return (
     <div className="w-full">

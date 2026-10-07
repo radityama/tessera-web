@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Terminal, Search, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { TERMINAL_DEMOS, SEARCH_EXAMPLES } from '@/lib/constants';
+import { TERMINAL_DEMOS, SEARCH_EXAMPLES, TOTAL_COMPONENTS } from '@/lib/constants';
 import { siteConfig } from '@/lib/site';
 import { CopyButton } from '@/components/ui/copy-button';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -81,7 +81,7 @@ export function TerminalDemo() {
           <span className="inline-block w-2 h-4 bg-[#fdfcfc] animate-pulse select-none shrink-0" />
         </div>
         <span className="text-[11px] text-[#9a9898] uppercase tracking-wider shrink-0 hidden md:inline">
-          local index · 73 items
+          local index · {TOTAL_COMPONENTS} items
         </span>
       </div>
 

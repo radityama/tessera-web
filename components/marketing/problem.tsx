@@ -1,5 +1,6 @@
 import React from 'react';
 import { PanelHeader } from '@/components/layout/panel';
+import { TOTAL_COMPONENTS } from '@/lib/constants';
 
 export function Problem() {
   return (
@@ -45,7 +46,7 @@ export function Problem() {
           <div className="font-mono text-xs md:text-sm text-[var(--ink)] space-y-3 pl-2 border-l-2 border-[var(--ink)]">
             <div className="text-[var(--body)]">prompt</div>
             <div className="text-[var(--mute)] select-none">↓</div>
-            <div className="text-[var(--ink)] font-semibold">search 73 pinned components locally</div>
+            <div className="text-[var(--ink)] font-semibold">search {TOTAL_COMPONENTS} pinned components locally</div>
             <div className="text-[var(--mute)] select-none">↓</div>
             <div className="text-[var(--body)]">inspect ranking factors, dependencies & license</div>
             <div className="text-[var(--mute)] select-none">↓</div>
