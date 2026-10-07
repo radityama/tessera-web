@@ -1,0 +1,32 @@
+---
+title: Architecture
+description: 'Tessera system architecture: skill, MCP/CLI, retrieval core, unified registry, and adapters.'
+---
+
+import { ArchDiagram } from '../../components/docs/arch-diagram';
+
+One unified retrieval core powers both the stdio MCP server for agents and the interactive CLI for developers.
+
+<ArchDiagram />
+
+*Fig. 01 — One retrieval core, multiple interfaces. Deterministic registry with modular library adapters.*
+
+## Agent skill
+
+Adaptation and cohesion rules. Reads project tokens, judges candidates against the page language, rejects on license or design conflict, and normalises everything retrieved.
+
+## MCP / CLI
+
+Two interfaces over one core. The MCP server speaks JSON-RPC 2.0 over stdio for agents; the CLI serves developers in the terminal. Neither contains ranking logic.
+
+## Retrieval core
+
+Deterministic BM25-style lexical ranking with category and aesthetic weighting, filters, similar-component lookup, and pattern search. No embeddings, no vector store, no network.
+
+## Unified registry
+
+Schema v2 records: names, descriptions, categories, dependencies, licenses with evidence, and upstream URLs for 73 indexed components. Pinned snapshots keep every install reproducible.
+
+## Adapters
+
+One adapter per provider kind. The shadcn adapter resolves registry item URLs; the npm adapter resolves package tarballs. Future registries plug in without touching the core.

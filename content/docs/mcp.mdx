@@ -1,0 +1,142 @@
+---
+title: MCP server
+description: 'Tessera MCP server over stdio: setup, transport details, and the 6 tools with input schemas and sample responses.'
+---
+
+A thin protocol layer over the retrieval core. It must not contain ranking logic. Response shapes below are illustrative excerpts of real records; exact scores follow the pinned snapshot.
+
+## Setup
+
+Transport: stdio, JSON-RPC 2.0. Tools only — no resources, no sampling. The server never executes shell commands, never installs dependencies, and never runs retrieved code.
+
+```bash title="Start the server"
+npx -y @tessera-dev/cli mcp
+```
+
+Per-harness wiring (Claude Code, Cursor, Codex, …) lives on the [integrations page](/docs/integrations).
+
+## search_components
+
+Search indexed UI components by intent, keywords, or visual patterns.
+
+Signature: `query: string, source?: string, limit?: number`
+
+```json title="Sample request"
+{
+  "query": "dark technical terminal hero",
+  "source": "magicui",
+  "limit": 5
+}
+```
+
+```json title="Sample response (excerpt)"
+[{
+  "id": "magicui/terminal",
+  "name": "Terminal",
+  "source": "magicui",
+  "category": "terminal",
+  "score": 0.628,
+  "license": { "status": "known", "redistribution": "permitted" },
+  "reasons": ["matches aesthetics: terminal", "known license (MIT)"]
+}]
+```
+
+Same ranking core as `tessera search`. Scores depend on the pinned snapshot.
+
+## get_component
+
+Return complete canonical metadata for one component id.
+
+Signature: `id: string`
+
+```json title="Sample request"
+{ "id": "magicui/terminal" }
+```
+
+```json title="Sample response (excerpt)"
+{
+  "id": "magicui/terminal",
+  "category": "terminal",
+  "frameworks": ["react"],
+  "license": { "status": "known", "identifier": "MIT" },
+  "retrieval": { "kind": "shadcn-registry" },
+  "provenance": { "adapter": "shadcn-registry" }
+}
+```
+
+Canonical metadata only. Does not imply source was vendored locally.
+
+## get_component_artifact
+
+Retrieve the actual source files for a component from its upstream provider, with dependencies and license. Tessera returns the files only; it never writes, installs or executes them. Use `get_installation` for a plan instead.
+
+Signature: `id: string`
+
+```json title="Sample request"
+{ "id": "magicui/terminal" }
+```
+
+```json title="Sample response (excerpt)"
+{
+  "files": ["registry/magicui/terminal.tsx (7716 bytes)"],
+  "dependencies": [],
+  "install": "npx shadcn@latest add https://magicui.design/r/terminal.json"
+}
+```
+
+File manifest and dependency list. Nothing is installed or executed.
+
+## get_installation
+
+Return safe installation guidance for one component id (never executes).
+
+Signature: `id: string`
+
+```json title="Sample request"
+{ "id": "magicui/terminal" }
+```
+
+```json title="Sample response (excerpt)"
+{
+  "kind": "command",
+  "command": "npx shadcn@latest add https://magicui.design/r/terminal.json",
+  "dependencies": []
+}
+```
+
+Safe installation guidance. The tool never installs anything itself.
+
+## find_similar_components
+
+Return alternatives to a component by category, aesthetics, motion and stack.
+
+Signature: `id: string, limit?: number`
+
+```json title="Sample request"
+{ "id": "magicui/terminal", "limit": 3 }
+```
+
+```json title="Sample response (excerpt)"
+[
+  { "id": "aceternity/terminal", "score": 0.800 },
+  { "id": "beui/not-found-terminal", "score": 0.610 }
+]
+```
+
+Alternatives by category, tags, motion level, and framework.
+
+## search_patterns
+
+Search higher-level UI patterns rather than exact component names.
+
+Signature: `query: string, limit?: number`
+
+```json title="Sample request"
+{ "pattern": "developer tool hero with terminal" }
+```
+
+```json title="Sample response (excerpt)"
+[{ "id": "efferd/hero-1", "category": "hero", "score": 0.640 }]
+```
+
+Higher-level layout patterns (hero, pricing, terminal, navigation, tabs, modal).

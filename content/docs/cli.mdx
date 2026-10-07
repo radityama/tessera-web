@@ -1,0 +1,229 @@
+---
+title: CLI reference
+description: 'Full Tessera CLI reference: synopsis, flags, real examples with real output, exit codes, and --json shapes.'
+---
+
+Every command, every flag, with real examples run against `@tessera-dev/cli v0.1.0`. Only `fetch` touches the network; everything else reads the pinned local snapshot.
+
+## Search
+
+Ranks components locally with deterministic lexical ranking. Scores and reasons print inline.
+
+Syntax: `tessera search [options] <query>`
+
+### Options
+
+| Flag | Meaning |
+| --- | --- |
+| `--category <category>` | Filter by category. |
+| `--framework <fw>` | `react` \| `vue` \| `svelte` \| `html` \| `other`. |
+| `--source <name>` | Filter by source library. |
+| `--motion <level>` | `none` \| `low` \| `medium` \| `high`. |
+| `--limit <n>` | Max results, 1–50. Default 10. |
+| `--json` | Stable JSON output for scripting. |
+| `--registry <dir>` | Point at a different snapshot. |
+
+### Example
+
+```bash title="tessera search"
+tessera search "dark technical terminal hero"
+```
+
+```text title="Output"
+1. efferd/hero-1 — hero-1 (0.640)
+   category: hero | source: efferd | frameworks: react
+   motion: unknown | deps: 0 | license: unknown — verify upstream terms before reuse
+   artifact: retrievable (shadcn-registry)
+   why: exact category match: hero; matches query terms in name/description/tags; no required runtime dependencies
+2. magicui/terminal — Terminal (0.628)
+   category: terminal | source: magicui | frameworks: react
+   motion: unknown | deps: 0 | license: MIT, redistribution permitted
+   artifact: retrievable (shadcn-registry)
+   why: matches aesthetics: terminal; no required runtime dependencies; known license (MIT)
+3. aceternity/terminal — Terminal (0.588)
+   category: terminal | source: aceternity | frameworks: react
+   motion: unknown | deps: 0 | license: LicenseRef-Aceternity, redistribution restricted
+   artifact: retrievable (shadcn-registry)
+   why: matches aesthetics: terminal; no required runtime dependencies; known license (LicenseRef-Aceternity)
+```
+
+## Inspect
+
+Reads canonical metadata: retrieval mechanism, license with evidence, and provenance.
+
+Syntax: `tessera inspect [options] <source/slug>`
+
+### Options
+
+| Flag | Meaning |
+| --- | --- |
+| `--json` | Stable JSON output. |
+| `--registry <dir>` | Point at a different snapshot. |
+
+### Example
+
+```bash title="tessera inspect"
+tessera inspect magicui/terminal
+```
+
+```text title="Output"
+magicui/terminal — Terminal
+A terminal component
+category: terminal (secondary: —)
+frameworks: react
+visual: aesthetics=[terminal] tags=[terminal, component] motion=unknown density=unknown
+dependencies: none
+installation: command — npx shadcn@latest add https://magicui.design/r/terminal.json — Add through the shadcn CLI from the upstream registry URL, then adapt the copied source to your design tokens.
+retrieval: shadcn-registry — https://magicui.design/r/terminal.json
+license: MIT, redistribution permitted
+links: homepage=https://magicui.design/ docs=https://magicui.design/docs
+provenance: adapter=shadcn-registry upstream=terminal derived=[category, secondaryCategories, visual.aesthetics, visual.tags, visual.motion]
+```
+
+## Similar
+
+Finds structural alternatives. Ranks by shared category, tags, motion level, and framework.
+
+Syntax: `tessera similar [options] <source/slug>`
+
+### Options
+
+| Flag | Meaning |
+| --- | --- |
+| `--limit <n>` | Max results. Default 5. |
+| `--json` | Stable JSON output. |
+| `--registry <dir>` | Point at a different snapshot. |
+
+### Example
+
+```bash title="tessera similar"
+tessera similar magicui/terminal
+```
+
+```text title="Output"
+1. aceternity/terminal — Terminal (0.800)
+   category: terminal | source: aceternity | frameworks: react
+   why: same category: terminal; shared tags: terminal; same motion level: unknown; shared framework: react
+2. beui/not-found-terminal — 404 / Not Found Terminal (0.610)
+   category: terminal | source: beui | frameworks: react
+   why: same category: terminal; shared tags: terminal; shared framework: react
+```
+
+## Add
+
+Prints a safe installation plan. Dry-run by default in v0.1 and never mutates the project. `--no-dry-run` is refused with an explanatory error.
+
+Syntax: `tessera add [options] <source/slug>`
+
+### Options
+
+| Flag | Meaning |
+| --- | --- |
+| `--dry-run` | Only print the plan. Default true. |
+| `--no-dry-run` | Attempt mutation. Refused in v0.1. |
+| `--json` | Stable JSON output. |
+| `--registry <dir>` | Point at a different snapshot. |
+
+### Example
+
+```bash title="tessera add"
+tessera add magicui/terminal --dry-run
+```
+
+```text title="Output"
+Plan for magicui/terminal (dry-run — no files changed):
+- installation kind: command
+- run: npx shadcn@latest add https://magicui.design/r/terminal.json
+- Add through the shadcn CLI from the upstream registry URL, then adapt the copied source to your design tokens.
+- required dependencies: none
+- adapt to your design tokens before keeping (reuse composition, not identity).
+```
+
+## Fetch
+
+Retrieves real upstream source files. The only network command. Files are written, never executed; collisions are skipped unless `--force` is passed; upstream paths escaping `--output` are rejected.
+
+Syntax: `tessera fetch [options] <source/slug>`
+
+### Options
+
+| Flag | Meaning |
+| --- | --- |
+| `--dry-run` | Show what would be written without writing. |
+| `--output <dir>` | Write files under this directory instead of printing. |
+| `--force` | Overwrite existing files. Refused by default. |
+| `--json` | Emit the artifact as JSON. |
+| `--registry <dir>` | Point at a different snapshot. |
+
+### Example
+
+```bash title="tessera fetch"
+tessera fetch magicui/terminal --dry-run
+```
+
+```text title="Output"
+magicui/terminal — 1 file(s) from magicui
+upstream: https://magicui.design/r/terminal.json
+license: MIT, redistribution permitted
+dependencies: none
+registry dependencies: none
+install: npx shadcn@latest add https://magicui.design/r/terminal.json
+
+files:
+  registry/magicui/terminal.tsx (7716 bytes)
+
+Tessera wrote these files only because you asked. Nothing was installed or executed.
+```
+
+<Note role="warning" title="Under-reported dependencies">
+  Not every component is fetchable: npm-shipped entries (HeroUI) and metadata-only records return a structured error. Provider-declared dependencies can under-report real imports — `magicui/terminal` imports `motion`, which its registry entry does not list.
+</Note>
+
+## MCP
+
+Starts the MCP server. Speaks MCP over stdin/stdout (JSON-RPC 2.0). No flags besides `--registry`. Full protocol detail lives on the [MCP page](/docs/mcp).
+
+Syntax: `tessera mcp [options]`
+
+### Options
+
+| Flag | Meaning |
+| --- | --- |
+| `--registry <dir>` | Point at a different snapshot. |
+
+## Doctor
+
+Reports installation health.
+
+### Options
+
+| Flag | Meaning |
+| --- | --- |
+| `--json` | Emit the report as JSON. |
+| `--registry <dir>` | Point at a different snapshot. |
+
+### Example
+
+```bash title="tessera doctor"
+tessera doctor
+```
+
+```text title="Output"
+ok    node-version: node 22.23.2 (requires >=20)
+ok    registry-source: bundled
+ok    registry-valid: 73 components across 5 sources
+ok    registry-integrity: 0 without retrieval, 0 with unevidenced licenses
+ok    mcp-server: 6 tools registered
+
+All checks passed.
+```
+
+## Exit codes and JSON
+
+Exit `0` on success, `1` on any handled error. Errors print as JSON on stderr:
+
+```json title="Error shape"
+{ "error": { "code": "...", "message": "..." } }
+```
+
+Every command accepts `--json` for scripting; search results carry id, name, source, category, visual tags, dependency count, motion, license status, score, and reasons.
