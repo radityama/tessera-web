@@ -110,7 +110,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[var(--canvas)] text-[var(--ink)] font-mono antialiased">
+      <body className="min-h-screen bg-[var(--canvas)] text-[var(--ink)] font-sans antialiased">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:px-3 focus:py-2 focus:bg-[var(--ink)] focus:text-[var(--canvas)] focus:text-xs"

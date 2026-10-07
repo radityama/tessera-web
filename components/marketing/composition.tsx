@@ -52,8 +52,60 @@ export function Composition() {
       <PanelHeader
         kicker="composition"
         title="Reuse composition, not identity."
-        description="The same retrieved component — magicui/terminal (MIT) — first with its original third-party classes, then adapted to project tokens. Structure survives; identity does not."
-        aside={
+        description="magicui/terminal (MIT): same structure, two identities. The agent keeps the left and ships the right."
+      />
+
+      <div className="grid grid-cols-1 gap-4 bg-[var(--canvas)] px-5 py-6 sm:px-8 md:grid-cols-2 md:px-10 md:py-8">
+        <figure className="min-w-0 rounded-[4px] border border-[var(--line)] bg-[var(--surface-soft)]">
+          <figcaption className="border-b border-[var(--line)] px-3 py-2 font-mono text-xs font-semibold text-[var(--mute)]">
+            ORIGINAL COMPONENT
+          </figcaption>
+          <div className="p-4">
+            <div className="w-full rounded-xl border bg-white">
+              <div className="flex gap-x-2 border-b p-4" aria-hidden="true">
+                <span className="h-2 w-2 rounded-full bg-red-500"></span>
+                <span className="h-2 w-2 rounded-full bg-yellow-500"></span>
+                <span className="h-2 w-2 rounded-full bg-green-500"></span>
+              </div>
+              <div className="space-y-1.5 p-4 font-mono text-xs text-neutral-600">
+                <div>$ tessera search &quot;terminal&quot;</div>
+                <div>01 terminal · 0.68 · MIT</div>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-[var(--line)] px-3 py-2 font-mono text-xs text-[var(--mute)]">
+            magicui/terminal · MIT · upstream classes
+          </div>
+        </figure>
+
+        <figure className="min-w-0 rounded-[4px] border border-[var(--match-border)] bg-[var(--match-soft)]">
+          <figcaption className="border-b border-[var(--match-border)] px-3 py-2 font-mono text-xs font-semibold text-[var(--match-solid)]">
+            ADAPTED INTO YOUR PROJECT
+          </figcaption>
+          <div className="p-4">
+            <div className="w-full rounded-[4px] border border-[var(--line)] bg-[var(--canvas)]">
+              <div className="flex gap-1.5 border-b border-[var(--line)] px-3 py-2" aria-hidden="true">
+                <span className="h-2 w-2 bg-[var(--mute)]"></span>
+                <span className="h-2 w-2 bg-[var(--mute)]"></span>
+                <span className="h-2 w-2 bg-[var(--mute)]"></span>
+              </div>
+              <div className="space-y-1.5 px-3 py-2 font-mono text-xs text-[var(--body)]">
+                <div className="text-[var(--ink)]">$ tessera search &quot;terminal&quot;</div>
+                <div>01 terminal · 0.68 · MIT</div>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-[var(--match-border)] px-3 py-2 font-mono text-xs text-[var(--match-solid)]">
+            same composition · project tokens
+          </div>
+        </figure>
+      </div>
+
+      <details className="group border-t border-[var(--line)] bg-[var(--surface-soft)] px-5 py-3 sm:px-8 md:px-10">
+        <summary className="cursor-pointer font-mono text-xs font-semibold text-[var(--ink)] marker:text-[var(--mute)]">
+          View source diff
+        </summary>
+        <div className="mt-3">
           <div className="flex items-center gap-1.5 text-xs" role="tablist" aria-label="Code view">
             {(['upstream', 'adapted'] as const).map((v) => (
               <button
@@ -62,53 +114,36 @@ export function Composition() {
                 aria-selected={view === v}
                 type="button"
                 onClick={() => setView(v)}
-                className={`px-2.5 py-1 rounded-[4px] border text-xs cursor-pointer motion-safe:active:scale-[0.97] transition-[color,background-color,border-color,transform] duration-150 ease-out ${
+                className={`cursor-pointer rounded-[4px] border px-2.5 py-1 text-xs transition-[color,background-color,border-color,transform] duration-150 ease-out motion-safe:active:scale-[0.97] ${
                   view === v
-                    ? 'bg-[var(--ink)] text-[var(--canvas)] border-[var(--ink)]'
-                    : 'bg-[var(--canvas)] text-[var(--body)] border-[var(--line)] hover:text-[var(--ink)]'
+                    ? 'border-[var(--ink)] bg-[var(--ink)] text-[var(--canvas)]'
+                    : 'border-[var(--line)] bg-[var(--canvas)] text-[var(--body)] hover:text-[var(--ink)]'
                 }`}
               >
                 [{v}]
               </button>
             ))}
           </div>
-        }
-      />
-
-      <div className="border-b border-[var(--line)] px-5 sm:px-8 md:px-10 py-5 bg-[var(--canvas)] overflow-x-auto">
-        <AnimatePresence mode="wait">
-          <motion.pre
-            key={view}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.12, ease: 'easeOut' }}
-            className="font-mono text-xs md:text-xs leading-relaxed text-[var(--body)] whitespace-pre"
-          >
-            {view === 'upstream' ? UPSTREAM : ADAPTED}
-          </motion.pre>
-        </AnimatePresence>
-      </div>
-
-      <div className="px-5 sm:px-8 md:px-10 py-4 bg-[var(--surface-soft)] text-[13px] sm:text-sm text-[var(--body)] leading-relaxed space-y-1.5">
-        <div>
-          <span className="font-bold text-[var(--ink)]">kept:</span> DOM structure, context-based
-          sequencing, typing timings, keyboard-readable pre/code output.
+          <div className="mt-2 overflow-x-auto">
+            <AnimatePresence mode="wait">
+              <motion.pre
+                key={view}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.12, ease: 'easeOut' }}
+                className="whitespace-pre font-mono text-xs leading-relaxed text-[var(--body)]"
+              >
+                {view === 'upstream' ? UPSTREAM : ADAPTED}
+              </motion.pre>
+            </AnimatePresence>
+          </div>
+          <div className="mt-2 font-mono text-xs text-[var(--mute)]">
+            kept: DOM structure, sequencing, keyboard-readable output · stripped:
+            theme colors, rounded-xl radius, p-4 spacing
+          </div>
         </div>
-        <div>
-          <span className="font-bold text-[var(--ink)]">stripped:</span> theme colors
-          (bg-background, red/yellow/green dots), rounded-xl radius, p-4 spacing.
-        </div>
-        <div className="text-[var(--mute)]">
-          source: magicui/terminal · MIT ·{' '}
-          <a
-            href="/docs/skill"
-            className="link-sweep font-bold text-[var(--ink)]"
-          >
-            how the skill decides →
-          </a>
-        </div>
-      </div>
+      </details>
     </div>
   );
 }

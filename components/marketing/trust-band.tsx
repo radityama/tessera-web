@@ -1,19 +1,26 @@
 import React from 'react';
 import { PanelHeader } from '@/components/layout/panel';
-import { SAFETY_PRINCIPLES, LIMITATIONS } from '@/lib/constants';
 
-const GUARANTEES = [
+const FACTS = [
   {
-    title: 'No account or API keys',
-    body: 'No signup, no tokens, no hosted endpoint. Runs via npx.',
+    label: 'LOCAL SEARCH',
+    body: 'Ranking runs offline against the pinned index. No prompt leaves the machine.',
   },
   {
-    title: 'Deterministic local index',
-    body: 'Every install resolves the same ranking scores and metadata.',
+    label: 'NO ACCOUNT',
+    body: 'No signup, no tokens. Runs via npx with Node.js 20 or later.',
   },
   {
-    title: 'Zero background telemetry',
-    body: 'Queries and configs never leave the machine.',
+    label: 'NO TELEMETRY',
+    body: 'Queries and configs are never logged or sent anywhere.',
+  },
+  {
+    label: 'EXPLICIT RETRIEVAL',
+    body: 'Only fetch touches the network, pulling upstream source you asked for.',
+  },
+  {
+    label: 'NO EXECUTION',
+    body: 'Retrieved code arrives as text. Nothing installs or runs by itself.',
   },
 ];
 
@@ -22,43 +29,25 @@ export function TrustBand() {
     <div className="w-full">
       <PanelHeader
         kicker="trust"
-        title="v0.1 means v0.1."
-        description="What is guaranteed, what is governed, and where the boundaries are. The full record lives on one page."
+        title="Local by default, explicit when it matters."
+        description="Search never needs the network. Retrieval does, and only when you ask."
+        aside={
+          <a href="/trust" className="link-sweep text-xs font-bold text-[var(--ink)]">
+            trust and limits →
+          </a>
+        }
       />
-      <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[var(--line)]">
-        <div className="p-6 md:p-8 space-y-3">
-          <div className="text-xs font-bold text-[var(--mute)]">[+] guarantees</div>
-          {GUARANTEES.map((g) => (
-            <div key={g.title} className="space-y-1">
-              <div className="text-xs font-bold text-[var(--ink)]">{g.title}</div>
-              <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">{g.body}</p>
-            </div>
-          ))}
-        </div>
-        <div className="p-6 md:p-8 space-y-3">
-          <div className="text-xs font-bold text-[var(--mute)]">[+] governance</div>
-          {SAFETY_PRINCIPLES.slice(0, 3).map((g) => (
-            <div key={g.title} className="space-y-1">
-              <div className="text-xs font-bold text-[var(--ink)]">{g.title}</div>
-              <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">{g.description}</p>
-            </div>
-          ))}
-        </div>
-        <div className="p-6 md:p-8 space-y-3">
-          <div className="text-xs font-bold text-[var(--mute)]">[-] boundaries</div>
-          {LIMITATIONS.slice(0, 3).map((g) => (
-            <div key={g.title} className="space-y-1">
-              <div className="text-xs font-bold text-[var(--ink)]">{g.title}</div>
-              <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">{g.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="px-5 sm:px-8 md:px-10 py-3 bg-[var(--surface-soft)] border-t border-[var(--line)] text-xs">
-        <a href="/trust" className="link-sweep font-bold text-[var(--ink)]">
-          trust and limits →
-        </a>
-      </div>
+      <dl className="grid grid-cols-1 divide-y divide-[var(--line)] sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-5 lg:divide-x">
+        {FACTS.map((fact) => (
+          <div key={fact.label} className="space-y-1.5 border-[var(--line)] px-5 py-5 sm:border-t sm:[&:nth-child(-n+2)]:border-t-0 lg:border-t-0 lg:px-4">
+            <dt className="font-mono text-xs font-bold text-[var(--ink)]">
+              <span className="mr-1.5 select-none text-[var(--verified-solid)]" aria-hidden="true">[+]</span>
+              {fact.label}
+            </dt>
+            <dd className="text-sm leading-relaxed text-[var(--body)]">{fact.body}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
   );
 }

@@ -1,4 +1,7 @@
+import index from '@/data/index.json';
+
 export interface SourceLibrary {
+  id: string;
   name: string;
   components: number;
   retrieval: 'shadcn registry' | 'npm package';
@@ -6,46 +9,50 @@ export interface SourceLibrary {
   url: string;
 }
 
-export const SOURCES: SourceLibrary[] = [
+const SOURCE_DEFINITIONS: Omit<SourceLibrary, 'components'>[] = [
   {
     name: 'Aceternity UI',
-    components: 8,
+    id: 'aceternity',
     retrieval: 'shadcn registry',
     description: 'Animated visual effects and modern interactive primitives.',
     url: 'https://ui.aceternity.com',
   },
   {
     name: 'beUI',
-    components: 15,
+    id: 'beui',
     retrieval: 'shadcn registry',
     description: 'Refined UI patterns, accessible controls, and composable cards.',
-    url: 'https://beui.org',
+    url: 'https://beui.dev',
   },
   {
     name: 'Efferd',
-    components: 20,
+    id: 'efferd',
     retrieval: 'shadcn registry',
     description: 'Clean typographic components, data tables, and minimal surfaces.',
-    url: 'https://efferd.dev',
+    url: 'https://efferd.com',
   },
   {
     name: 'Magic UI',
-    components: 18,
+    id: 'magicui',
     retrieval: 'shadcn registry',
     description: 'Specialized landing page components, marquee, and terminal primitives.',
     url: 'https://magicui.design',
   },
   {
     name: 'HeroUI',
-    components: 12,
+    id: 'heroui',
     retrieval: 'npm package',
     description: 'Modern component suite with polished states and system tokens.',
     url: 'https://heroui.com',
   },
 ];
 
-export const TOTAL_COMPONENTS = 73;
-export const TOTAL_SOURCES = 5;
+export const SOURCES: SourceLibrary[] = SOURCE_DEFINITIONS.map((source) => ({
+  ...source,
+  components: index.filter((entry) => entry.source === source.id).length,
+}));
+export const TOTAL_COMPONENTS = index.length;
+export const TOTAL_SOURCES = new Set(index.map((entry) => entry.source)).size;
 
 export interface WorkflowStage {
   number: string;
