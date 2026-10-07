@@ -1,0 +1,22 @@
+---
+title: Documentation
+description: 'Tessera documentation: CLI reference, MCP server, harness integrations, agent skill, and architecture.'
+---
+
+Reference material for the CLI, the MCP server, harness setups, the agent skill, and the system behind them. The pitch stays on the homepage; the facts live here.
+
+<Cards>
+  <Card title="CLI" href="/docs/cli">search, inspect, similar, add, fetch, doctor. Every flag, exit codes, --json shapes.</Card>
+  <Card title="MCP" href="/docs/mcp">Stdio server setup and the 6 tools with input schemas and sample responses.</Card>
+  <Card title="Integrations" href="/docs/integrations">Copy-paste configs for 12 harnesses, each with its verification level and date.</Card>
+  <Card title="Skill" href="/docs/skill">What the agent skill does, where it lives, how to install it, and the decision pipeline.</Card>
+  <Card title="Architecture" href="/docs/architecture">One retrieval core, five adapters. A paragraph per layer around Fig. 01.</Card>
+</Cards>
+
+## Install
+
+```bash title="Try it"
+npx -y @tessera-dev/cli search "dark technical terminal hero"
+```
+
+Node.js >= 20.0.0. No accounts, no API keys, no telemetry.
