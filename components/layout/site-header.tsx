@@ -19,7 +19,7 @@ const NAV_LINKS = [
 
 const SPY_SECTIONS = ['why', 'demo', 'composition', 'sources', 'compatibility', 'trust', 'install', 'faq'];
 
-export function SiteHeader() {
+export function SiteHeader({ fullWidth = false }: { fullWidth?: boolean }) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -89,7 +89,7 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[var(--canvas)]">
-      <div className="panel-frame h-14 flex items-center justify-between px-4 sm:px-6 screen-line-bottom">
+      <div className={fullWidth ? 'flex h-14 items-center justify-between border-b border-[var(--line)] px-4 sm:px-6' : 'panel-frame h-14 flex items-center justify-between px-4 sm:px-6 screen-line-bottom'}>
         {/* Brand Zone */}
         <a
           href="/"
@@ -175,7 +175,7 @@ export function SiteHeader() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:hidden panel-frame border-b border-[var(--line)] bg-[var(--canvas)] overflow-hidden"
+            className={fullWidth ? 'lg:hidden border-b border-[var(--line)] bg-[var(--canvas)] overflow-hidden' : 'lg:hidden panel-frame border-b border-[var(--line)] bg-[var(--canvas)] overflow-hidden'}
           >
             <div className="p-4 space-y-4">
               <nav aria-label="Primary" className="flex flex-col space-y-3 text-xs text-[var(--body)]">

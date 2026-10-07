@@ -3,8 +3,7 @@ import { RootProvider } from 'fumadocs-ui/provider/next';
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import { source } from '@/lib/source';
 import { SiteHeader } from '@/components/layout/site-header';
-import { Announcement } from '@/components/layout/announcement';
-import { SiteFooter } from '@/components/layout/site-footer';
+import { DocsFooter } from '@/components/layout/docs-footer';
 import { SectionSeparator } from '@/components/layout/section-separator';
 import 'fumadocs-ui/style.css';
 import './docs.css';
@@ -12,8 +11,7 @@ import './docs.css';
 export default function DocsLayoutPage({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col bg-[var(--canvas)] selection:bg-[var(--ink)] selection:text-[var(--canvas)]">
-      <SiteHeader />
-      <Announcement />
+      <SiteHeader fullWidth />
       {/* Theme handling stays disabled: the Tessera provider in app/layout.tsx
           remains the single owner (no second localStorage key, no .dark fight). */}
       <RootProvider theme={{ enabled: false }}>
@@ -28,7 +26,7 @@ export default function DocsLayoutPage({ children }: { children: React.ReactNode
           <SectionSeparator />
         </main>
       </RootProvider>
-      <SiteFooter />
+      <DocsFooter />
     </div>
   );
 }
