@@ -2,6 +2,7 @@ import React from 'react';
 import { CLI_COMMANDS } from '@/lib/constants';
 import { PanelHeader } from '@/components/layout/panel';
 import { CopyButton } from '@/components/ui/copy-button';
+import { Badge } from '@/components/ui/badge';
 
 export function Cli() {
   return (
@@ -26,9 +27,12 @@ export function Cli() {
           >
             <div className="space-y-1.5 max-w-xl">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-[var(--ink)] bg-[var(--surface-card)] px-2 py-0.5 rounded-[4px] border border-[var(--hairline)]">
+                <Badge
+                  variant="muted"
+                  className="bg-[var(--surface-card)] text-xs font-bold"
+                >
                   tessera {cmd.command}
-                </span>
+                </Badge>
                 {cmd.args && (
                   <span className="text-xs text-[var(--mute)] font-mono">
                     {cmd.args}

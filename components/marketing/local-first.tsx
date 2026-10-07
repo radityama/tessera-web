@@ -1,5 +1,14 @@
 import React from 'react';
 import { PanelHeader } from '@/components/layout/panel';
+import { Badge } from '@/components/ui/badge';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 
 export function LocalFirst() {
   const operations = [
@@ -71,44 +80,36 @@ export function LocalFirst() {
       </div>
 
       {/* Operations matrix table */}
-      <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse text-xs font-mono">
-          <thead>
-            <tr className="border-b border-[var(--hairline)] bg-[var(--canvas)] text-[var(--mute)]">
-              <th className="py-3 px-6 md:px-8 font-medium">OPERATION</th>
-              <th className="py-3 px-4 font-medium">EXECUTION CONTEXT</th>
-              <th className="py-3 px-4 font-medium">LOCAL LATENCY</th>
-              <th className="py-3 px-6 md:px-8 font-medium">BEHAVIOR</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-[var(--hairline)] bg-[var(--canvas)]">
-            {operations.map((op) => (
-              <tr key={op.operation} className="hover:bg-[var(--surface-soft)] transition-colors">
-                <td className="py-3 px-6 md:px-8 font-semibold text-[var(--ink)]">
-                  {op.operation}
-                </td>
-                <td className="py-3 px-4">
-                  <span
-                    className={`inline-block border px-2 py-0.5 rounded-[4px] text-[11px] ${
-                      op.network === 'local'
-                        ? 'text-[var(--ink)] bg-[var(--surface-soft)] border-[var(--hairline)]'
-                        : 'text-[var(--accent)] bg-[#ebf5ff] border-[var(--accent)]'
-                    }`}
-                  >
-                    [{op.network}]
-                  </span>
-                </td>
-                <td className="py-3 px-4 tabular-nums text-[var(--mute)]">
-                  {op.latency}
-                </td>
-                <td className="py-3 px-6 md:px-8 text-xs text-[var(--stone)]">
-                  {op.detail}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <Table>
+        <TableHeader>
+          <TableRow className="bg-[var(--canvas)] text-[var(--mute)] hover:bg-transparent">
+            <TableHead className="py-3 px-6 md:px-8">OPERATION</TableHead>
+            <TableHead className="py-3 px-4">EXECUTION CONTEXT</TableHead>
+            <TableHead className="py-3 px-4">LOCAL LATENCY</TableHead>
+            <TableHead className="py-3 px-6 md:px-8">BEHAVIOR</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody className="bg-[var(--canvas)]">
+          {operations.map((op) => (
+            <TableRow key={op.operation}>
+              <TableCell className="py-3 px-6 md:px-8 font-semibold text-[var(--ink)]">
+                {op.operation}
+              </TableCell>
+              <TableCell className="py-3 px-4">
+                <Badge variant={op.network === 'local' ? 'muted' : 'accent'}>
+                  [{op.network}]
+                </Badge>
+              </TableCell>
+              <TableCell className="py-3 px-4 tabular-nums text-[var(--mute)]">
+                {op.latency}
+              </TableCell>
+              <TableCell className="py-3 px-6 md:px-8 text-xs text-[var(--stone)]">
+                {op.detail}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </div>
   );
 }

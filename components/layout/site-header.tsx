@@ -5,6 +5,7 @@ import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { siteConfig } from '@/lib/site';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { Button } from '@/components/ui/button';
 
 export function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -52,25 +53,35 @@ export function SiteHeader() {
         {/* Right Actions */}
         <div className="flex items-center gap-2 sm:gap-3">
           <ThemeToggle className="hidden sm:inline-flex" />
-          <a
-            href={siteConfig.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-[var(--body)] hover:text-[var(--ink)] transition-colors hidden md:inline-flex items-center gap-1 border border-[var(--line)] px-2.5 py-1 rounded-[4px] hover:bg-[var(--surface-soft)]"
+          <Button
+            asChild
+            variant="secondary"
+            size="sm"
+            className="hidden md:inline-flex gap-1 border-[var(--line)] text-[var(--body)] hover:text-[var(--ink)] hover:bg-[var(--surface-soft)]"
           >
-            <span>GitHub</span>
-            <ArrowUpRight className="w-3 h-3 text-[var(--mute)]" aria-hidden="true" />
-          </a>
-          <a
-            href="#install"
-            className="text-xs font-medium bg-[var(--ink)] text-[var(--canvas)] hover:bg-[#353030] transition-colors px-3 py-1.5 rounded-[4px] border border-[var(--ink)] whitespace-nowrap"
+            <a
+              href={siteConfig.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>GitHub</span>
+              <ArrowUpRight className="w-3 h-3 text-[var(--mute)]" aria-hidden="true" />
+            </a>
+          </Button>
+          <Button
+            asChild
+            variant="primary"
+            size="sm"
+            className="px-3 py-1.5 font-medium"
           >
-            Get started
-          </a>
-          <button
+            <a href="#install">Get started</a>
+          </Button>
+          <Button
             type="button"
+            variant="secondary"
+            size="sm"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-xs p-1.5 border border-[var(--line)] text-[var(--body)] hover:text-[var(--ink)] rounded-[4px] flex items-center justify-center cursor-pointer"
+            className="lg:hidden p-1.5 border-[var(--line)] text-[var(--body)] hover:text-[var(--ink)] hover:bg-transparent"
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -79,7 +90,7 @@ export function SiteHeader() {
             ) : (
               <Menu className="w-3.5 h-3.5" aria-hidden="true" />
             )}
-          </button>
+          </Button>
         </div>
       </div>
 

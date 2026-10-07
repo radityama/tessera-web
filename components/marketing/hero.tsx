@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 import { CopyButton } from '@/components/ui/copy-button';
+import { Button } from '@/components/ui/button';
 import { TerminalDemo } from './terminal-demo';
 
 export function Hero() {
@@ -44,21 +45,31 @@ export function Hero() {
       <div className="border-t border-[var(--line)] px-6 sm:px-10 md:px-12 py-3.5 bg-[var(--surface-soft)] flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         {/* Action Row */}
         <div className="flex flex-wrap items-center gap-3 shrink-0">
-          <a
-            href="#install"
-            className="text-xs sm:text-sm font-semibold bg-[var(--ink)] text-[var(--canvas)] hover:bg-[#353030] transition-colors px-4 py-2 rounded-[4px] border border-[var(--ink)] inline-flex items-center gap-1.5"
+          <Button
+            asChild
+            variant="primary"
+            size="md"
+            className="text-xs sm:text-sm font-semibold gap-1.5"
           >
-            <span>Get started</span>
-            <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-          </a>
-          <a
-            href={siteConfig.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs sm:text-sm font-semibold bg-[var(--canvas)] text-[var(--ink)] hover:bg-[var(--surface-card)] transition-colors px-4 py-2 rounded-[4px] border border-[var(--hairline-strong)]"
+            <a href="#install">
+              <span>Get started</span>
+              <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+            </a>
+          </Button>
+          <Button
+            asChild
+            variant="secondary"
+            size="md"
+            className="text-xs sm:text-sm font-semibold"
           >
-            View on GitHub
-          </a>
+            <a
+              href={siteConfig.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on GitHub
+            </a>
+          </Button>
         </div>
 
         {/* Quick Execution Snippet integrated into the bar */}

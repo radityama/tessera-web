@@ -2,6 +2,7 @@ import React from 'react';
 import { MCP_TOOLS } from '@/lib/constants';
 import { PanelHeader } from '@/components/layout/panel';
 import { CopyButton } from '@/components/ui/copy-button';
+import { Badge } from '@/components/ui/badge';
 
 export function Mcp() {
   const mcpConfigJson = JSON.stringify(
@@ -79,9 +80,12 @@ export function Mcp() {
                 </code>
                 <span className="text-[10px] text-[var(--mute)] uppercase">tool</span>
               </div>
-              <div className="text-[11px] font-mono text-[var(--stone)] bg-[var(--surface-soft)] px-2 py-1 rounded-[4px] border border-[var(--line)]">
+              <Badge
+                variant="muted"
+                className="flex whitespace-normal border-[var(--line)] py-1 font-mono font-normal text-[var(--stone)]"
+              >
                 {tool.signature}
-              </div>
+              </Badge>
               <p className="text-xs text-[var(--body)]">{tool.purpose}</p>
             </div>
           ))}
@@ -97,9 +101,12 @@ export function Mcp() {
                 </code>
                 <span className="text-[10px] text-[var(--mute)] uppercase">tool</span>
               </div>
-              <div className="text-[11px] font-mono text-[var(--stone)] bg-[var(--surface-soft)] px-2 py-1 rounded-[4px] border border-[var(--line)]">
+              <Badge
+                variant="muted"
+                className="flex whitespace-normal border-[var(--line)] py-1 font-mono font-normal text-[var(--stone)]"
+              >
                 {tool.signature}
-              </div>
+              </Badge>
               <p className="text-xs text-[var(--body)]">{tool.purpose}</p>
             </div>
           ))}
