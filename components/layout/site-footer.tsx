@@ -37,10 +37,10 @@ export function SiteFooter() {
                 href={siteConfig.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[var(--ink)] hover:underline inline-flex items-center gap-1"
+                className="group hover:text-[var(--ink)] transition-colors inline-flex items-center gap-1"
               >
-                <span>GitHub Repository</span>
-                <ArrowUpRight className="w-3 h-3 text-[var(--mute)]" aria-hidden="true" />
+                <span className="link-sweep">GitHub Repository</span>
+                <ArrowUpRight className="w-3 h-3 text-[var(--mute)] transition-transform duration-150 ease-out motion-safe:group-hover:translate-x-[1px] motion-safe:group-hover:-translate-y-[1px]" aria-hidden="true" />
               </a>
             </li>
             <li>
@@ -48,10 +48,10 @@ export function SiteFooter() {
                 href={siteConfig.npm}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[var(--ink)] hover:underline inline-flex items-center gap-1"
+                className="group hover:text-[var(--ink)] transition-colors inline-flex items-center gap-1"
               >
-                <span>npm Package</span>
-                <ArrowUpRight className="w-3 h-3 text-[var(--mute)]" aria-hidden="true" />
+                <span className="link-sweep">npm Package</span>
+                <ArrowUpRight className="w-3 h-3 text-[var(--mute)] transition-transform duration-150 ease-out motion-safe:group-hover:translate-x-[1px] motion-safe:group-hover:-translate-y-[1px]" aria-hidden="true" />
               </a>
             </li>
             <li>
@@ -59,10 +59,10 @@ export function SiteFooter() {
                 href={`${siteConfig.github}/releases`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[var(--ink)] hover:underline inline-flex items-center gap-1"
+                className="group hover:text-[var(--ink)] transition-colors inline-flex items-center gap-1"
               >
-                <span>Releases (v0.1.0)</span>
-                <ArrowUpRight className="w-3 h-3 text-[var(--mute)]" aria-hidden="true" />
+                <span className="link-sweep">Releases (v0.1.0)</span>
+                <ArrowUpRight className="w-3 h-3 text-[var(--mute)] transition-transform duration-150 ease-out motion-safe:group-hover:translate-x-[1px] motion-safe:group-hover:-translate-y-[1px]" aria-hidden="true" />
               </a>
             </li>
           </ul>
@@ -79,10 +79,10 @@ export function SiteFooter() {
                 href={`${siteConfig.github}/issues`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[var(--ink)] hover:underline inline-flex items-center gap-1"
+                className="group hover:text-[var(--ink)] transition-colors inline-flex items-center gap-1"
               >
-                <span>Issue Tracker</span>
-                <ArrowUpRight className="w-3 h-3 text-[var(--mute)]" aria-hidden="true" />
+                <span className="link-sweep">Issue Tracker</span>
+                <ArrowUpRight className="w-3 h-3 text-[var(--mute)] transition-transform duration-150 ease-out motion-safe:group-hover:translate-x-[1px] motion-safe:group-hover:-translate-y-[1px]" aria-hidden="true" />
               </a>
             </li>
             <li>
@@ -90,10 +90,10 @@ export function SiteFooter() {
                 href={`${siteConfig.github}#contributing`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[var(--ink)] hover:underline inline-flex items-center gap-1"
+                className="group hover:text-[var(--ink)] transition-colors inline-flex items-center gap-1"
               >
-                <span>Contributing</span>
-                <ArrowUpRight className="w-3 h-3 text-[var(--mute)]" aria-hidden="true" />
+                <span className="link-sweep">Contributing</span>
+                <ArrowUpRight className="w-3 h-3 text-[var(--mute)] transition-transform duration-150 ease-out motion-safe:group-hover:translate-x-[1px] motion-safe:group-hover:-translate-y-[1px]" aria-hidden="true" />
               </a>
             </li>
             <li>
@@ -101,10 +101,10 @@ export function SiteFooter() {
                 href={`${siteConfig.github}/blob/main/LICENSE`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[var(--ink)] hover:underline inline-flex items-center gap-1"
+                className="group hover:text-[var(--ink)] transition-colors inline-flex items-center gap-1"
               >
-                <span>MIT License</span>
-                <ArrowUpRight className="w-3 h-3 text-[var(--mute)]" aria-hidden="true" />
+                <span className="link-sweep">MIT License</span>
+                <ArrowUpRight className="w-3 h-3 text-[var(--mute)] transition-transform duration-150 ease-out motion-safe:group-hover:translate-x-[1px] motion-safe:group-hover:-translate-y-[1px]" aria-hidden="true" />
               </a>
             </li>
           </ul>

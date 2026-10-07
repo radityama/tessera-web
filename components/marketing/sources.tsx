@@ -61,10 +61,10 @@ heroui ─────────┘`}
                   href={source.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:underline inline-flex items-center gap-1.5"
+                  className="inline-flex items-center gap-1.5 group"
                 >
-                  <span>{source.name}</span>
-                  <ArrowUpRight className="w-3 h-3 text-[var(--mute)]" aria-hidden="true" />
+                  <span className="link-sweep">{source.name}</span>
+                  <ArrowUpRight className="w-3 h-3 text-[var(--mute)] transition-transform duration-150 ease-out motion-safe:group-hover:translate-x-[1px] motion-safe:group-hover:-translate-y-[1px]" aria-hidden="true" />
                 </a>
               </TableCell>
               <TableCell className="py-3.5 px-4 text-right tabular-nums font-semibold text-[var(--ink)]">

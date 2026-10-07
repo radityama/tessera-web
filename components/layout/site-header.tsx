@@ -43,7 +43,7 @@ export function SiteHeader() {
             <a
               key={link.href}
               href={link.href}
-              className="hover:text-[var(--ink)] hover:underline transition-colors"
+              className="hover:text-[var(--ink)] transition-colors link-sweep"
             >
               {link.label}
             </a>
@@ -57,7 +57,7 @@ export function SiteHeader() {
             asChild
             variant="secondary"
             size="sm"
-            className="hidden md:inline-flex gap-1 border-[var(--line)] text-[var(--body)] hover:text-[var(--ink)] hover:bg-[var(--surface-soft)]"
+            className="hidden md:inline-flex gap-1 border-[var(--line)] text-[var(--body)] hover:text-[var(--ink)] hover:bg-[var(--surface-soft)] group"
           >
             <a
               href={siteConfig.github}
@@ -65,7 +65,7 @@ export function SiteHeader() {
               rel="noopener noreferrer"
             >
               <span>GitHub</span>
-              <ArrowUpRight className="w-3 h-3 text-[var(--mute)]" aria-hidden="true" />
+              <ArrowUpRight className="w-3 h-3 text-[var(--mute)] transition-transform duration-150 ease-out motion-safe:group-hover:translate-x-[1px] motion-safe:group-hover:-translate-y-[1px]" aria-hidden="true" />
             </a>
           </Button>
           <Button
@@ -113,7 +113,7 @@ export function SiteHeader() {
                     onClick={() => setMobileMenuOpen(false)}
                     className="py-1 border-b border-[var(--line)] hover:text-[var(--ink)]"
                   >
-                    {link.label}
+                    <span className="link-sweep">{link.label}</span>
                   </a>
                 ))}
                 <a
@@ -122,7 +122,7 @@ export function SiteHeader() {
                   rel="noopener noreferrer"
                   className="py-1 hover:text-[var(--ink)] text-[var(--mute)] inline-flex items-center gap-1"
                 >
-                  <span>GitHub repository</span>
+                  <span className="link-sweep">GitHub repository</span>
                   <ArrowUpRight className="w-3 h-3" aria-hidden="true" />
                 </a>
               </nav>

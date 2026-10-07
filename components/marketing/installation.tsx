@@ -53,7 +53,7 @@ export function Installation() {
               <TabsTrigger
                 key={pm}
                 value={pm}
-                className="text-xs px-3 py-1 data-[state=active]:bg-[var(--ink)] data-[state=active]:text-[var(--canvas)] data-[state=active]:border-[var(--ink)] data-[state=inactive]:bg-[var(--canvas)] data-[state=inactive]:text-[var(--body)] data-[state=inactive]:border-[var(--line)] data-[state=inactive]:hover:text-[var(--ink)]"
+                className="text-xs px-3 py-1 motion-safe:active:scale-[0.97] data-[state=active]:bg-[var(--ink)] data-[state=active]:text-[var(--canvas)] data-[state=active]:border-[var(--ink)] data-[state=inactive]:bg-[var(--canvas)] data-[state=inactive]:text-[var(--body)] data-[state=inactive]:border-[var(--line)] data-[state=inactive]:hover:text-[var(--ink)]"
               >
                 [{pm}]
               </TabsTrigger>

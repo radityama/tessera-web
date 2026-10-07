@@ -37,7 +37,7 @@ export function TerminalDemo() {
               <TabsTrigger
                 key={demo.id}
                 value={demo.id}
-                className="px-2.5 py-1 data-[state=active]:bg-[#302c2c] data-[state=active]:text-[#fdfcfc] data-[state=active]:border-[#646262] data-[state=inactive]:bg-transparent data-[state=inactive]:text-[#9a9898] data-[state=inactive]:border-transparent data-[state=inactive]:hover:text-[#fdfcfc] data-[state=inactive]:hover:bg-[#252222]"
+                className="px-2.5 py-1 motion-safe:active:scale-[0.97] data-[state=active]:bg-[#302c2c] data-[state=active]:text-[#fdfcfc] data-[state=active]:border-[#646262] data-[state=inactive]:bg-transparent data-[state=inactive]:text-[#9a9898] data-[state=inactive]:border-transparent data-[state=inactive]:hover:text-[#fdfcfc] data-[state=inactive]:hover:bg-[#252222]"
               >
                 [{demo.id}]
               </TabsTrigger>
@@ -96,7 +96,7 @@ export function TerminalDemo() {
                 key={query}
                 type="button"
                 onClick={() => setSearchQuery(query)}
-                className={`px-2 py-0.5 rounded-[4px] border text-[11px] transition-colors cursor-pointer ${
+                className={`px-2 py-0.5 rounded-[4px] border text-[11px] transition-[color,background-color,border-color,transform] duration-150 ease-out cursor-pointer motion-safe:active:scale-[0.97] ${
                   searchQuery === query
                     ? 'border-[#007aff] text-[#fdfcfc] bg-[#1a2b40]'
                     : 'border-[#383333] text-[#9a9898] hover:text-[#fdfcfc] hover:border-[#646262]'
