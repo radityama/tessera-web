@@ -1,7 +1,9 @@
 import React from 'react';
 import { siteConfig } from '@/lib/site';
+import { TOTAL_COMPONENTS, TOTAL_SOURCES } from '@/lib/constants';
 import { PanelHeader } from '@/components/layout/panel';
 import { CopyButton } from '@/components/ui/copy-button';
+import { Button } from '@/components/ui/button';
 
 export function FinalCta() {
   return (
@@ -9,29 +11,41 @@ export function FinalCta() {
       <PanelHeader
         kicker="get started"
         title="Search before you generate another component."
-        description="One local index. 73 components. 5 sources. Zero accounts. Give your coding agent the retrieval layer it needs."
+        description={`One local index. ${TOTAL_COMPONENTS} components. ${TOTAL_SOURCES} sources. Zero accounts. Give your coding agent the retrieval layer it needs.`}
       />
 
       {/* Grounded Command & Action Bar */}
-      <div className="p-6 md:px-8 md:py-6 bg-[var(--surface-soft)] flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+      <div className="px-5 sm:px-8 md:px-10 py-6 bg-[var(--surface-soft)] flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         {/* Actions */}
         <div className="flex flex-wrap items-center gap-3">
-          <a
-            href={siteConfig.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs sm:text-sm font-semibold bg-[var(--ink)] text-[var(--canvas)] hover:bg-[#353030] transition-colors px-4 py-2.5 rounded-[4px] border border-[var(--ink)]"
+          <Button
+            asChild
+            variant="primary"
+            size="md"
+            className="text-xs sm:text-sm font-semibold py-2.5"
           >
-            View on GitHub
-          </a>
-          <a
-            href={siteConfig.npm}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs sm:text-sm font-semibold bg-[var(--canvas)] text-[var(--ink)] hover:bg-[var(--surface-card)] transition-colors px-4 py-2.5 rounded-[4px] border border-[var(--hairline-strong)]"
+            <a
+              href={siteConfig.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on GitHub
+            </a>
+          </Button>
+          <Button
+            asChild
+            variant="secondary"
+            size="md"
+            className="text-xs sm:text-sm font-semibold py-2.5"
           >
-            npm package ({siteConfig.version})
-          </a>
+            <a
+              href={siteConfig.npm}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              npm package ({siteConfig.version})
+            </a>
+          </Button>
         </div>
 
         {/* Command Runner Snippet */}

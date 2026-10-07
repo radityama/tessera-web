@@ -44,6 +44,7 @@ export interface PanelHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   aside?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
+  heading?: 'h1' | 'h2';
 }
 
 export function PanelHeader({
@@ -53,8 +54,10 @@ export function PanelHeader({
   aside,
   children,
   className = '',
+  heading = 'h2',
   ...props
 }: PanelHeaderProps) {
+  const Title = heading;
   return (
     <div
       className={`border-b border-[var(--line)] px-5 py-6 sm:px-8 sm:py-8 md:px-10 md:py-8 bg-[var(--canvas)] ${className}`}
@@ -71,12 +74,12 @@ export function PanelHeader({
               </div>
             )}
             {title && (
-              <h2 className="text-xl md:text-2xl font-bold tracking-tight text-[var(--ink)]">
+              <Title className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--ink)]">
                 {title}
-              </h2>
+              </Title>
             )}
             {description && (
-              <p className="text-xs sm:text-sm text-[var(--body)] leading-relaxed">
+              <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">
                 {description}
               </p>
             )}
@@ -84,85 +87,6 @@ export function PanelHeader({
           {aside && <div className="shrink-0 text-xs md:text-sm">{aside}</div>}
         </div>
       )}
-    </div>
-  );
-}
-
-export interface PanelTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  children: React.ReactNode;
-  className?: string;
-}
-
-export function PanelTitle({
-  children,
-  className = '',
-  ...props
-}: PanelTitleProps) {
-  return (
-    <h2
-      className={`text-xl md:text-2xl font-bold tracking-tight text-[var(--ink)] ${className}`}
-      {...props}
-    >
-      {children}
-    </h2>
-  );
-}
-
-export interface PanelDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {
-  children: React.ReactNode;
-  className?: string;
-}
-
-export function PanelDescription({
-  children,
-  className = '',
-  ...props
-}: PanelDescriptionProps) {
-  return (
-    <p
-      className={`text-xs sm:text-sm text-[var(--body)] leading-relaxed ${className}`}
-      {...props}
-    >
-      {children}
-    </p>
-  );
-}
-
-export interface PanelContentProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-  className?: string;
-  padded?: boolean;
-}
-
-export function PanelContent({
-  children,
-  className = '',
-  padded = true,
-  ...props
-}: PanelContentProps) {
-  return (
-    <div className={`${padded ? 'p-6 md:p-10' : ''} ${className}`} {...props}>
-      {children}
-    </div>
-  );
-}
-
-export interface PanelFooterProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-  className?: string;
-}
-
-export function PanelFooter({
-  children,
-  className = '',
-  ...props
-}: PanelFooterProps) {
-  return (
-    <div
-      className={`border-t border-[var(--line)] p-4 sm:px-8 text-xs text-[var(--stone)] ${className}`}
-      {...props}
-    >
-      {children}
     </div>
   );
 }

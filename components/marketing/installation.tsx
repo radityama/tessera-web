@@ -5,6 +5,7 @@ import { Terminal } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PanelHeader } from '@/components/layout/panel';
 import { CopyButton } from '@/components/ui/copy-button';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export function Installation() {
   const [packageManager, setPackageManager] = useState<'npx' | 'npm' | 'pnpm'>('npx');
@@ -27,7 +28,7 @@ export function Installation() {
   const activeSnippet = installSnippets[packageManager];
 
   return (
-    <div id="install" className="w-full">
+    <div className="w-full">
       <PanelHeader
         kicker="installation"
         title="One command to look before generating."
@@ -40,25 +41,25 @@ export function Installation() {
       />
 
       {/* Structured Tab Selector Bar */}
-      <div className="px-6 md:px-8 py-3 bg-[var(--surface-soft)] border-b border-[var(--line)] flex items-center justify-between gap-4">
-        <div className="flex items-center gap-2" role="tablist" aria-label="Package Manager">
-          {(['npx', 'npm', 'pnpm'] as const).map((pm) => (
-            <button
-              key={pm}
-              type="button"
-              role="tab"
-              aria-selected={packageManager === pm}
-              onClick={() => setPackageManager(pm)}
-              className={`text-xs font-mono font-medium px-3 py-1 rounded-[4px] border transition-colors cursor-pointer ${
-                packageManager === pm
-                  ? 'bg-[var(--ink)] text-[var(--canvas)] border-[var(--ink)]'
-                  : 'bg-[var(--canvas)] text-[var(--body)] border-[var(--line)] hover:text-[var(--ink)]'
-              }`}
-            >
-              [{pm}]
-            </button>
-          ))}
-        </div>
+      <div className="px-5 sm:px-8 md:px-10 py-3 bg-[var(--surface-soft)] border-b border-[var(--line)] flex items-center justify-between gap-4">
+        <Tabs
+          value={packageManager}
+          onValueChange={(value) =>
+            setPackageManager(value as 'npx' | 'npm' | 'pnpm')
+          }
+        >
+          <TabsList aria-label="Package Manager">
+            {(['npx', 'npm', 'pnpm'] as const).map((pm) => (
+              <TabsTrigger
+                key={pm}
+                value={pm}
+                className="text-xs px-3 py-1 motion-safe:active:scale-[0.97] data-[state=active]:bg-[var(--ink)] data-[state=active]:text-[var(--canvas)] data-[state=active]:border-[var(--ink)] data-[state=inactive]:bg-[var(--canvas)] data-[state=inactive]:text-[var(--body)] data-[state=inactive]:border-[var(--line)] data-[state=inactive]:hover:text-[var(--ink)]"
+              >
+                [{pm}]
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </Tabs>
 
         <div className="hidden sm:flex items-center gap-2 text-xs text-[var(--mute)]">
           <Terminal className="w-3.5 h-3.5" aria-hidden="true" />
@@ -67,7 +68,7 @@ export function Installation() {
       </div>
 
       {/* Integrated Code Execution Pane with motion transition */}
-      <div className="px-6 md:px-8 py-6 bg-[var(--canvas)] text-xs md:text-sm font-mono text-[var(--ink)] min-h-[90px] overflow-hidden">
+      <div className="px-5 sm:px-8 md:px-10 py-6 bg-[var(--canvas)] text-xs md:text-sm font-mono text-[var(--ink)] min-h-[90px] overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
             key={packageManager}
@@ -84,7 +85,7 @@ export function Installation() {
       </div>
 
       {/* Structured Notes & Action Sub-Bar */}
-      <div className="border-t border-[var(--line)] px-6 md:px-8 py-3 bg-[var(--surface-soft)] flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--mute)]">
+      <div className="border-t border-[var(--line)] px-5 sm:px-8 md:px-10 py-3 bg-[var(--surface-soft)] flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--mute)]">
         <AnimatePresence mode="wait">
           <motion.span
             key={`notes-${packageManager}`}

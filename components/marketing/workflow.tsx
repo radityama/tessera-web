@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { WORKFLOW_STAGES } from '@/lib/constants';
 import { PanelHeader } from '@/components/layout/panel';
+import { WorkflowSequence } from './workflow-sequence';
 
 export function Workflow() {
   return (
@@ -27,36 +27,8 @@ export function Workflow() {
         }
       />
 
-      {/* 5-cell horizontal pipeline on desktop, stacked on mobile */}
-      <div className="grid grid-cols-1 md:grid-cols-5 divide-y md:divide-y-0 md:divide-x divide-[var(--line)]">
-        {WORKFLOW_STAGES.map((stage) => (
-          <div
-            key={stage.number}
-            className="p-5 md:p-6 flex flex-col justify-between space-y-4 bg-[var(--canvas)] hover:bg-[var(--surface-soft)] transition-colors"
-          >
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-[var(--mute)]">
-                  {stage.number}
-                </span>
-                <span className="text-[11px] font-semibold text-[var(--ink)] tracking-wider">
-                  {stage.name}
-                </span>
-              </div>
-              <h3 className="text-xs font-bold text-[var(--ink)] leading-snug">
-                {stage.summary}
-              </h3>
-              <p className="text-xs text-[var(--body)] leading-relaxed">
-                {stage.detail}
-              </p>
-            </div>
-
-            <div className="pt-2 border-t border-[var(--line)] text-[11px] text-[var(--mute)] font-mono truncate">
-              $ {stage.action}
-            </div>
-          </div>
-        ))}
-      </div>
+      {/* 5-cell pipeline with a one-time sweep line (see workflow-sequence.tsx) */}
+      <WorkflowSequence />
     </div>
   );
 }

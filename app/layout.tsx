@@ -1,17 +1,28 @@
-import type { Metadata } from 'next';
-import { JetBrains_Mono } from 'next/font/google';
+import type { Metadata, Viewport } from 'next';
+import localFont from 'next/font/local';
 import './globals.css';
 import { siteConfig } from '@/lib/site';
 import { ThemeProvider } from '@/context/theme-context';
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
+const jetbrainsMono = localFont({
+  src: [
+    { path: './fonts/JetBrainsMono-Regular.ttf', weight: '400', style: 'normal' },
+    { path: './fonts/JetBrainsMono-Bold.ttf', weight: '700', style: 'normal' },
+  ],
   variable: '--font-mono',
   display: 'swap',
 });
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fdfcfc' },
+    { media: '(prefers-color-scheme: dark)', color: '#171515' },
+  ],
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  alternates: { canonical: siteConfig.url },
   title: {
     default: siteConfig.title,
     template: `%s | ${siteConfig.name}`,
@@ -62,23 +73,32 @@ export default function RootLayout({
 }) {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'Tessera',
-    applicationCategory: 'DeveloperApplication',
-    operatingSystem: 'Cross-platform (Node.js >= 20)',
-    description: siteConfig.description,
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
-    softwareRequirements: 'Node.js >= 20.0.0',
-    license: 'https://opensource.org/licenses/MIT',
-    codeRepository: siteConfig.github,
+    '@graph': [
+      {
+        '@type': 'SoftwareApplication',
+        name: 'Tessera',
+        applicationCategory: 'DeveloperApplication',
+        operatingSystem: 'Cross-platform (Node.js >= 20)',
+        description: siteConfig.description,
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD',
+        },
+        softwareRequirements: 'Node.js >= 20.0.0',
+        license: 'https://opensource.org/licenses/MIT',
+        codeRepository: siteConfig.github,
+      },
+      {
+        '@type': 'WebSite',
+        name: 'Tessera',
+        url: siteConfig.url,
+      },
+    ],
   };
 
   return (
-    <html lang="en" className={jetbrainsMono.variable} suppressHydrationWarning>
+    <html lang="en" className={jetbrainsMono.variable}>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -90,7 +110,13 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[var(--canvas)] text-[var(--ink)] font-mono antialiased" suppressHydrationWarning>
+      <body className="min-h-screen bg-[var(--canvas)] text-[var(--ink)] font-mono antialiased">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:px-3 focus:py-2 focus:bg-[var(--ink)] focus:text-[var(--canvas)] focus:text-xs"
+        >
+          Skip to content
+        </a>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

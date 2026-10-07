@@ -1,3 +1,9 @@
+if (!process.env.APP_URL && process.env.NODE_ENV === 'production') {
+  console.warn(
+    '[tessera-web] APP_URL is not set; canonical, sitemap and OG URLs fall back to https://tessera.dev. Set APP_URL for deploy.'
+  );
+}
+
 export const siteConfig = {
   name: 'Tessera',
   title: 'Tessera — UI retrieval for coding agents',

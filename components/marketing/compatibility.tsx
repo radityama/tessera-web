@@ -2,27 +2,38 @@ import React from 'react';
 import { ShieldCheck, FileCode, Cpu } from 'lucide-react';
 import { AGENT_HARNESSES, VerificationStatus } from '@/lib/constants';
 import { PanelHeader } from '@/components/layout/panel';
+import { Badge } from '@/components/ui/badge';
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 
-export function Compatibility() {
-  const getBadgeStyle = (status: VerificationStatus) => {
+export function Compatibility({ limit }: { limit?: number }) {
+  const rows = limit ? AGENT_HARNESSES.slice(0, limit) : AGENT_HARNESSES;
+  const getBadgeVariant = (status: VerificationStatus) => {
     switch (status) {
       case 'runtime verified':
-        return 'text-[var(--success)] border-[var(--success)] bg-[#eafaf1]';
+        return 'success';
       case 'config verified':
-        return 'text-[var(--ink)] border-[var(--hairline-strong)] bg-[var(--surface-soft)]';
+        return 'muted';
       case 'protocol verified':
-        return 'text-[var(--accent)] border-[var(--accent)] bg-[#ebf5ff]';
+        return 'accent';
     }
   };
 
   const getBadgeIcon = (status: VerificationStatus) => {
     switch (status) {
       case 'runtime verified':
-        return <ShieldCheck className="w-3 h-3 text-[var(--success)] shrink-0" aria-hidden="true" />;
+        return <ShieldCheck className="w-3 h-3 text-[var(--success-text)] shrink-0" aria-hidden="true" />;
       case 'config verified':
         return <FileCode className="w-3 h-3 text-[var(--mute)] shrink-0" aria-hidden="true" />;
       case 'protocol verified':
-        return <Cpu className="w-3 h-3 text-[var(--accent)] shrink-0" aria-hidden="true" />;
+        return <Cpu className="w-3 h-3 text-[var(--accent-text)] shrink-0" aria-hidden="true" />;
     }
   };
 
@@ -35,52 +46,67 @@ export function Compatibility() {
         aside={
           <div className="text-xs text-[var(--mute)]">
             <span>status transparency: </span>
-            <span className="text-[var(--success)] font-medium">1 runtime</span> ·{' '}
-            <span className="text-[var(--stone)]">10 config</span> ·{' '}
-            <span className="text-[var(--accent)]">1 protocol</span>
+            <span className="text-[var(--success-text)] font-medium">
+              {AGENT_HARNESSES.filter((h) => h.status === 'runtime verified').length} runtime
+            </span>{' '}
+            ·{' '}
+            <span className="text-[var(--stone)]">
+              {AGENT_HARNESSES.filter((h) => h.status === 'config verified').length} config
+            </span>{' '}
+            ·{' '}
+            <span className="text-[var(--accent-text)]">
+              {AGENT_HARNESSES.filter((h) => h.status === 'protocol verified').length} protocol
+            </span>
           </div>
         }
       />
 
-      <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse text-xs font-mono">
-          <thead>
-            <tr className="border-b border-[var(--hairline)] bg-[var(--canvas)] text-[var(--mute)]">
-              <th className="py-3 px-6 md:px-8 font-medium">HARNESS / ENVIRONMENT</th>
-              <th className="py-3 px-4 font-medium">VERIFICATION LEVEL</th>
-              <th className="py-3 px-6 md:px-8 font-medium">VERIFICATION EVIDENCE & NOTES</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-[var(--hairline)] bg-[var(--canvas)]">
-            {AGENT_HARNESSES.map((harness) => (
-              <tr
-                key={harness.name}
-                className="hover:bg-[var(--surface-soft)] transition-colors text-[var(--ink)]"
-              >
-                <td className="py-3.5 px-6 md:px-8 font-semibold">
-                  {harness.name}
-                </td>
-                <td className="py-3.5 px-4 whitespace-nowrap">
-                  <span
-                    className={`inline-flex items-center gap-1.5 border px-2 py-0.5 rounded-[4px] text-[11px] font-medium ${getBadgeStyle(
-                      harness.status
-                    )}`}
-                  >
-                    {getBadgeIcon(harness.status)}
-                    <span>[{harness.status}]</span>
-                  </span>
-                </td>
-                <td className="py-3.5 px-6 md:px-8 text-xs text-[var(--stone)]">
-                  {harness.notes}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <Table>
+        <TableCaption className="sr-only">Agent harnesses with verification level and evidence notes</TableCaption>
+        <TableHeader>
+          <TableRow className="bg-[var(--canvas)] text-[var(--mute)] hover:bg-transparent">
+            <TableHead className="py-3 px-5 sm:px-8 md:px-10">HARNESS / ENVIRONMENT</TableHead>
+            <TableHead className="py-3 px-4">VERIFICATION LEVEL</TableHead>
+            <TableHead className="py-3 px-5 sm:px-8 md:px-10">VERIFICATION EVIDENCE & NOTES</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody className="bg-[var(--canvas)]">
+          {rows.map((harness) => (
+            <TableRow key={harness.name}>
+              <TableCell className="py-3.5 px-5 sm:px-8 md:px-10 font-semibold">
+                {harness.name}
+              </TableCell>
+              <TableCell className="py-3.5 px-4 whitespace-nowrap">
+                <Badge
+                  variant={getBadgeVariant(harness.status)}
+                  className={
+                    harness.status === 'config verified'
+                      ? 'border-[var(--hairline-strong)]'
+                      : undefined
+                  }
+                >
+                  {getBadgeIcon(harness.status)}
+                  <span>[{harness.status}]</span>
+                </Badge>
+              </TableCell>
+              <TableCell className="py-3.5 px-5 sm:px-8 md:px-10 text-xs text-[var(--stone)]">
+                {harness.notes}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
 
-      <div className="p-4 md:px-8 border-t border-[var(--hairline)] bg-[var(--surface-soft)] text-[11px] text-[var(--stone)]">
+      <div className="p-4 md:px-8 border-t border-[var(--hairline)] bg-[var(--surface-soft)] text-xs text-[var(--stone)]">
         <strong>Verification criteria:</strong> <em>Runtime verified</em> means live agent execution and test task completion were validated. <em>Config verified</em> means tool configurations and MCP definitions match vendor guidelines. <em>Protocol verified</em> means the server passes Model Context Protocol JSON-RPC specification tests.
+        {limit && AGENT_HARNESSES.length > limit ? (
+          <span>
+            {' '}
+            <a href="/docs/integrations" className="link-sweep font-bold text-[var(--ink)]">
+              all {AGENT_HARNESSES.length} harnesses →
+            </a>
+          </span>
+        ) : null}
       </div>
     </div>
   );

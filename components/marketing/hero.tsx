@@ -1,14 +1,16 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
+import { TOTAL_COMPONENTS, TOTAL_SOURCES } from '@/lib/constants';
 import { CopyButton } from '@/components/ui/copy-button';
+import { Button } from '@/components/ui/button';
 import { TerminalDemo } from './terminal-demo';
 
 export function Hero() {
   return (
     <div className="w-full">
       {/* Hero Content Block */}
-      <div className="p-6 sm:p-10 md:p-12 space-y-6">
+      <div className="px-5 sm:px-8 md:px-10 py-8 sm:py-10 space-y-6">
         <div className="space-y-4">
           {/* Small label */}
           <div className="text-xs tracking-wider text-[var(--mute)]">
@@ -29,9 +31,9 @@ export function Hero() {
 
           {/* Support statement & philosophy */}
           <div className="flex flex-wrap items-center gap-3 pt-1 text-xs text-[var(--stone)]">
-            <span className="font-semibold text-[var(--ink)]">73 components</span>
+            <span className="font-semibold text-[var(--ink)]">{TOTAL_COMPONENTS} components</span>
             <span aria-hidden="true">·</span>
-            <span>5 sources</span>
+            <span>{TOTAL_SOURCES} sources</span>
             <span aria-hidden="true">·</span>
             <span>Local-first search</span>
             <span aria-hidden="true">·</span>
@@ -41,24 +43,34 @@ export function Hero() {
       </div>
 
       {/* Grounded Action & Quick Execution Bar */}
-      <div className="border-t border-[var(--line)] px-6 sm:px-10 md:px-12 py-3.5 bg-[var(--surface-soft)] flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+      <div className="border-t border-[var(--line)] px-5 sm:px-8 md:px-10 py-3.5 bg-[var(--surface-soft)] flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         {/* Action Row */}
         <div className="flex flex-wrap items-center gap-3 shrink-0">
-          <a
-            href="#install"
-            className="text-xs sm:text-sm font-semibold bg-[var(--ink)] text-[var(--canvas)] hover:bg-[#353030] transition-colors px-4 py-2 rounded-[4px] border border-[var(--ink)] inline-flex items-center gap-1.5"
+          <Button
+            asChild
+            variant="primary"
+            size="md"
+            className="text-xs sm:text-sm font-semibold gap-1.5 group"
           >
-            <span>Get started</span>
-            <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
-          </a>
-          <a
-            href={siteConfig.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs sm:text-sm font-semibold bg-[var(--canvas)] text-[var(--ink)] hover:bg-[var(--surface-card)] transition-colors px-4 py-2 rounded-[4px] border border-[var(--hairline-strong)]"
+            <a href="#install">
+              <span>Get started</span>
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-150 ease-out motion-safe:group-hover:translate-x-0.5" aria-hidden="true" />
+            </a>
+          </Button>
+          <Button
+            asChild
+            variant="secondary"
+            size="md"
+            className="text-xs sm:text-sm font-semibold"
           >
-            View on GitHub
-          </a>
+            <a
+              href={siteConfig.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on GitHub
+            </a>
+          </Button>
         </div>
 
         {/* Quick Execution Snippet integrated into the bar */}
