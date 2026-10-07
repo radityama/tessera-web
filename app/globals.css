@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+:root {
+  --canvas: #fdfcfc;
+  --ink: #201d1d;
+  --ink-deep: #0f0000;
+
+  --surface-soft: #f8f7f7;
+  --surface-card: #f1eeee;
+
+  --surface-dark: #201d1d;
+  --surface-dark-elevated: #302c2c;
+
+  --body: #424245;
+  --mute: #646262;
+  --stone: #6e6e73;
+  --ash: #9a9898;
+
+  --line: rgba(15, 0, 0, 0.12);
+  --line-strong: #646262;
+  --hairline: var(--line);
+  --hairline-strong: var(--line-strong);
+
+  --accent: #007aff;
+  --danger: #ff3b30;
+  --warning: #ff9f0a;
+  --success: #30d158;
+
+  --site-width: 1080px;
+  --page-width: 1080px;
+  --separator-height: 32px;
+  --radius-control: 4px;
+}
+
+[data-theme="dark"],
+.dark {
+  --canvas: #171515;
+  --ink: #fdfcfc;
+  --ink-deep: #ffffff;
+
+  --surface-soft: #201d1d;
+  --surface-card: #2a2626;
+
+  --surface-dark: #121010;
+  --surface-dark-elevated: #353030;
+
+  --body: #c7c5c5;
+  --mute: #969393;
+  --stone: #8a8787;
+  --ash: #6b6868;
+
+  --line: rgba(253, 252, 252, 0.12);
+  --line-strong: #8a8787;
+  --hairline: var(--line);
+  --hairline-strong: var(--line-strong);
+
+  --accent: #3b9eff;
+  --danger: #ff453a;
+  --warning: #ffd60a;
+  --success: #32d74b;
+}
+
+/* Force monospace font on everything */
+html,
+body,
+input,
+button,
+select,
+textarea,
+pre,
+code,
+kbd,
+table {
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+}
+
+body {
+  background-color: var(--canvas);
+  color: var(--ink);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--ink);
+  color: var(--canvas);
+}
+
+/* Canonical Page Viewport: clips horizontal lines without breaking sticky nav */
+.site-viewport {
+  width: 100%;
+  overflow-x: clip;
+  padding-inline: 8px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Canonical Central Content Rail */
+.site-rail {
+  width: 100%;
+  max-width: var(--site-width, 1080px);
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+/* Standardized Panel Frame with persistent 1px hairline rails */
+.panel-frame {
+  width: 100%;
+  max-width: var(--site-width, 1080px);
+  margin-inline: auto;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  box-sizing: border-box;
+  position: relative;
+}
+
+@media (max-width: 1096px) {
+  .panel-frame {
+    width: calc(100% - 16px);
+  }
+}
+
+/* Full-width screen lines extending across viewport */
+.screen-line-top {
+  position: relative;
+}
+
+.screen-line-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100vw;
+  width: 200vw;
+  height: 1px;
+  background-color: var(--line);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.screen-line-bottom {
+  position: relative;
+}
+
+.screen-line-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100vw;
+  width: 200vw;
+  height: 1px;
+  background-color: var(--line);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Section Separator Band with diagonal stripe fill */
+.section-separator {
+  position: relative;
+  height: 24px;
+  width: 100%;
+  max-width: var(--site-width, 1080px);
+  margin-inline: auto;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  background-color: var(--canvas);
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+@media (min-width: 768px) {
+  .section-separator {
+    height: var(--separator-height, 32px);
+  }
+}
+
+@media (max-width: 1096px) {
+  .section-separator {
+    width: calc(100% - 16px);
+  }
+}
+
+.section-separator::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: -100vw;
+  width: 200vw;
+  background: repeating-linear-gradient(
+    315deg,
+    color-mix(in srgb, var(--line) 70%, transparent) 0,
+    color-mix(in srgb, var(--line) 70%, transparent) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Legacy alias for separator hatch if needed */
+.separator-hatch {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* Subtle monospaced skeleton shimmer */
+@keyframes skeleton-sweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--surface-soft) 25%,
+    var(--surface-card) 50%,
+    var(--surface-soft) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-sweep 1.8s infinite ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-shimmer {
+    animation: none;
+    background: var(--surface-card);
+  }
+}
+
+/* Subtle custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink);
+}
+
+/* Keyboard focus ring */
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}

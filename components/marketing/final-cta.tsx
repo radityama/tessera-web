@@ -1,0 +1,50 @@
+import React from 'react';
+import { siteConfig } from '@/lib/site';
+import { PanelHeader } from '@/components/layout/panel';
+import { CopyButton } from '@/components/ui/copy-button';
+
+export function FinalCta() {
+  return (
+    <div className="w-full">
+      <PanelHeader
+        kicker="get started"
+        title="Search before you generate another component."
+        description="One local index. 73 components. 5 sources. Zero accounts. Give your coding agent the retrieval layer it needs."
+      />
+
+      {/* Grounded Command & Action Bar */}
+      <div className="p-6 md:px-8 md:py-6 bg-[var(--surface-soft)] flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        {/* Actions */}
+        <div className="flex flex-wrap items-center gap-3">
+          <a
+            href={siteConfig.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs sm:text-sm font-semibold bg-[var(--ink)] text-[var(--canvas)] hover:bg-[#353030] transition-colors px-4 py-2.5 rounded-[4px] border border-[var(--ink)]"
+          >
+            View on GitHub
+          </a>
+          <a
+            href={siteConfig.npm}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs sm:text-sm font-semibold bg-[var(--canvas)] text-[var(--ink)] hover:bg-[var(--surface-card)] transition-colors px-4 py-2.5 rounded-[4px] border border-[var(--hairline-strong)]"
+          >
+            npm package ({siteConfig.version})
+          </a>
+        </div>
+
+        {/* Command Runner Snippet */}
+        <div className="bg-[var(--canvas)] border border-[var(--line)] rounded-[4px] px-3.5 py-2 flex items-center justify-between gap-3 text-xs font-mono max-w-full overflow-hidden">
+          <div className="flex items-center gap-2 overflow-x-auto min-w-0">
+            <span className="text-[var(--mute)] select-none shrink-0">$</span>
+            <code className="text-[var(--ink)] whitespace-nowrap truncate">
+              {siteConfig.defaultCommand}
+            </code>
+          </div>
+          <CopyButton text={siteConfig.defaultCommand} label="copy" className="shrink-0" />
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,168 @@
+import React from 'react';
+
+export interface PanelProps extends React.HTMLAttributes<HTMLElement> {
+  id?: string;
+  children: React.ReactNode;
+  className?: string;
+  hasTopLine?: boolean;
+  hasBottomLine?: boolean;
+  as?: React.ElementType;
+}
+
+/**
+ * Standardized section layout primitive for Tessera.
+ * Constrains width to the canonical 1080px site-rail with persistent
+ * vertical hairline borders on both rails (border-x).
+ * By default, terminates with a full-width screen-line-bottom (1px line).
+ */
+export function Panel({
+  id,
+  children,
+  className = '',
+  hasTopLine = false,
+  hasBottomLine = true,
+  as: Component = 'section',
+  ...props
+}: PanelProps) {
+  return (
+    <Component
+      id={id}
+      className={`panel-frame relative bg-[var(--canvas)] ${
+        hasTopLine ? 'screen-line-top' : ''
+      } ${hasBottomLine ? 'screen-line-bottom' : ''} ${className}`}
+      {...props}
+    >
+      {children}
+    </Component>
+  );
+}
+
+export interface PanelHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+  kicker?: string;
+  title?: string;
+  description?: string;
+  aside?: React.ReactNode;
+  children?: React.ReactNode;
+  className?: string;
+}
+
+export function PanelHeader({
+  kicker,
+  title,
+  description,
+  aside,
+  children,
+  className = '',
+  ...props
+}: PanelHeaderProps) {
+  return (
+    <div
+      className={`border-b border-[var(--line)] px-5 py-6 sm:px-8 sm:py-8 md:px-10 md:py-8 bg-[var(--canvas)] ${className}`}
+      {...props}
+    >
+      {children ? (
+        children
+      ) : (
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="space-y-2 max-w-2xl">
+            {kicker && (
+              <div className="text-xs tracking-wider uppercase text-[var(--mute)]">
+                [{kicker}]
+              </div>
+            )}
+            {title && (
+              <h2 className="text-xl md:text-2xl font-bold tracking-tight text-[var(--ink)]">
+                {title}
+              </h2>
+            )}
+            {description && (
+              <p className="text-xs sm:text-sm text-[var(--body)] leading-relaxed">
+                {description}
+              </p>
+            )}
+          </div>
+          {aside && <div className="shrink-0 text-xs md:text-sm">{aside}</div>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export interface PanelTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export function PanelTitle({
+  children,
+  className = '',
+  ...props
+}: PanelTitleProps) {
+  return (
+    <h2
+      className={`text-xl md:text-2xl font-bold tracking-tight text-[var(--ink)] ${className}`}
+      {...props}
+    >
+      {children}
+    </h2>
+  );
+}
+
+export interface PanelDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export function PanelDescription({
+  children,
+  className = '',
+  ...props
+}: PanelDescriptionProps) {
+  return (
+    <p
+      className={`text-xs sm:text-sm text-[var(--body)] leading-relaxed ${className}`}
+      {...props}
+    >
+      {children}
+    </p>
+  );
+}
+
+export interface PanelContentProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
+  className?: string;
+  padded?: boolean;
+}
+
+export function PanelContent({
+  children,
+  className = '',
+  padded = true,
+  ...props
+}: PanelContentProps) {
+  return (
+    <div className={`${padded ? 'p-6 md:p-10' : ''} ${className}`} {...props}>
+      {children}
+    </div>
+  );
+}
+
+export interface PanelFooterProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export function PanelFooter({
+  children,
+  className = '',
+  ...props
+}: PanelFooterProps) {
+  return (
+    <div
+      className={`border-t border-[var(--line)] p-4 sm:px-8 text-xs text-[var(--stone)] ${className}`}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+}

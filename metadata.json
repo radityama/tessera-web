@@ -1,0 +1,7 @@
+{
+  "name": "Tessera",
+  "description": "UI retrieval for coding agents. Search, inspect, and retrieve real UI components from existing libraries before your agent generates them from scratch.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
