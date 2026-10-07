@@ -77,7 +77,17 @@ lib/
   utils.ts            cn() class-name utility
 ```
 
-`components.json` is the shadcn/ui configuration. New shadcn components belong in `components/ui/`; registry templates import `cn` from `@/lib/utils`, so rewrite the import when running `shadcn add` (templates default to the standalone `cn` package, which this project does not use).
+`components.json` is the shadcn/ui configuration (Radix foundation, Tailwind v4, CSS variables, lucide icons). Reusable UI primitives live in `components/ui/` as locally installed shadcn/ui implementations adapted to Tessera tokens — they are vendored source, not a hosted dependency.
+
+Installed primitives: `button`, `badge`, `tabs`, `accordion`, `table`, `skeleton`. `Button` exposes Tessera variants (`primary` / `secondary` / `ghost`) and sizes (`sm` / `md` / `lg`) with `asChild` support; `Badge` exposes `muted` / `success` / `accent` / `outline`. Domain compositions (hero, panels, terminal, tables content) stay in `components/marketing/` and `components/layout/`.
+
+Adding another primitive:
+
+```bash
+bunx shadcn@latest add <component>
+```
+
+Then adapt it: rewrite the template's `from "cn"` import to `@/lib/utils`, replace default shadcn colors with Tessera CSS variables, and verify light/dark rendering. See `docs/component-migration.md` for the full mapping and the deliberately excluded primitives (`card`, `separator`, `tooltip`, `scroll-area`, `collapsible`, `navigation-menu`).
 
 ## Development Commands
 
