@@ -51,13 +51,28 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Environment Variables
 
-Only one variable is supported, and it is optional:
+`APP_URL` is **required for deploy** (optional for local dev):
 
 | Variable | Required | Default | Purpose |
 | -------- | -------- | ------- | ------- |
-| `APP_URL` | No | `https://tessera.dev` | Canonical site URL for metadata, Open Graph images, sitemap, and canonical links |
+| `APP_URL` | Yes (deploy) | `https://tessera.dev` | Canonical site URL for metadata, Open Graph images, sitemap, and canonical links |
 
-Copy `.env.example` to `.env.local` and adjust if needed. No API keys are required; the site makes no AI API calls.
+Production builds warn loudly when `APP_URL` is missing so canonical, sitemap and OG URLs never silently point at the wrong domain. Copy `.env.example` to `.env.local` and adjust if needed. No API keys are required; the site makes no AI API calls.
+
+## Routes
+
+| Route | Contents |
+| ----- | -------- |
+| `/` | 10-section pitch: hero, problem, workflow, composition, sources, use-it, compatibility, trust, install, FAQ, CTA |
+| `/docs` | Docs landing + install snippet |
+| `/docs/cli` | Full command reference with real CLI output |
+| `/docs/mcp` | Server setup and the 6 tool schemas |
+| `/docs/integrations` | Copy-paste configs for 12 harnesses |
+| `/docs/skill` | Agent skill install + decision pipeline |
+| `/docs/architecture` | System layers around Fig. 01 |
+| `/catalog` | All 73 indexed components (`data/index.json`, refresh with `bun scripts/sync-index.ts`) |
+| `/trust` | Guarantees, governance, boundaries |
+| `/changelog` | Release notes (append new versions here) |
 
 ## Project Structure
 
@@ -65,21 +80,32 @@ Copy `.env.example` to `.env.local` and adjust if needed. No API keys are requir
 app/                  App Router routes, global styles, metadata
   page.tsx            Homepage section composition
   globals.css         Tessera design tokens + shadcn theme tokens
+  docs/               Reference routes (cli, mcp, integrations, skill, architecture)
+  catalog/            Component catalog route
+  trust/ changelog/   Trust and release-notes routes
 components/
-  layout/             Site chrome: header, footer, panels, separators
-  marketing/          Homepage sections: hero, workflow, CLI, MCP, FAQ, …
-  ui/                 Reusable primitives (custom Button, CopyButton, ThemeToggle)
+  layout/             Site chrome: header, footer, panels, separators, docs nav
+  marketing/          Homepage sections: hero, composition, use-it, trust-band, …
+  catalog/            Catalog filter table (client island)
+  ui/                 Reusable primitives (Button, Badge, CopyButton, ThemeToggle)
 context/              Theme provider (light/dark state)
-hooks/                Shared React hooks (useIsMobile)
 lib/
   site.ts             Site metadata, URLs, package coordinates
   constants.ts        Marketing content data (sources, commands, tools, FAQs)
-  utils.ts            cn() class-name utility
+  catalog.ts          Typed catalog loader with build-time count assertion
+  integrations.ts     Harness configs with verification level + date
+  docs.ts             Docs nav and prev/next
+  og.tsx              Shared OG-image shell + font loader
+data/
+  index.json          Pinned component index (73 entries)
+scripts/
+  sync-index.ts       Regenerates data/index.json from @tessera-dev/registry
+notes/                Internal working notes (not the /docs site content)
 ```
 
 `components.json` is the shadcn/ui configuration (Radix foundation, Tailwind v4, CSS variables, lucide icons). Reusable UI primitives live in `components/ui/` as locally installed shadcn/ui implementations adapted to Tessera tokens — they are vendored source, not a hosted dependency.
 
-Installed primitives: `button`, `badge`, `tabs`, `accordion`, `table`, `skeleton`. `Button` exposes Tessera variants (`primary` / `secondary` / `ghost`) and sizes (`sm` / `md` / `lg`) with `asChild` support; `Badge` exposes `muted` / `success` / `accent` / `outline`. Domain compositions (hero, panels, terminal, tables content) stay in `components/marketing/` and `components/layout/`.
+Installed primitives: `button`, `badge`, `tabs`, `accordion`, `table`. `Button` exposes Tessera variants (`primary` / `secondary` / `ghost`) and sizes (`sm` / `md` / `lg`) with `asChild` support; `Badge` exposes `muted` / `success` / `accent` / `outline`. Domain compositions (hero, panels, terminal, tables content) stay in `components/marketing/` and `components/layout/`.
 
 Adding another primitive:
 
@@ -87,7 +113,7 @@ Adding another primitive:
 bunx shadcn@latest add <component>
 ```
 
-Then adapt it: rewrite the template's `from "cn"` import to `@/lib/utils`, replace default shadcn colors with Tessera CSS variables, and verify light/dark rendering. See `docs/component-migration.md` for the full mapping and the deliberately excluded primitives (`card`, `separator`, `tooltip`, `scroll-area`, `collapsible`, `navigation-menu`).
+Then adapt it: rewrite the template's `from "cn"` import to `@/lib/utils`, replace default shadcn colors with Tessera CSS variables, and verify light/dark rendering. See `notes/component-migration.md` for the full mapping and the deliberately excluded primitives (`card`, `separator`, `tooltip`, `scroll-area`, `collapsible`, `navigation-menu`).
 
 ## Development Commands
 

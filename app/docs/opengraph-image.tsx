@@ -3,7 +3,7 @@ import { siteConfig } from '@/lib/site';
 import { TOTAL_COMPONENTS, TOTAL_SOURCES } from '@/lib/constants';
 import { ogFonts, OgShell } from '@/lib/og';
 
-export const alt = 'Tessera — UI retrieval for coding agents';
+export const alt = 'Tessera documentation';
 export const size = {
   width: 1200,
   height: 630,
@@ -15,9 +15,9 @@ export default async function Image() {
   return new ImageResponse(
     (
       <OgShell
-        kicker={`${siteConfig.version} · npm: @tessera-dev/cli`}
-        title="UI retrieval for coding agents."
-        body="Search, inspect, and retrieve real UI components before generating another one from scratch."
+        kicker={`${siteConfig.version} · tessera docs`}
+        title="CLI, MCP, integrations, skill."
+        body="Reference material for the retrieval layer your coding agent is missing."
         strip={`[${TOTAL_COMPONENTS} components · ${TOTAL_SOURCES} sources]`}
       />
     ),

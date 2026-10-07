@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import { siteConfig } from '@/lib/site';
@@ -13,8 +13,16 @@ const jetbrainsMono = localFont({
   display: 'swap',
 });
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fdfcfc' },
+    { media: '(prefers-color-scheme: dark)', color: '#171515' },
+  ],
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
+  alternates: { canonical: siteConfig.url },
   title: {
     default: siteConfig.title,
     template: `%s | ${siteConfig.name}`,
@@ -65,19 +73,28 @@ export default function RootLayout({
 }) {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'Tessera',
-    applicationCategory: 'DeveloperApplication',
-    operatingSystem: 'Cross-platform (Node.js >= 20)',
-    description: siteConfig.description,
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
-    softwareRequirements: 'Node.js >= 20.0.0',
-    license: 'https://opensource.org/licenses/MIT',
-    codeRepository: siteConfig.github,
+    '@graph': [
+      {
+        '@type': 'SoftwareApplication',
+        name: 'Tessera',
+        applicationCategory: 'DeveloperApplication',
+        operatingSystem: 'Cross-platform (Node.js >= 20)',
+        description: siteConfig.description,
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD',
+        },
+        softwareRequirements: 'Node.js >= 20.0.0',
+        license: 'https://opensource.org/licenses/MIT',
+        codeRepository: siteConfig.github,
+      },
+      {
+        '@type': 'WebSite',
+        name: 'Tessera',
+        url: siteConfig.url,
+      },
+    ],
   };
 
   return (
