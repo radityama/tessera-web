@@ -22,13 +22,13 @@ export function ThemeToggle({ className = '' }: ThemeToggleProps) {
       suppressHydrationWarning
       aria-label="Toggle visual theme between light and dark"
       title="Toggle theme (light / dark)"
-      className={cn('gap-1.5', className)}
+      className={cn('gap-1.5 group', className)}
     >
       <span suppressHydrationWarning className="inline-flex items-center">
         {theme === 'dark' ? (
-          <Moon className="w-3 h-3 text-[var(--ink)]" strokeWidth={1.75} />
+          <Moon className="w-3 h-3 text-[var(--ink)] transition-transform duration-200 ease-out motion-safe:group-hover:-rotate-12" strokeWidth={1.75} />
         ) : (
-          <Sun className="w-3 h-3 text-[var(--ink)]" strokeWidth={1.75} />
+          <Sun className="w-3 h-3 text-[var(--ink)] transition-transform duration-200 ease-out motion-safe:group-hover:rotate-45" strokeWidth={1.75} />
         )}
       </span>
       <span className="text-[var(--mute)]">theme:</span>

@@ -49,11 +49,11 @@ export function Hero() {
             asChild
             variant="primary"
             size="md"
-            className="text-xs sm:text-sm font-semibold gap-1.5"
+            className="text-xs sm:text-sm font-semibold gap-1.5 group"
           >
             <a href="#install">
               <span>Get started</span>
-              <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-150 ease-out motion-safe:group-hover:translate-x-0.5" aria-hidden="true" />
             </a>
           </Button>
           <Button
