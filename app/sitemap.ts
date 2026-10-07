@@ -1,21 +1,17 @@
 import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/lib/site';
+import { source } from '@/lib/source';
 
-const ROUTES = [
+const STATIC_ROUTES = [
   '/',
-  '/docs',
-  '/docs/cli',
-  '/docs/mcp',
-  '/docs/integrations',
-  '/docs/skill',
-  '/docs/architecture',
   '/catalog',
   '/trust',
   '/changelog',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ROUTES.map((route) => ({
+  const docsRoutes = source.getPages().map((page) => page.url);
+  return [...STATIC_ROUTES, ...docsRoutes].map((route) => ({
     url: `${siteConfig.url}${route}`,
     lastModified: new Date(),
     changeFrequency: route === '/' ? 'weekly' : 'monthly',
