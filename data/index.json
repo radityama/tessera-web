@@ -1,0 +1,2326 @@
+[
+ {
+  "id": "aceternity/animated-testimonials",
+  "source": "aceternity",
+  "slug": "animated-testimonials",
+  "name": "Animated Testimonials",
+  "description": "",
+  "category": "testimonial",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "animated",
+   "testimonials"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "LicenseRef-Aceternity",
+   "redistribution": "restricted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://ui.aceternity.com/registry/animated-testimonials.json",
+  "docs": "https://ui.aceternity.com/components"
+ },
+ {
+  "id": "aceternity/floating-navbar",
+  "source": "aceternity",
+  "slug": "floating-navbar",
+  "name": "Floating Navbar",
+  "description": "",
+  "category": "navbar",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "floating",
+   "navbar"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "LicenseRef-Aceternity",
+   "redistribution": "restricted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://ui.aceternity.com/registry/floating-navbar.json",
+  "docs": "https://ui.aceternity.com/components"
+ },
+ {
+  "id": "aceternity/hero-highlight",
+  "source": "aceternity",
+  "slug": "hero-highlight",
+  "name": "Hero Highlight",
+  "description": "",
+  "category": "hero",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "hero",
+   "highlight"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "LicenseRef-Aceternity",
+   "redistribution": "restricted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://ui.aceternity.com/registry/hero-highlight.json",
+  "docs": "https://ui.aceternity.com/components"
+ },
+ {
+  "id": "aceternity/hero-parallax",
+  "source": "aceternity",
+  "slug": "hero-parallax",
+  "name": "Hero Parallax",
+  "description": "",
+  "category": "hero",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "hero",
+   "parallax"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "LicenseRef-Aceternity",
+   "redistribution": "restricted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://ui.aceternity.com/registry/hero-parallax.json",
+  "docs": "https://ui.aceternity.com/components"
+ },
+ {
+  "id": "aceternity/navbar-menu",
+  "source": "aceternity",
+  "slug": "navbar-menu",
+  "name": "Navbar Menu",
+  "description": "",
+  "category": "navbar",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "navbar",
+   "menu"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "LicenseRef-Aceternity",
+   "redistribution": "restricted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://ui.aceternity.com/registry/navbar-menu.json",
+  "docs": "https://ui.aceternity.com/components"
+ },
+ {
+  "id": "aceternity/parallax-hero-images",
+  "source": "aceternity",
+  "slug": "parallax-hero-images",
+  "name": "Parallax Hero Images",
+  "description": "",
+  "category": "hero",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "parallax",
+   "hero",
+   "images"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "LicenseRef-Aceternity",
+   "redistribution": "restricted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://ui.aceternity.com/registry/parallax-hero-images.json",
+  "docs": "https://ui.aceternity.com/components"
+ },
+ {
+  "id": "aceternity/resizable-navbar",
+  "source": "aceternity",
+  "slug": "resizable-navbar",
+  "name": "Resizable Navbar",
+  "description": "",
+  "category": "navbar",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "resizable",
+   "navbar"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "LicenseRef-Aceternity",
+   "redistribution": "restricted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://ui.aceternity.com/registry/resizable-navbar.json",
+  "docs": "https://ui.aceternity.com/components"
+ },
+ {
+  "id": "aceternity/terminal",
+  "source": "aceternity",
+  "slug": "terminal",
+  "name": "Terminal",
+  "description": "",
+  "category": "terminal",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "terminal"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "LicenseRef-Aceternity",
+   "redistribution": "restricted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://ui.aceternity.com/registry/terminal.json",
+  "docs": "https://ui.aceternity.com/components"
+ },
+ {
+  "id": "beui/approval-card",
+  "source": "beui",
+  "slug": "approval-card",
+  "name": "Approval Card",
+  "description": "A human-in-the-loop decision surface for approvals, single or multiple-choice questions, custom responses, and multi-step review flows.",
+  "category": "card",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "approval",
+   "card",
+   "human",
+   "the",
+   "loop",
+   "decision",
+   "surface",
+   "for",
+   "approvals",
+   "single",
+   "multiple",
+   "choice",
+   "questions",
+   "custom",
+   "responses",
+   "and",
+   "multi",
+   "step",
+   "review",
+   "flows"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://beui.dev/r/approval-card.json",
+  "docs": "https://beui.dev/docs/theme"
+ },
+ {
+  "id": "beui/card-folder",
+  "source": "beui",
+  "slug": "card-folder",
+  "name": "Card Folder",
+  "description": "A landscape card tucked into a stitched purse pocket that lifts forward as the purse compresses into its bottom seam, with controlled open and card-detail visibility plus a separate overflow action.",
+  "category": "card",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "card",
+   "folder",
+   "landscape",
+   "tucked",
+   "into",
+   "stitched",
+   "purse",
+   "pocket",
+   "that",
+   "lifts",
+   "forward",
+   "the",
+   "compresses",
+   "its",
+   "bottom",
+   "seam",
+   "with",
+   "controlled",
+   "open",
+   "and",
+   "detail",
+   "visibility",
+   "plus",
+   "separate"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://beui.dev/r/card-folder.json",
+  "docs": "https://beui.dev/docs/theme"
+ },
+ {
+  "id": "beui/command-palette",
+  "source": "beui",
+  "slug": "command-palette",
+  "name": "Command Palette",
+  "description": "\u2318K palette with fuzzy filter, spring-animated active row and glass surface.",
+  "category": "command-menu",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "command",
+   "palette",
+   "with",
+   "fuzzy",
+   "filter",
+   "spring",
+   "animated",
+   "active",
+   "row",
+   "and",
+   "glass",
+   "surface"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://beui.dev/r/command-palette.json",
+  "docs": "https://beui.dev/docs/theme"
+ },
+ {
+  "id": "beui/marquee",
+  "source": "beui",
+  "slug": "marquee",
+  "name": "Marquee",
+  "description": "Infinite horizontal or vertical scroll with pause-on-hover.",
+  "category": "animation",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "marquee",
+   "infinite",
+   "horizontal",
+   "vertical",
+   "scroll",
+   "with",
+   "pause",
+   "hover"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://beui.dev/r/marquee.json",
+  "docs": "https://beui.dev/docs/theme"
+ },
+ {
+  "id": "beui/not-found-spotlight",
+  "source": "beui",
+  "slug": "not-found-spotlight",
+  "name": "404 / Not Found Spotlight",
+  "description": "A dark panel where a cursor-tracked spotlight reveals the bright code from a dim base.",
+  "category": "background",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "not",
+   "found",
+   "spotlight",
+   "404",
+   "dark",
+   "panel",
+   "where",
+   "cursor",
+   "tracked",
+   "reveals",
+   "the",
+   "bright",
+   "code",
+   "from",
+   "dim",
+   "base"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://beui.dev/r/not-found-spotlight.json",
+  "docs": "https://beui.dev/docs/theme"
+ },
+ {
+  "id": "beui/not-found-terminal",
+  "source": "beui",
+  "slug": "not-found-terminal",
+  "name": "404 / Not Found Terminal",
+  "description": "A terminal window that types a failed cd command and a 404 status, with a blinking caret.",
+  "category": "terminal",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "not",
+   "found",
+   "terminal",
+   "404",
+   "window",
+   "that",
+   "types",
+   "failed",
+   "command",
+   "and",
+   "status",
+   "with",
+   "blinking",
+   "caret"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://beui.dev/r/not-found-terminal.json",
+  "docs": "https://beui.dev/docs/theme"
+ },
+ {
+  "id": "beui/prediction-market-card",
+  "source": "beui",
+  "slug": "prediction-market-card",
+  "name": "Prediction Market Market Cards",
+  "description": "Compact market listings with consistent outcome rows, animated odds CTAs, payout multipliers and bookmarks. Odds CTAs use green/red backgrounds and roll into Yes/No labels on hover or keyboard focus. Use Update odds to preview animated price changes.",
+  "category": "card",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "prediction",
+   "market",
+   "card",
+   "cards",
+   "compact",
+   "listings",
+   "with",
+   "consistent",
+   "outcome",
+   "rows",
+   "animated",
+   "odds",
+   "ctas",
+   "payout",
+   "multipliers",
+   "and",
+   "bookmarks",
+   "use",
+   "green",
+   "red",
+   "backgrounds",
+   "roll",
+   "into",
+   "yes"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://beui.dev/r/prediction-market-card.json",
+  "docs": "https://beui.dev/docs/theme"
+ },
+ {
+  "id": "beui/shader-background",
+  "source": "beui",
+  "slug": "shader-background",
+  "name": "Shader Background",
+  "description": "Canvas shader backgrounds (mesh gradient, grain, warp, waves, voronoi, dot orbit and more) with a single typed variant prop. Reduced-motion freezes animated variants.",
+  "category": "background",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "shader",
+   "background",
+   "canvas",
+   "backgrounds",
+   "mesh",
+   "gradient",
+   "grain",
+   "warp",
+   "waves",
+   "voronoi",
+   "dot",
+   "orbit",
+   "and",
+   "more",
+   "with",
+   "single",
+   "typed",
+   "variant",
+   "prop",
+   "reduced",
+   "motion",
+   "freezes",
+   "animated",
+   "variants"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://beui.dev/r/shader-background.json",
+  "docs": "https://beui.dev/docs/theme"
+ },
+ {
+  "id": "beui/signup-form",
+  "source": "beui",
+  "slug": "signup-form",
+  "name": "Sign Up Form",
+  "description": "Composed sign-up form that flags a field only once it is left, then clears the moment it is fixed, with a length-weighted strength meter, password reveal and an animated submit lifecycle.",
+  "category": "form",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "signup",
+   "form",
+   "sign",
+   "composed",
+   "that",
+   "flags",
+   "field",
+   "only",
+   "once",
+   "left",
+   "then",
+   "clears",
+   "the",
+   "moment",
+   "fixed",
+   "with",
+   "length",
+   "weighted",
+   "strength",
+   "meter",
+   "password",
+   "reveal",
+   "and",
+   "animated"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://beui.dev/r/signup-form.json",
+  "docs": "https://beui.dev/docs/theme"
+ },
+ {
+  "id": "beui/sortable-stack",
+  "source": "beui",
+  "slug": "sortable-stack",
+  "name": "Sortable List",
+  "description": "Composable sortable list with group, item, drag handle, content and undo parts, plus a shared state hook. Spring layout, keyboard reordering, accessible position announcements, and controlled or uncontrolled items.",
+  "category": "other",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "sortable",
+   "stack",
+   "list",
+   "composable",
+   "with",
+   "group",
+   "item",
+   "drag",
+   "handle",
+   "content",
+   "and",
+   "undo",
+   "parts",
+   "plus",
+   "shared",
+   "state",
+   "hook",
+   "spring",
+   "layout",
+   "keyboard",
+   "reordering",
+   "accessible",
+   "position",
+   "announcements"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://beui.dev/r/sortable-stack.json",
+  "docs": "https://beui.dev/docs/theme"
+ },
+ {
+  "id": "beui/table",
+  "source": "beui",
+  "slug": "table",
+  "name": "Table Data Table",
+  "description": "10k virtualized rows with sortable headers, row selection, column resize and reorder.",
+  "category": "table",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "table",
+   "data",
+   "10k",
+   "virtualized",
+   "rows",
+   "with",
+   "sortable",
+   "headers",
+   "row",
+   "selection",
+   "column",
+   "resize",
+   "and",
+   "reorder"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://beui.dev/r/table.json",
+  "docs": "https://beui.dev/docs/theme"
+ },
+ {
+  "id": "beui/table-async",
+  "source": "beui",
+  "slug": "table-async",
+  "name": "Table Async Table",
+  "description": "Loads pages on demand \u2014 skeleton rows on first load, then infinite scroll via onEndReached as the virtualized list nears the bottom.",
+  "category": "table",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "table",
+   "async",
+   "loads",
+   "pages",
+   "demand",
+   "skeleton",
+   "rows",
+   "first",
+   "load",
+   "then",
+   "infinite",
+   "scroll",
+   "via",
+   "onendreached",
+   "the",
+   "virtualized",
+   "list",
+   "nears",
+   "bottom"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://beui.dev/r/table-async.json",
+  "docs": "https://beui.dev/docs/theme"
+ },
+ {
+  "id": "beui/table-editable",
+  "source": "beui",
+  "slug": "table-editable",
+  "name": "Table Editable Table",
+  "description": "Edit cells inline and insert or delete rows and columns via border handles; the table re-renders from the updated data and column defs.",
+  "category": "table",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "table",
+   "editable",
+   "edit",
+   "cells",
+   "inline",
+   "and",
+   "insert",
+   "delete",
+   "rows",
+   "columns",
+   "via",
+   "border",
+   "handles",
+   "the",
+   "renders",
+   "from",
+   "updated",
+   "data",
+   "column",
+   "defs"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://beui.dev/r/table-editable.json",
+  "docs": "https://beui.dev/docs/theme"
+ },
+ {
+  "id": "beui/tilt-card",
+  "source": "beui",
+  "slug": "tilt-card",
+  "name": "Tilt Card",
+  "description": "3D perspective tilt on hover with cursor-tracked glare.",
+  "category": "card",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "tilt",
+   "card",
+   "perspective",
+   "hover",
+   "with",
+   "cursor",
+   "tracked",
+   "glare"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://beui.dev/r/tilt-card.json",
+  "docs": "https://beui.dev/docs/theme"
+ },
+ {
+  "id": "beui/wallet-card",
+  "source": "beui",
+  "slug": "wallet-card",
+  "name": "Wallet Card",
+  "description": "Wallet overview card with an account switcher and search that morph open from their triggers, a cascading balance with a live change pill and privacy toggle, copy-address, and Send / Deposit / Swap / Buy actions.",
+  "category": "card",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "wallet",
+   "card",
+   "overview",
+   "with",
+   "account",
+   "switcher",
+   "and",
+   "search",
+   "that",
+   "morph",
+   "open",
+   "from",
+   "their",
+   "triggers",
+   "cascading",
+   "balance",
+   "live",
+   "change",
+   "pill",
+   "privacy",
+   "toggle",
+   "copy",
+   "address",
+   "send"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://beui.dev/r/wallet-card.json",
+  "docs": "https://beui.dev/docs/theme"
+ },
+ {
+  "id": "efferd/app-shell-5",
+  "source": "efferd",
+  "slug": "app-shell-5",
+  "name": "app-shell-5",
+  "description": "Sidebar workspace with command-style search, custom trigger and theme controls, navbar strip, and latest-change row.",
+  "category": "dashboard",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "app",
+   "shell",
+   "sidebar",
+   "workspace",
+   "with",
+   "command",
+   "style",
+   "search",
+   "custom",
+   "trigger",
+   "and",
+   "theme",
+   "controls",
+   "navbar",
+   "strip",
+   "latest",
+   "change",
+   "row"
+  ],
+  "license": {
+   "status": "unknown",
+   "identifier": null,
+   "redistribution": "unknown"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/app-shell-5.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/auth-1",
+  "source": "efferd",
+  "slug": "auth-1",
+  "name": "auth-1",
+  "description": "Modern sign-in page with particle background and social buttons.",
+  "category": "form",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "auth",
+   "modern",
+   "sign",
+   "page",
+   "with",
+   "particle",
+   "background",
+   "and",
+   "social",
+   "buttons"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/auth-1.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/auth-2",
+  "source": "efferd",
+  "slug": "auth-2",
+  "name": "auth-2",
+  "description": "Split sign-in layout with social buttons and email form.",
+  "category": "form",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "auth",
+   "split",
+   "sign",
+   "layout",
+   "with",
+   "social",
+   "buttons",
+   "and",
+   "email",
+   "form"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/auth-2.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/auth-3",
+  "source": "efferd",
+  "slug": "auth-3",
+  "name": "auth-3",
+  "description": "Minimal sign-in page with logo header and focused form.",
+  "category": "form",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "auth",
+   "minimal",
+   "sign",
+   "page",
+   "with",
+   "logo",
+   "header",
+   "and",
+   "focused",
+   "form"
+  ],
+  "license": {
+   "status": "unknown",
+   "identifier": null,
+   "redistribution": "unknown"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/auth-3.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/auth-4",
+  "source": "efferd",
+  "slug": "auth-4",
+  "name": "auth-4",
+  "description": "Clean sign-in screen with full-width divider and social actions.",
+  "category": "form",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "auth",
+   "clean",
+   "sign",
+   "screen",
+   "with",
+   "full",
+   "width",
+   "divider",
+   "and",
+   "social",
+   "actions"
+  ],
+  "license": {
+   "status": "unknown",
+   "identifier": null,
+   "redistribution": "unknown"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/auth-4.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/auth-5",
+  "source": "efferd",
+  "slug": "auth-5",
+  "name": "auth-5",
+  "description": "Modern signup page with testimonial sidebar and social sign-in.",
+  "category": "form",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "auth",
+   "modern",
+   "signup",
+   "page",
+   "with",
+   "testimonial",
+   "sidebar",
+   "and",
+   "social",
+   "sign"
+  ],
+  "license": {
+   "status": "unknown",
+   "identifier": null,
+   "redistribution": "unknown"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/auth-5.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/auth-divider",
+  "source": "efferd",
+  "slug": "auth-divider",
+  "name": "auth-divider",
+  "description": "Auth divider component.",
+  "category": "form",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "auth",
+   "divider",
+   "component"
+  ],
+  "license": {
+   "status": "unknown",
+   "identifier": null,
+   "redistribution": "unknown"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/auth-divider.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/contact-1",
+  "source": "efferd",
+  "slug": "contact-1",
+  "name": "contact-1",
+  "description": "Compact contact strip with phone, email, and office details.",
+  "category": "form",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "contact",
+   "compact",
+   "strip",
+   "with",
+   "phone",
+   "email",
+   "and",
+   "office",
+   "details"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/contact-1.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/contact-2",
+  "source": "efferd",
+  "slug": "contact-2",
+  "name": "contact-2",
+  "description": "Three-card contact layout with email, community, and social links.",
+  "category": "form",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "contact",
+   "three",
+   "card",
+   "layout",
+   "with",
+   "email",
+   "community",
+   "and",
+   "social",
+   "links"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/contact-2.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/dashboard-2",
+  "source": "efferd",
+  "slug": "dashboard-2",
+  "name": "dashboard-2",
+  "description": "Dense KPI grid with net revenue, channel sales lines, invoices table, billing health, and activity feed.",
+  "category": "dashboard",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "dashboard",
+   "dense",
+   "kpi",
+   "grid",
+   "with",
+   "net",
+   "revenue",
+   "channel",
+   "sales",
+   "lines",
+   "invoices",
+   "table",
+   "billing",
+   "health",
+   "and",
+   "activity",
+   "feed"
+  ],
+  "license": {
+   "status": "unknown",
+   "identifier": null,
+   "redistribution": "unknown"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/dashboard-2.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/dashboard-3",
+  "source": "efferd",
+  "slug": "dashboard-3",
+  "name": "dashboard-3",
+  "description": "Customer support dashboard with conversation charts, CSAT scores, on-duty team, and recent tickets.",
+  "category": "dashboard",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "dashboard",
+   "customer",
+   "support",
+   "with",
+   "conversation",
+   "charts",
+   "csat",
+   "scores",
+   "duty",
+   "team",
+   "and",
+   "recent",
+   "tickets"
+  ],
+  "license": {
+   "status": "unknown",
+   "identifier": null,
+   "redistribution": "unknown"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/dashboard-3.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/dashboard-4",
+  "source": "efferd",
+  "slug": "dashboard-4",
+  "name": "dashboard-4",
+  "description": "Commerce dashboard with revenue trends, refund rates, category ranking pie, and quick action items.",
+  "category": "dashboard",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "dashboard",
+   "commerce",
+   "with",
+   "revenue",
+   "trends",
+   "refund",
+   "rates",
+   "category",
+   "ranking",
+   "pie",
+   "and",
+   "quick",
+   "action",
+   "items"
+  ],
+  "license": {
+   "status": "unknown",
+   "identifier": null,
+   "redistribution": "unknown"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/dashboard-4.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/dashboard-5",
+  "source": "efferd",
+  "slug": "dashboard-5",
+  "name": "dashboard-5",
+  "description": "Web analytics dashboard with visitors chart, live users, top pages, traffic sources, and Core Web Vitals.",
+  "category": "dashboard",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "dashboard",
+   "web",
+   "analytics",
+   "with",
+   "visitors",
+   "chart",
+   "live",
+   "users",
+   "top",
+   "pages",
+   "traffic",
+   "sources",
+   "and",
+   "core",
+   "vitals"
+  ],
+  "license": {
+   "status": "unknown",
+   "identifier": null,
+   "redistribution": "unknown"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/dashboard-5.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/hero-1",
+  "source": "efferd",
+  "slug": "hero-1",
+  "name": "hero-1",
+  "description": "Centered hero with radial gradient background and announcement badge",
+  "category": "hero",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "hero",
+   "centered",
+   "with",
+   "radial",
+   "gradient",
+   "background",
+   "and",
+   "announcement",
+   "badge"
+  ],
+  "license": {
+   "status": "unknown",
+   "identifier": null,
+   "redistribution": "unknown"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/hero-1.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/hero-2",
+  "source": "efferd",
+  "slug": "hero-2",
+  "name": "hero-2",
+  "description": "Hero with vertical border accents and gradient text effect",
+  "category": "hero",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "hero",
+   "with",
+   "vertical",
+   "border",
+   "accents",
+   "and",
+   "gradient",
+   "text",
+   "effect"
+  ],
+  "license": {
+   "status": "unknown",
+   "identifier": null,
+   "redistribution": "unknown"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/hero-2.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/hero-3",
+  "source": "efferd",
+  "slug": "hero-3",
+  "name": "hero-3",
+  "description": "Left-aligned hero with dashboard screenshot preview",
+  "category": "hero",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "hero",
+   "left",
+   "aligned",
+   "with",
+   "dashboard",
+   "screenshot",
+   "preview"
+  ],
+  "license": {
+   "status": "unknown",
+   "identifier": null,
+   "redistribution": "unknown"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/hero-3.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/pricing-1",
+  "source": "efferd",
+  "slug": "pricing-1",
+  "name": "pricing-1",
+  "description": "Side-by-side monthly and yearly pricing cards with discount badges.",
+  "category": "pricing",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "pricing",
+   "side",
+   "monthly",
+   "and",
+   "yearly",
+   "cards",
+   "with",
+   "discount",
+   "badges"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/pricing-1.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/pricing-2",
+  "source": "efferd",
+  "slug": "pricing-2",
+  "name": "pricing-2",
+  "description": "Grid layout pricing with full-width dividers and feature lists.",
+  "category": "pricing",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "pricing",
+   "grid",
+   "layout",
+   "with",
+   "full",
+   "width",
+   "dividers",
+   "and",
+   "feature",
+   "lists"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/pricing-2.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/pricing-3",
+  "source": "efferd",
+  "slug": "pricing-3",
+  "name": "pricing-3",
+  "description": "Three-card pricing with plan icons and feature comparison.",
+  "category": "pricing",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "pricing",
+   "three",
+   "card",
+   "with",
+   "plan",
+   "icons",
+   "and",
+   "feature",
+   "comparison"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/pricing-3.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "efferd/pricing-4",
+  "source": "efferd",
+  "slug": "pricing-4",
+  "name": "pricing-4",
+  "description": "Interactive pricing with frequency toggle and numeric animations.",
+  "category": "pricing",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "pricing",
+   "interactive",
+   "with",
+   "frequency",
+   "toggle",
+   "and",
+   "numeric",
+   "animations"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://efferd.com/r/pricing-4.json",
+  "docs": "https://efferd.com/docs"
+ },
+ {
+  "id": "heroui/accordion",
+  "source": "heroui",
+  "slug": "accordion",
+  "name": "Accordion",
+  "description": "Collapsible disclosure primitive for grouped expandable content.",
+  "category": "other",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "low",
+  "tags": [
+   "accordion",
+   "collapse",
+   "disclosure",
+   "expandable",
+   "faq"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "npm-package",
+  "upstream": "https://www.npmjs.com/package/@heroui/react",
+  "docs": "https://www.heroui.com/docs/components/accordion"
+ },
+ {
+  "id": "heroui/button",
+  "source": "heroui",
+  "slug": "button",
+  "name": "Button",
+  "description": "Interactive button primitive with variants, sizes and loading state.",
+  "category": "other",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "low",
+  "tags": [
+   "button",
+   "action",
+   "control",
+   "interactive"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "npm-package",
+  "upstream": "https://www.npmjs.com/package/@heroui/react",
+  "docs": "https://www.heroui.com/docs/components/button"
+ },
+ {
+  "id": "heroui/card",
+  "source": "heroui",
+  "slug": "card",
+  "name": "Card",
+  "description": "Container primitive for grouped content with header, body and footer slots.",
+  "category": "card",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "low",
+  "tags": [
+   "card",
+   "container",
+   "surface",
+   "content"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "npm-package",
+  "upstream": "https://www.npmjs.com/package/@heroui/react",
+  "docs": "https://www.heroui.com/docs/components/card"
+ },
+ {
+  "id": "heroui/chip",
+  "source": "heroui",
+  "slug": "chip",
+  "name": "Chip",
+  "description": "Compact status or label primitive with color variants.",
+  "category": "other",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "low",
+  "tags": [
+   "chip",
+   "badge",
+   "label",
+   "status",
+   "tag"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "npm-package",
+  "upstream": "https://www.npmjs.com/package/@heroui/react",
+  "docs": "https://www.heroui.com/docs/components/chip"
+ },
+ {
+  "id": "heroui/form",
+  "source": "heroui",
+  "slug": "form",
+  "name": "Form",
+  "description": "Form primitive with validation state, labels and submission handling.",
+  "category": "form",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "low",
+  "tags": [
+   "form",
+   "validation",
+   "input",
+   "accessible"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "npm-package",
+  "upstream": "https://www.npmjs.com/package/@heroui/react",
+  "docs": "https://www.heroui.com/docs/components/form"
+ },
+ {
+  "id": "heroui/input",
+  "source": "heroui",
+  "slug": "input",
+  "name": "Input",
+  "description": "Text input primitive with label, description and error messaging.",
+  "category": "form",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "low",
+  "tags": [
+   "input",
+   "field",
+   "text",
+   "form",
+   "accessible"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "npm-package",
+  "upstream": "https://www.npmjs.com/package/@heroui/react",
+  "docs": "https://www.heroui.com/docs/components/input"
+ },
+ {
+  "id": "heroui/modal",
+  "source": "heroui",
+  "slug": "modal",
+  "name": "Modal",
+  "description": "Accessible dialog primitive with focus management and backdrop.",
+  "category": "other",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "low",
+  "tags": [
+   "modal",
+   "dialog",
+   "overlay",
+   "accessible",
+   "keyboard"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "npm-package",
+  "upstream": "https://www.npmjs.com/package/@heroui/react",
+  "docs": "https://www.heroui.com/docs/components/modal"
+ },
+ {
+  "id": "heroui/navbar",
+  "source": "heroui",
+  "slug": "navbar",
+  "name": "Navbar",
+  "description": "Responsive navigation bar with menu, brand and toggle slots.",
+  "category": "navbar",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "low",
+  "tags": [
+   "navbar",
+   "navigation",
+   "header",
+   "responsive"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "npm-package",
+  "upstream": "https://www.npmjs.com/package/@heroui/react",
+  "docs": "https://www.heroui.com/docs/components/navbar"
+ },
+ {
+  "id": "heroui/pagination",
+  "source": "heroui",
+  "slug": "pagination",
+  "name": "Pagination",
+  "description": "Page navigation primitive with sibling and boundary controls.",
+  "category": "navigation",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "low",
+  "tags": [
+   "pagination",
+   "navigation",
+   "pages",
+   "list"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "npm-package",
+  "upstream": "https://www.npmjs.com/package/@heroui/react",
+  "docs": "https://www.heroui.com/docs/components/pagination"
+ },
+ {
+  "id": "heroui/skeleton",
+  "source": "heroui",
+  "slug": "skeleton",
+  "name": "Skeleton",
+  "description": "Loading placeholder primitive for content that has not resolved yet.",
+  "category": "other",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "low",
+  "tags": [
+   "skeleton",
+   "loading",
+   "placeholder",
+   "async"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "npm-package",
+  "upstream": "https://www.npmjs.com/package/@heroui/react",
+  "docs": "https://www.heroui.com/docs/components/skeleton"
+ },
+ {
+  "id": "heroui/table",
+  "source": "heroui",
+  "slug": "table",
+  "name": "Table",
+  "description": "Data table primitive with sorting, selection and pagination support.",
+  "category": "table",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "low",
+  "tags": [
+   "table",
+   "data",
+   "rows",
+   "sorting"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "npm-package",
+  "upstream": "https://www.npmjs.com/package/@heroui/react",
+  "docs": "https://www.heroui.com/docs/components/table"
+ },
+ {
+  "id": "heroui/tabs",
+  "source": "heroui",
+  "slug": "tabs",
+  "name": "Tabs",
+  "description": "Tabbed panel primitive with keyboard navigation.",
+  "category": "navigation",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "low",
+  "tags": [
+   "tabs",
+   "navigation",
+   "keyboard",
+   "panels"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "npm-package",
+  "upstream": "https://www.npmjs.com/package/@heroui/react",
+  "docs": "https://www.heroui.com/docs/components/tabs"
+ },
+ {
+  "id": "magicui/animated-beam",
+  "source": "magicui",
+  "slug": "animated-beam",
+  "name": "Animated Beam",
+  "description": "An animated beam of light which travels along a path. Useful for showcasing the integration features of a website.",
+  "category": "background",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "animated",
+   "beam",
+   "light",
+   "which",
+   "travels",
+   "along",
+   "path",
+   "useful",
+   "for",
+   "showcasing",
+   "the",
+   "integration",
+   "features",
+   "website"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/animated-beam.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/animated-grid-pattern",
+  "source": "magicui",
+  "slug": "animated-grid-pattern",
+  "name": "Animated Grid Pattern",
+  "description": "A animated background grid pattern made with SVGs, fully customizable using Tailwind CSS.",
+  "category": "background",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "animated",
+   "grid",
+   "pattern",
+   "background",
+   "made",
+   "with",
+   "svgs",
+   "fully",
+   "customizable",
+   "using",
+   "tailwind",
+   "css"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/animated-grid-pattern.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/aurora-text",
+  "source": "magicui",
+  "slug": "aurora-text",
+  "name": "Aurora Text",
+  "description": "A beautiful aurora text effect",
+  "category": "background",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "aurora",
+   "text",
+   "beautiful",
+   "effect"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/aurora-text.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/bento-grid",
+  "source": "magicui",
+  "slug": "bento-grid",
+  "name": "Bento Grid",
+  "description": "Bento grid is a layout used to showcase the features of a product in a simple and elegant way.",
+  "category": "feature",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "bento",
+   "grid",
+   "layout",
+   "used",
+   "showcase",
+   "the",
+   "features",
+   "product",
+   "simple",
+   "and",
+   "elegant",
+   "way"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/bento-grid.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/border-beam",
+  "source": "magicui",
+  "slug": "border-beam",
+  "name": "Border Beam",
+  "description": "An animated beam of light which travels along the border of its container.",
+  "category": "background",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "border",
+   "beam",
+   "animated",
+   "light",
+   "which",
+   "travels",
+   "along",
+   "the",
+   "its",
+   "container"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/border-beam.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/client-tweet-card",
+  "source": "magicui",
+  "slug": "client-tweet-card",
+  "name": "Client Tweet Card",
+  "description": "A client-side version of the tweet card that displays a tweet with the author's name, handle, and profile picture.",
+  "category": "card",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "client",
+   "tweet",
+   "card",
+   "side",
+   "version",
+   "the",
+   "that",
+   "displays",
+   "with",
+   "author",
+   "name",
+   "handle",
+   "and",
+   "profile",
+   "picture"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/client-tweet-card.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/flickering-grid",
+  "source": "magicui",
+  "slug": "flickering-grid",
+  "name": "Flickering Grid",
+  "description": "A flickering grid background made with SVGs, fully customizable using Tailwind CSS.",
+  "category": "background",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "flickering",
+   "grid",
+   "background",
+   "made",
+   "with",
+   "svgs",
+   "fully",
+   "customizable",
+   "using",
+   "tailwind",
+   "css"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/flickering-grid.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/grid-pattern",
+  "source": "magicui",
+  "slug": "grid-pattern",
+  "name": "Grid Pattern",
+  "description": "A background grid pattern made with SVGs, fully customizable using Tailwind CSS.",
+  "category": "background",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "grid",
+   "pattern",
+   "background",
+   "made",
+   "with",
+   "svgs",
+   "fully",
+   "customizable",
+   "using",
+   "tailwind",
+   "css"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/grid-pattern.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/hero-video-dialog",
+  "source": "magicui",
+  "slug": "hero-video-dialog",
+  "name": "Hero Video Dialog",
+  "description": "A hero video dialog component.",
+  "category": "hero",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "hero",
+   "video",
+   "dialog",
+   "component"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/hero-video-dialog.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/interactive-grid-pattern",
+  "source": "magicui",
+  "slug": "interactive-grid-pattern",
+  "name": "Interactive Grid Pattern",
+  "description": "A interactive background grid pattern made with SVGs, fully customizable using Tailwind CSS.",
+  "category": "background",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "interactive",
+   "grid",
+   "pattern",
+   "background",
+   "made",
+   "with",
+   "svgs",
+   "fully",
+   "customizable",
+   "using",
+   "tailwind",
+   "css"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/interactive-grid-pattern.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/magic-card",
+  "source": "magicui",
+  "slug": "magic-card",
+  "name": "Magic Card",
+  "description": "A spotlight effect that follows your mouse cursor and highlights borders on hover.",
+  "category": "card",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "magic",
+   "card",
+   "spotlight",
+   "effect",
+   "that",
+   "follows",
+   "your",
+   "mouse",
+   "cursor",
+   "and",
+   "highlights",
+   "borders",
+   "hover"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/magic-card.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/marquee",
+  "source": "magicui",
+  "slug": "marquee",
+  "name": "Marquee",
+  "description": "An infinite scrolling component that can be used to display text, images, or videos.",
+  "category": "animation",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "marquee",
+   "infinite",
+   "scrolling",
+   "component",
+   "that",
+   "can",
+   "used",
+   "display",
+   "text",
+   "images",
+   "videos"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/marquee.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/meteors",
+  "source": "magicui",
+  "slug": "meteors",
+  "name": "Meteors",
+  "description": "A meteor shower effect.",
+  "category": "background",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "meteors",
+   "meteor",
+   "shower",
+   "effect"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/meteors.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/neon-gradient-card",
+  "source": "magicui",
+  "slug": "neon-gradient-card",
+  "name": "Neon Gradient Card",
+  "description": "A beautiful neon card effect",
+  "category": "card",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "neon",
+   "gradient",
+   "card",
+   "beautiful",
+   "effect"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/neon-gradient-card.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/retro-grid",
+  "source": "magicui",
+  "slug": "retro-grid",
+  "name": "Retro Grid",
+  "description": "An animated scrolling retro grid effect",
+  "category": "background",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "retro",
+   "grid",
+   "animated",
+   "scrolling",
+   "effect"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/retro-grid.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/terminal",
+  "source": "magicui",
+  "slug": "terminal",
+  "name": "Terminal",
+  "description": "A terminal component",
+  "category": "terminal",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "terminal",
+   "component"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/terminal.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/tweet-card",
+  "source": "magicui",
+  "slug": "tweet-card",
+  "name": "Tweet Card",
+  "description": "A card that displays a tweet with the author's name, handle, and profile picture.",
+  "category": "card",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "unknown",
+  "tags": [
+   "tweet",
+   "card",
+   "that",
+   "displays",
+   "with",
+   "the",
+   "author",
+   "name",
+   "handle",
+   "and",
+   "profile",
+   "picture"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/tweet-card.json",
+  "docs": "https://magicui.design/docs"
+ },
+ {
+  "id": "magicui/warp-background",
+  "source": "magicui",
+  "slug": "warp-background",
+  "name": "Warp Background",
+  "description": "A card with a time warping background effect.",
+  "category": "background",
+  "frameworks": [
+   "react"
+  ],
+  "motion": "medium",
+  "tags": [
+   "warp",
+   "background",
+   "card",
+   "with",
+   "time",
+   "warping",
+   "effect"
+  ],
+  "license": {
+   "status": "known",
+   "identifier": "MIT",
+   "redistribution": "permitted"
+  },
+  "retrieval": "shadcn-registry",
+  "upstream": "https://magicui.design/r/warp-background.json",
+  "docs": "https://magicui.design/docs"
+ }
+]
