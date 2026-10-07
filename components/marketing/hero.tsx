@@ -4,7 +4,6 @@ import { siteConfig } from '@/lib/site';
 import { TOTAL_COMPONENTS, TOTAL_SOURCES } from '@/lib/constants';
 import { CopyButton } from '@/components/ui/copy-button';
 import { Button } from '@/components/ui/button';
-import { TerminalDemo } from './terminal-demo';
 
 export function Hero() {
   return (
@@ -85,8 +84,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Terminal Demo Visual Carrier */}
-      <TerminalDemo />
     </div>
   );
 }

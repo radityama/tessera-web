@@ -10,14 +10,14 @@ import { Button } from '@/components/ui/button';
 
 const NAV_LINKS = [
   { label: 'Why', href: '/#why', section: 'why' },
-  { label: 'Workflow', href: '/#workflow', section: 'workflow' },
+  { label: 'Demo', href: '/#demo', section: 'demo' },
   { label: 'Sources', href: '/#sources', section: 'sources' },
   { label: 'Docs', href: '/docs', section: null },
   { label: 'Catalog', href: '/catalog', section: null },
   { label: 'Trust', href: '/trust', section: null },
 ];
 
-const SPY_SECTIONS = ['why', 'workflow', 'composition', 'sources', 'use-it', 'compatibility', 'trust', 'install', 'faq'];
+const SPY_SECTIONS = ['why', 'demo', 'composition', 'sources', 'compatibility', 'trust', 'install', 'faq'];
 
 export function SiteHeader() {
   const pathname = usePathname();
