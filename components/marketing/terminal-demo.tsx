@@ -5,6 +5,7 @@ import { Terminal, Search, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { TERMINAL_DEMOS } from '@/lib/constants';
 import { CopyButton } from '@/components/ui/copy-button';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export function TerminalDemo() {
   const [activeTab, setActiveTab] = useState<'search' | 'inspect' | 'fetch' | 'mcp'>('search');
@@ -25,25 +26,24 @@ export function TerminalDemo() {
         </div>
 
         {/* Tab Controls */}
-        <div className="flex items-center gap-1">
-          {TERMINAL_DEMOS.map((demo) => {
-            const isActive = demo.id === activeTab;
-            return (
-              <button
+        <Tabs
+          value={activeTab}
+          onValueChange={(value) =>
+            setActiveTab(value as typeof activeTab)
+          }
+        >
+          <TabsList aria-label="Terminal demo" className="gap-1">
+            {TERMINAL_DEMOS.map((demo) => (
+              <TabsTrigger
                 key={demo.id}
-                type="button"
-                onClick={() => setActiveTab(demo.id as typeof activeTab)}
-                className={`px-2.5 py-1 text-xs rounded-[4px] border transition-colors cursor-pointer ${
-                  isActive
-                    ? 'bg-[#302c2c] text-[#fdfcfc] border-[#646262]'
-                    : 'bg-transparent text-[#9a9898] border-transparent hover:text-[#fdfcfc] hover:bg-[#252222]'
-                }`}
+                value={demo.id}
+                className="px-2.5 py-1 data-[state=active]:bg-[#302c2c] data-[state=active]:text-[#fdfcfc] data-[state=active]:border-[#646262] data-[state=inactive]:bg-transparent data-[state=inactive]:text-[#9a9898] data-[state=inactive]:border-transparent data-[state=inactive]:hover:text-[#fdfcfc] data-[state=inactive]:hover:bg-[#252222]"
               >
                 [{demo.id}]
-              </button>
-            );
-          })}
-        </div>
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </Tabs>
 
         {/* Copy command control */}
         <div className="hidden sm:block">
