@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 export default function NotFound() {
   return (
@@ -10,12 +11,9 @@ export default function NotFound() {
           The requested path does not exist in the Tessera registry.
         </p>
         <div className="pt-2">
-          <Link
-            href="/"
-            className="inline-block text-xs font-semibold px-4 py-2 border border-[var(--ink)] bg-[var(--ink)] text-[var(--canvas)] rounded-[4px] hover:bg-[#353030] transition-colors"
-          >
-            ← Return to homepage
-          </Link>
+          <Button asChild variant="primary" size="md" className="text-xs md:text-xs font-semibold">
+            <Link href="/">← Return to homepage</Link>
+          </Button>
         </div>
       </div>
     </div>

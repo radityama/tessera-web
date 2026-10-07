@@ -1,5 +1,6 @@
 import React from 'react';
 import { SectionSeparator } from './section-separator';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export function GlobalLoading() {
   return (
@@ -12,21 +13,21 @@ export function GlobalLoading() {
       <header className="w-full bg-[var(--canvas)] border-b border-[var(--hairline)]">
         <div className="panel-frame h-14 flex items-center justify-between px-3 sm:px-6">
           <div className="flex items-center gap-2.5">
-            <span className="w-4 h-4 border border-[var(--hairline-strong)] skeleton-shimmer block rounded-[1px]" />
-            <span className="w-16 h-4 skeleton-shimmer block rounded-[2px]" />
+            <Skeleton className="w-4 h-4 border border-[var(--hairline-strong)] block rounded-[1px]" />
+            <Skeleton className="w-16 h-4 block rounded-[2px]" />
           </div>
 
           <div className="hidden lg:flex items-center gap-6">
-            <span className="w-10 h-3 skeleton-shimmer block rounded-[2px]" />
-            <span className="w-14 h-3 skeleton-shimmer block rounded-[2px]" />
-            <span className="w-12 h-3 skeleton-shimmer block rounded-[2px]" />
-            <span className="w-8 h-3 skeleton-shimmer block rounded-[2px]" />
-            <span className="w-10 h-3 skeleton-shimmer block rounded-[2px]" />
+            <Skeleton className="w-10 h-3 block rounded-[2px]" />
+            <Skeleton className="w-14 h-3 block rounded-[2px]" />
+            <Skeleton className="w-12 h-3 block rounded-[2px]" />
+            <Skeleton className="w-8 h-3 block rounded-[2px]" />
+            <Skeleton className="w-10 h-3 block rounded-[2px]" />
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3">
-            <span className="w-20 h-6 skeleton-shimmer block rounded-[4px]" />
-            <span className="w-20 h-6 skeleton-shimmer block rounded-[4px]" />
+            <Skeleton className="w-20 h-6 block rounded-[4px]" />
+            <Skeleton className="w-20 h-6 block rounded-[4px]" />
           </div>
         </div>
       </header>
@@ -34,10 +35,10 @@ export function GlobalLoading() {
       {/* Announcement Skeleton */}
       <div className="panel-frame border-b border-[var(--hairline)] bg-[var(--surface-soft)] px-4 py-2 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="w-12 h-3 skeleton-shimmer block rounded-[2px]" />
-          <span className="w-48 h-3 skeleton-shimmer block rounded-[2px]" />
+          <Skeleton className="w-12 h-3 block rounded-[2px]" />
+          <Skeleton className="w-48 h-3 block rounded-[2px]" />
         </div>
-        <span className="w-16 h-3 skeleton-shimmer block rounded-[2px] hidden sm:block" />
+        <Skeleton className="w-16 h-3 block rounded-[2px] hidden sm:block" />
       </div>
 
       <main className="flex-1 w-full pb-16">
@@ -53,33 +54,33 @@ export function GlobalLoading() {
 
               {/* Title shimmer bars */}
               <div className="space-y-3">
-                <div className="w-full max-w-xl h-9 sm:h-12 skeleton-shimmer rounded-[2px]" />
-                <div className="w-4/5 max-w-md h-9 sm:h-12 skeleton-shimmer rounded-[2px]" />
+                <Skeleton className="w-full max-w-xl h-9 sm:h-12 rounded-[2px]" />
+                <Skeleton className="w-4/5 max-w-md h-9 sm:h-12 rounded-[2px]" />
               </div>
 
               {/* Subtitle shimmer */}
               <div className="space-y-2 pt-2">
-                <div className="w-full max-w-lg h-4 skeleton-shimmer rounded-[2px]" />
-                <div className="w-3/4 max-w-md h-4 skeleton-shimmer rounded-[2px]" />
+                <Skeleton className="w-full max-w-lg h-4 rounded-[2px]" />
+                <Skeleton className="w-3/4 max-w-md h-4 rounded-[2px]" />
               </div>
 
               {/* Metadata pill-less row */}
               <div className="flex items-center gap-3 pt-2">
-                <span className="w-24 h-3 skeleton-shimmer rounded-[2px]" />
+                <Skeleton className="w-24 h-3 rounded-[2px]" />
                 <span className="text-[var(--mute)]">·</span>
-                <span className="w-16 h-3 skeleton-shimmer rounded-[2px]" />
+                <Skeleton className="w-16 h-3 rounded-[2px]" />
                 <span className="text-[var(--mute)]">·</span>
-                <span className="w-28 h-3 skeleton-shimmer rounded-[2px]" />
+                <Skeleton className="w-28 h-3 rounded-[2px]" />
               </div>
             </div>
 
             {/* Quick command skeleton */}
             <div className="space-y-3 max-w-2xl">
               <div className="flex items-center gap-3">
-                <div className="w-28 h-8 skeleton-shimmer rounded-[4px]" />
-                <div className="w-28 h-8 skeleton-shimmer rounded-[4px]" />
+                <Skeleton className="w-28 h-8 rounded-[4px]" />
+                <Skeleton className="w-28 h-8 rounded-[4px]" />
               </div>
-              <div className="h-10 w-full skeleton-shimmer rounded-[4px] border border-[var(--hairline)]" />
+              <Skeleton className="h-10 w-full rounded-[4px] border border-[var(--hairline)]" />
             </div>
           </div>
 
@@ -115,25 +116,25 @@ export function GlobalLoading() {
         {/* Problem 2-column skeleton */}
         <section className="panel-frame relative bg-[var(--canvas)] border-b border-[var(--hairline)]">
           <div className="border-b border-[var(--hairline)] p-6 md:p-8 space-y-2">
-            <div className="w-16 h-3 skeleton-shimmer rounded-[2px]" />
-            <div className="w-64 h-6 skeleton-shimmer rounded-[2px]" />
+            <Skeleton className="w-16 h-3 rounded-[2px]" />
+            <Skeleton className="w-64 h-6 rounded-[2px]" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[var(--hairline)]">
             <div className="p-6 md:p-8 space-y-4 bg-[var(--surface-soft)]">
-              <div className="w-32 h-4 skeleton-shimmer rounded-[2px]" />
+              <Skeleton className="w-32 h-4 rounded-[2px]" />
               <div className="space-y-2 pl-2 border-l border-[var(--hairline)]">
-                <div className="w-20 h-3 skeleton-shimmer rounded-[2px]" />
-                <div className="w-40 h-3 skeleton-shimmer rounded-[2px]" />
-                <div className="w-32 h-3 skeleton-shimmer rounded-[2px]" />
+                <Skeleton className="w-20 h-3 rounded-[2px]" />
+                <Skeleton className="w-40 h-3 rounded-[2px]" />
+                <Skeleton className="w-32 h-3 rounded-[2px]" />
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-4 bg-[var(--canvas)]">
-              <div className="w-32 h-4 skeleton-shimmer rounded-[2px]" />
+              <Skeleton className="w-32 h-4 rounded-[2px]" />
               <div className="space-y-2 pl-2 border-l border-[var(--hairline-strong)]">
-                <div className="w-20 h-3 skeleton-shimmer rounded-[2px]" />
-                <div className="w-44 h-3 skeleton-shimmer rounded-[2px]" />
-                <div className="w-36 h-3 skeleton-shimmer rounded-[2px]" />
+                <Skeleton className="w-20 h-3 rounded-[2px]" />
+                <Skeleton className="w-44 h-3 rounded-[2px]" />
+                <Skeleton className="w-36 h-3 rounded-[2px]" />
               </div>
             </div>
           </div>
@@ -142,8 +143,8 @@ export function GlobalLoading() {
 
       {/* Footer Skeleton */}
       <footer className="panel-frame border-t border-[var(--hairline)] bg-[var(--canvas)] p-6 md:p-8 flex items-center justify-between">
-        <span className="w-24 h-3 skeleton-shimmer rounded-[2px]" />
-        <span className="w-48 h-3 skeleton-shimmer rounded-[2px]" />
+        <Skeleton className="w-24 h-3 rounded-[2px]" />
+        <Skeleton className="w-48 h-3 rounded-[2px]" />
       </footer>
     </div>
   );

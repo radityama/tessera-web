@@ -3,6 +3,8 @@
 import React from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { useTheme } from '@/context/theme-context';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 interface ThemeToggleProps {
   className?: string;
@@ -12,13 +14,15 @@ export function ThemeToggle({ className = '' }: ThemeToggleProps) {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <button
+    <Button
       type="button"
+      variant="secondary"
+      size="sm"
       onClick={toggleTheme}
       suppressHydrationWarning
       aria-label="Toggle visual theme between light and dark"
       title="Toggle theme (light / dark)"
-      className={`inline-flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded-[4px] border border-[var(--hairline-strong)] text-[var(--ink)] hover:bg-[var(--surface-card)] transition-colors focus-visible:outline-2 focus-visible:outline-[var(--ink)] cursor-pointer select-none ${className}`}
+      className={cn('gap-1.5', className)}
     >
       <span suppressHydrationWarning className="inline-flex items-center">
         {theme === 'dark' ? (
@@ -29,6 +33,6 @@ export function ThemeToggle({ className = '' }: ThemeToggleProps) {
       </span>
       <span className="text-[var(--mute)]">theme:</span>
       <span suppressHydrationWarning className="font-semibold">{theme}</span>
-    </button>
+    </Button>
   );
 }

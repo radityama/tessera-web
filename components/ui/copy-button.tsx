@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { Copy, Check } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 interface CopyButtonProps {
   text: string;
@@ -37,11 +39,13 @@ export function CopyButton({
   };
 
   return (
-    <button
+    <Button
       type="button"
+      variant="secondary"
+      size="sm"
       onClick={handleCopy}
       aria-label={ariaLabel}
-      className={`inline-flex items-center gap-1.5 justify-center text-xs font-mono px-2.5 py-1 rounded-[4px] border border-[var(--hairline-strong)] text-[var(--ink)] hover:bg-[var(--surface-card)] transition-colors focus-visible:outline-2 focus-visible:outline-[var(--ink)] cursor-pointer select-none shrink-0 ${className}`}
+      className={cn('gap-1.5 shrink-0', className)}
     >
       {copied ? (
         <>
@@ -54,6 +58,6 @@ export function CopyButton({
           <span>[{label}]</span>
         </>
       )}
-    </button>
+    </Button>
   );
 }
