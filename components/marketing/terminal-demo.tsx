@@ -21,7 +21,7 @@ export function TerminalDemo() {
       : currentDemo.output;
 
   return (
-    <div className="w-full bg-[#201d1d] text-[#fdfcfc] border-t border-[var(--line)] overflow-hidden font-mono text-xs md:text-sm">
+    <div className="w-full bg-[#201d1d] text-[#fdfcfc] border-t border-[var(--line)] dark:border dark:border-[var(--line-strong)] overflow-hidden font-mono text-xs md:text-sm">
       {/* Terminal Title Bar */}
       <div className="flex flex-wrap items-center justify-between border-b border-[#383333] px-4 py-3 bg-[#191717] gap-2">
         <div className="flex items-center gap-3">
@@ -80,7 +80,7 @@ export function TerminalDemo() {
           </AnimatePresence>
           <span className="inline-block w-2 h-4 bg-[#fdfcfc] animate-pulse select-none shrink-0" />
         </div>
-        <span className="text-[11px] text-[#9a9898] uppercase tracking-wider shrink-0 hidden md:inline">
+        <span className="text-xs text-[#9a9898] uppercase tracking-wider shrink-0 hidden md:inline">
           local index · {TOTAL_COMPONENTS} items
         </span>
       </div>
@@ -98,7 +98,7 @@ export function TerminalDemo() {
                 key={query}
                 type="button"
                 onClick={() => setSearchQuery(query)}
-                className={`px-2 py-0.5 rounded-[4px] border text-[11px] transition-[color,background-color,border-color,transform] duration-150 ease-out cursor-pointer motion-safe:active:scale-[0.97] ${
+                className={`px-2 py-0.5 rounded-[4px] border text-xs transition-[color,background-color,border-color,transform] duration-150 ease-out cursor-pointer motion-safe:active:scale-[0.97] ${
                   searchQuery === query
                     ? 'border-[#007aff] text-[#fdfcfc] bg-[#1a2b40]'
                     : 'border-[#383333] text-[#9a9898] hover:text-[#fdfcfc] hover:border-[#646262]'
@@ -129,7 +129,7 @@ export function TerminalDemo() {
       </div>
 
       {/* Terminal Status Footer */}
-      <div className="border-t border-[#383333] px-4 py-2.5 bg-[#191717] flex flex-wrap items-center justify-between text-[11px] text-[#9a9898] gap-2">
+      <div className="border-t border-[#383333] px-4 py-2.5 bg-[#191717] flex flex-wrap items-center justify-between text-xs text-[#9a9898] gap-2">
         <div className="flex items-center gap-4">
           <span className="flex items-center gap-1.5 text-[#fdfcfc]">
             <CheckCircle2 className="w-3 h-3 text-[#30d158]" aria-hidden="true" />

@@ -32,26 +32,26 @@ export function Workflow() {
         {WORKFLOW_STAGES.map((stage) => (
           <div
             key={stage.number}
-            className="p-5 md:p-6 flex flex-col justify-between space-y-4 bg-[var(--canvas)] hover:bg-[var(--surface-soft)] transition-colors"
+            className="px-5 sm:px-8 md:px-10 py-6 flex flex-col justify-between space-y-4 bg-[var(--canvas)]"
           >
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-[var(--mute)]">
                   {stage.number}
                 </span>
-                <span className="text-[11px] font-semibold text-[var(--ink)] tracking-wider">
+                <span className="text-xs font-semibold text-[var(--ink)] tracking-wider">
                   {stage.name}
                 </span>
               </div>
               <h3 className="text-xs font-bold text-[var(--ink)] leading-snug">
                 {stage.summary}
               </h3>
-              <p className="text-xs text-[var(--body)] leading-relaxed">
+              <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">
                 {stage.detail}
               </p>
             </div>
 
-            <div className="pt-2 border-t border-[var(--line)] text-[11px] text-[var(--mute)] font-mono break-words whitespace-normal">
+            <div className="pt-2 border-t border-[var(--line)] text-xs text-[var(--mute)] font-mono break-words whitespace-normal">
               $ {stage.action}
             </div>
           </div>

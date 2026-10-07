@@ -13,7 +13,7 @@ export function Problem() {
 
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* Without Tessera */}
-        <div className="p-6 md:p-10 border-b md:border-b-0 md:border-r border-[var(--line)] bg-[var(--surface-soft)] space-y-6">
+        <div className="px-5 sm:px-8 md:px-10 py-6 sm:py-8 border-b md:border-b-0 md:border-r border-[var(--line)] bg-[var(--surface-soft)] space-y-6">
           <div className="flex items-center justify-between text-xs font-semibold text-[var(--mute)]">
             <span>WITHOUT TESSERA</span>
             <span className="text-[var(--danger-text)]">[hallucinated generation]</span>
@@ -31,13 +31,13 @@ export function Problem() {
             <div className="text-[var(--danger-text)] font-medium">yet another component to maintain forever</div>
           </div>
 
-          <p className="text-xs text-[var(--stone)] leading-relaxed pt-2">
+          <p className="text-[13px] sm:text-sm text-[var(--stone)] leading-relaxed pt-2">
             LLMs default to rewriting primitives from scratch. Every prompt creates a divergent version of tables, dialogs, and sliders, ignoring years of battle-tested open-source engineering.
           </p>
         </div>
 
         {/* With Tessera */}
-        <div className="p-6 md:p-10 bg-[var(--canvas)] space-y-6">
+        <div className="px-5 sm:px-8 md:px-10 py-6 sm:py-8 bg-[var(--canvas)] space-y-6">
           <div className="flex items-center justify-between text-xs font-semibold text-[var(--ink)]">
             <span>WITH TESSERA</span>
             <span className="text-[var(--success-text)]">[structured retrieval]</span>
@@ -55,7 +55,7 @@ export function Problem() {
             <div className="text-[var(--success-text)] font-semibold">adapt composition into your design tokens</div>
           </div>
 
-          <p className="text-xs text-[var(--body)] leading-relaxed pt-2">
+          <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed pt-2">
             Agents reuse existing composition, interaction models, and keyboard accessibility, then adapt styling to your application&apos;s exact aesthetic rules.
           </p>
         </div>

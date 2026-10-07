@@ -15,7 +15,7 @@ export function FinalCta() {
       />
 
       {/* Grounded Command & Action Bar */}
-      <div className="p-6 md:px-8 md:py-6 bg-[var(--surface-soft)] flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+      <div className="px-5 sm:px-8 md:px-10 py-6 bg-[var(--surface-soft)] flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         {/* Actions */}
         <div className="flex flex-wrap items-center gap-3">
           <Button

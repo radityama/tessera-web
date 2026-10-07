@@ -47,7 +47,7 @@ export default function ChangelogPage() {
           <div className="px-5 sm:px-8 md:px-10 py-6 md:py-8 space-y-6 max-w-3xl">
             <section className="space-y-3">
               <h2 className="text-sm font-bold text-[var(--ink)]">[v0.1.0] — 2026-10-06</h2>
-              <p className="text-xs text-[var(--body)] leading-relaxed">
+              <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">
                 First release. The local retrieval loop works end to end: search real UI libraries,
                 retrieve a real component, understand its dependencies and license, and adapt it
                 into a project.
@@ -55,7 +55,7 @@ export default function ChangelogPage() {
               <h3 className="text-xs font-bold text-[var(--mute)]">[added]</h3>
               <ul className="space-y-1.5">
                 {ADDED.map((item) => (
-                  <li key={item} className="text-xs text-[var(--body)] leading-relaxed flex gap-2">
+                  <li key={item} className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed flex gap-2">
                     <span aria-hidden="true" className="text-[var(--mute)]">+</span>
                     <span>{item}</span>
                   </li>
@@ -64,13 +64,13 @@ export default function ChangelogPage() {
               <h3 className="text-xs font-bold text-[var(--mute)]">[known limitations]</h3>
               <ul className="space-y-1.5">
                 {KNOWN_LIMITS.map((item) => (
-                  <li key={item} className="text-xs text-[var(--body)] leading-relaxed flex gap-2">
+                  <li key={item} className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed flex gap-2">
                     <span aria-hidden="true" className="text-[var(--mute)]">-</span>
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-              <p className="text-[11px] text-[var(--mute)] leading-relaxed">
+              <p className="text-xs text-[var(--mute)] leading-relaxed">
                 Full text:{' '}
                 <a
                   href={`${siteConfig.github}/blob/main/CHANGELOG.md`}

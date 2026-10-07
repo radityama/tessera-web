@@ -45,7 +45,7 @@ export function UseIt() {
               <code className="text-xs font-bold text-[var(--ink)] whitespace-nowrap w-40 shrink-0">
                 tessera {c.command}
               </code>
-              <span className="text-xs text-[var(--body)] flex-1">{c.description}</span>
+              <span className="text-[13px] sm:text-sm text-[var(--body)] flex-1">{c.description}</span>
               <CopyButton text={c.usage} label="copy" className="shrink-0" />
             </div>
           ))}

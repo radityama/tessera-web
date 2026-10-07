@@ -42,10 +42,10 @@ heroui ─────────┘`}
       <Table className="text-xs md:text-sm">
         <TableHeader>
           <TableRow className="border-[var(--line)] bg-[var(--canvas)] text-[var(--mute)] hover:bg-transparent">
-            <TableHead className="py-3 px-6 md:px-8">SOURCE</TableHead>
+            <TableHead className="py-3 px-5 sm:px-8 md:px-10">SOURCE</TableHead>
             <TableHead className="py-3 px-4 text-right">COMPONENTS</TableHead>
             <TableHead className="py-3 px-4">RETRIEVAL METHOD</TableHead>
-            <TableHead className="py-3 px-6 md:px-8 hidden sm:table-cell">
+            <TableHead className="py-3 px-5 sm:px-8 md:px-10 hidden sm:table-cell">
               FOCUS / CHARACTER
             </TableHead>
           </TableRow>
@@ -56,7 +56,7 @@ heroui ─────────┘`}
               key={source.name}
               className="border-[var(--line)] text-[var(--ink)]"
             >
-              <TableCell className="py-3.5 px-6 md:px-8 font-semibold">
+              <TableCell className="py-3.5 px-5 sm:px-8 md:px-10 font-semibold">
                 <a
                   href={source.url}
                   target="_blank"
@@ -78,7 +78,7 @@ heroui ─────────┘`}
                   {source.retrieval}
                 </Badge>
               </TableCell>
-              <TableCell className="py-3.5 px-6 md:px-8 text-xs text-[var(--stone)] hidden sm:table-cell">
+              <TableCell className="py-3.5 px-5 sm:px-8 md:px-10 text-xs text-[var(--stone)] hidden sm:table-cell">
                 {source.description}
               </TableCell>
             </TableRow>
@@ -86,7 +86,7 @@ heroui ─────────┘`}
         </TableBody>
         <TableFooter className="border-[var(--line-strong)] bg-[var(--surface-soft)] font-bold text-[var(--ink)]">
           <TableRow className="border-[var(--line-strong)] hover:bg-transparent">
-            <TableCell className="py-3.5 px-6 md:px-8">TOTAL INDEXED</TableCell>
+            <TableCell className="py-3.5 px-5 sm:px-8 md:px-10">TOTAL INDEXED</TableCell>
             <TableCell className="py-3.5 px-4 text-right tabular-nums text-sm">
               {TOTAL_COMPONENTS}
             </TableCell>
@@ -103,7 +103,7 @@ heroui ─────────┘`}
           Browse all {TOTAL_COMPONENTS} →
         </a>
       </div>
-      <div className="p-4 md:px-8 border-t border-[var(--line)] bg-[var(--canvas)] text-[11px] text-[var(--stone)]">
+      <div className="p-4 md:px-8 border-t border-[var(--line)] bg-[var(--canvas)] text-xs text-[var(--stone)]">
         <strong>Notice:</strong> Tessera indexes metadata and retrieval mechanisms. Tessera is an independent open-source project and is not affiliated with, sponsored by, or endorsed by Aceternity UI, beUI, Efferd, Magic UI, or HeroUI.
       </div>
     </div>

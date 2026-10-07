@@ -45,17 +45,17 @@ export function SiteFooter() {
             </span>
             <span>tessera</span>
           </div>
-          <p className="text-[11px] text-[var(--stone)] leading-relaxed">
+          <p className="text-xs text-[var(--stone)] leading-relaxed">
             UI retrieval for coding agents. Reuse composition, not identity.
           </p>
-          <div className="text-[11px] text-[var(--mute)]">
+          <div className="text-xs text-[var(--mute)]">
             {siteConfig.version} · TypeScript · MIT
           </div>
         </div>
 
         {/* Docs Col */}
         <div className="p-6 md:p-8 space-y-3 border-b sm:border-b lg:border-b-0 lg:border-r border-[var(--line)]">
-          <div className="text-[11px] font-bold text-[var(--mute)] uppercase tracking-wider">
+          <div className="text-xs font-bold text-[var(--mute)] uppercase tracking-wider">
             Docs
           </div>
           <ul className="space-y-2 text-[var(--body)]">
@@ -71,7 +71,7 @@ export function SiteFooter() {
 
         {/* Resources Col */}
         <div className="p-6 md:p-8 space-y-3 border-b sm:border-b-0 sm:border-r lg:border-r border-[var(--line)]">
-          <div className="text-[11px] font-bold text-[var(--mute)] uppercase tracking-wider">
+          <div className="text-xs font-bold text-[var(--mute)] uppercase tracking-wider">
             Resources
           </div>
           <ul className="space-y-2 text-[var(--body)]">
@@ -83,7 +83,7 @@ export function SiteFooter() {
 
         {/* Community Col */}
         <div className="p-6 md:p-8 space-y-3 bg-[var(--surface-soft)]">
-          <div className="text-[11px] font-bold text-[var(--mute)] uppercase tracking-wider">
+          <div className="text-xs font-bold text-[var(--mute)] uppercase tracking-wider">
             Community
           </div>
           <ul className="space-y-2 text-[var(--body)]">
@@ -95,11 +95,11 @@ export function SiteFooter() {
       </div>
 
       {/* Mandatory legal and non-affiliation disclaimer */}
-      <div className="p-6 md:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-[11px] text-[var(--stone)]">
+      <div className="p-6 md:px-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-[var(--stone)]">
         <div>
           © 2026 Tessera Maintainers. Released under the MIT License.
         </div>
-        <div className="text-[10px] sm:text-[11px] text-[var(--mute)] max-w-md">
+        <div className="text-[11px] text-[var(--mute)] max-w-md">
           Tessera is an independent open-source tool and is not affiliated with, sponsored by, or endorsed by the component libraries it indexes.
         </div>
       </div>

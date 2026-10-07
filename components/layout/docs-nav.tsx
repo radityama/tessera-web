@@ -58,7 +58,7 @@ export function DocsNav() {
             </span>
             <span>
               <span className="font-bold block">{item.label}</span>
-              <span className={`block text-[11px] ${active ? 'opacity-80' : 'text-[var(--mute)]'}`}>
+              <span className={`block text-xs ${active ? 'opacity-80' : 'text-[var(--mute)]'}`}>
                 {item.description}
               </span>
             </span>

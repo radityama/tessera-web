@@ -10,9 +10,9 @@ export function Announcement() {
     >
       <div className="flex items-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap">
         <span className="text-[var(--mute)] shrink-0">[release]</span>
-        <span className="text-[var(--ink)] font-medium">
+        <a href="/changelog" className="text-[var(--ink)] font-medium link-sweep">
           Tessera {siteConfig.version} is available on npm
-        </span>
+        </a>
       </div>
       <a
         href={siteConfig.npm}

@@ -16,7 +16,7 @@ function Select({
   options: string[];
 }) {
   return (
-    <label className="flex items-center gap-2 text-[11px] text-[var(--mute)]">
+    <label className="flex items-center gap-2 text-xs text-[var(--mute)]">
       <span>{label}</span>
       <select
         value={value}
@@ -60,7 +60,7 @@ export function CatalogTable({ entries }: { entries: CatalogEntry[] }) {
   return (
     <div className="w-full">
       <div className="px-5 sm:px-8 py-4 border-b border-[var(--line)] bg-[var(--surface-soft)] flex flex-wrap items-center gap-x-4 gap-y-3">
-        <label className="flex items-center gap-2 text-[11px] text-[var(--mute)]">
+        <label className="flex items-center gap-2 text-xs text-[var(--mute)]">
           <span>filter</span>
           <input
             value={query}
@@ -77,7 +77,7 @@ export function CatalogTable({ entries }: { entries: CatalogEntry[] }) {
           onChange={setLicense}
           options={['known', 'unknown', 'permitted']}
         />
-        <span className="text-[11px] text-[var(--mute)] tabular-nums">
+        <span className="text-xs text-[var(--mute)] tabular-nums">
           {filtered.length} / {entries.length}
         </span>
       </div>
@@ -106,10 +106,10 @@ export function CatalogTable({ entries }: { entries: CatalogEntry[] }) {
             </thead>
             <tbody>
               {filtered.map((e) => (
-                <tr key={e.id} className="border-b border-[var(--line)] hover:bg-[var(--surface-soft)]">
+                <tr key={e.id} className="border-b border-[var(--line)]">
                   <td className="py-2.5 px-5 sm:px-8">
                     <div className="font-bold text-[var(--ink)]">{e.id}</div>
-                    <div className="text-[11px] text-[var(--mute)]">{e.name}</div>
+                    <div className="text-xs text-[var(--mute)]">{e.name}</div>
                   </td>
                   <td className="py-2.5 px-4 text-[var(--body)]">{e.source}</td>
                   <td className="py-2.5 px-4 text-[var(--body)]">{e.category}</td>

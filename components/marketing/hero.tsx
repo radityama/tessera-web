@@ -10,7 +10,7 @@ export function Hero() {
   return (
     <div className="w-full">
       {/* Hero Content Block */}
-      <div className="p-6 sm:p-10 md:p-12 space-y-6">
+      <div className="px-5 sm:px-8 md:px-10 py-8 sm:py-10 space-y-6">
         <div className="space-y-4">
           {/* Small label */}
           <div className="text-xs tracking-wider text-[var(--mute)]">
@@ -43,7 +43,7 @@ export function Hero() {
       </div>
 
       {/* Grounded Action & Quick Execution Bar */}
-      <div className="border-t border-[var(--line)] px-6 sm:px-10 md:px-12 py-3.5 bg-[var(--surface-soft)] flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+      <div className="border-t border-[var(--line)] px-5 sm:px-8 md:px-10 py-3.5 bg-[var(--surface-soft)] flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         {/* Action Row */}
         <div className="flex flex-wrap items-center gap-3 shrink-0">
           <Button

@@ -17,7 +17,7 @@ export function Limitations() {
         {/* Left column */}
         <div className="divide-y divide-[var(--hairline)] bg-[var(--canvas)]">
           {limitations.slice(0, 3).map((item) => (
-            <div key={item.title} className="p-6 md:p-8 space-y-2 hover:bg-[var(--surface-soft)] transition-colors">
+            <div key={item.title} className="p-6 md:p-8 space-y-2">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono font-bold text-[var(--stone)] select-none">
                   {item.marker}
@@ -26,7 +26,7 @@ export function Limitations() {
                   {item.title}
                 </h3>
               </div>
-              <p className="text-xs text-[var(--body)] leading-relaxed pl-5">
+              <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed pl-5">
                 {item.description}
               </p>
             </div>
@@ -36,7 +36,7 @@ export function Limitations() {
         {/* Right column */}
         <div className="divide-y divide-[var(--hairline)] bg-[var(--canvas)]">
           {limitations.slice(3, 6).map((item) => (
-            <div key={item.title} className="p-6 md:p-8 space-y-2 hover:bg-[var(--surface-soft)] transition-colors">
+            <div key={item.title} className="p-6 md:p-8 space-y-2">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono font-bold text-[var(--stone)] select-none">
                   {item.marker}
@@ -45,7 +45,7 @@ export function Limitations() {
                   {item.title}
                 </h3>
               </div>
-              <p className="text-xs text-[var(--body)] leading-relaxed pl-5">
+              <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed pl-5">
                 {item.description}
               </p>
             </div>

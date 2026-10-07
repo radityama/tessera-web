@@ -70,7 +70,7 @@ export default function ArchitectureDocsPage() {
       efferd / magicui`}
         </pre>
       </div>
-      <div className="border-b border-[var(--line)] px-5 sm:px-8 py-2 bg-[var(--surface-soft)] text-[11px] text-[var(--mute)]">
+      <div className="border-b border-[var(--line)] px-5 sm:px-8 py-2 bg-[var(--surface-soft)] text-xs text-[var(--mute)]">
         Fig. 01 — One retrieval core, multiple interfaces. Deterministic registry with modular library adapters.
       </div>
       <div className="px-5 sm:px-8 py-6 space-y-6">
@@ -79,7 +79,7 @@ export default function ArchitectureDocsPage() {
             <h2 className="text-sm font-bold text-[var(--ink)]">
               [{String(i + 1).padStart(2, '0')}] {title}
             </h2>
-            <p className="text-xs text-[var(--body)] leading-relaxed max-w-2xl">{body}</p>
+            <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed max-w-2xl">{body}</p>
           </section>
         ))}
       </div>

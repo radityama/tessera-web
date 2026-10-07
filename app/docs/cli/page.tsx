@@ -19,7 +19,7 @@ function Block({ command, output }: { command: string; output: string }) {
         <code className="text-xs text-[var(--ink)] overflow-x-auto whitespace-nowrap">$ {command}</code>
         <CopyButton text={command} label="copy" className="shrink-0" />
       </div>
-      <pre className="px-3 py-3 text-[11px] md:text-xs leading-relaxed text-[var(--body)] overflow-x-auto whitespace-pre">
+      <pre className="px-3 py-3 text-xs md:text-xs leading-relaxed text-[var(--body)] overflow-x-auto whitespace-pre">
         {output}
       </pre>
     </div>
@@ -32,7 +32,7 @@ function Flags({ rows }: { rows: [string, string][] }) {
       {rows.map(([flag, desc], i) => (
         <div
           key={flag}
-          className={`grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 px-3 py-2 text-[11px] md:text-xs ${
+          className={`grid grid-cols-1 sm:grid-cols-[220px_1fr] gap-1 px-3 py-2 text-xs md:text-xs ${
             i > 0 ? 'border-t border-[var(--line)]' : ''
           }`}
         >
@@ -55,7 +55,7 @@ export default function CliDocsPage() {
       <div className="px-5 sm:px-8 py-6 space-y-10">
         <section id="search" className="scroll-target space-y-3">
           <h2 className="text-sm font-bold text-[var(--ink)]">[search] rank components locally</h2>
-          <p className="text-xs text-[var(--body)] leading-relaxed">
+          <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">
             Synopsis: <code className="text-[var(--ink)]">tessera search [options] &lt;query&gt;</code>.
             Deterministic lexical ranking over the pinned index. Scores and reasons print inline.
           </p>
@@ -92,7 +92,7 @@ export default function CliDocsPage() {
 
         <section id="inspect" className="scroll-target space-y-3">
           <h2 className="text-sm font-bold text-[var(--ink)]">[inspect] canonical metadata</h2>
-          <p className="text-xs text-[var(--body)] leading-relaxed">
+          <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">
             Synopsis: <code className="text-[var(--ink)]">tessera inspect [options] &lt;source/slug&gt;</code>.
             Includes retrieval mechanism, license with evidence, and provenance.
           </p>
@@ -120,7 +120,7 @@ provenance: adapter=shadcn-registry upstream=terminal derived=[category, seconda
 
         <section id="similar" className="scroll-target space-y-3">
           <h2 className="text-sm font-bold text-[var(--ink)]">[similar] structural alternatives</h2>
-          <p className="text-xs text-[var(--body)] leading-relaxed">
+          <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">
             Synopsis: <code className="text-[var(--ink)]">tessera similar [options] &lt;source/slug&gt;</code>.
             Ranks by shared category, tags, motion level, and framework.
           </p>
@@ -144,7 +144,7 @@ provenance: adapter=shadcn-registry upstream=terminal derived=[category, seconda
 
         <section id="add" className="scroll-target space-y-3">
           <h2 className="text-sm font-bold text-[var(--ink)]">[add] safe installation plan</h2>
-          <p className="text-xs text-[var(--body)] leading-relaxed">
+          <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">
             Synopsis: <code className="text-[var(--ink)]">tessera add [options] &lt;source/slug&gt;</code>.
             Dry-run by default in v0.1 and never mutates the project. <code className="text-[var(--ink)]">--no-dry-run</code> is
             refused with an explanatory error.
@@ -170,7 +170,7 @@ provenance: adapter=shadcn-registry upstream=terminal derived=[category, seconda
 
         <section id="fetch" className="scroll-target space-y-3">
           <h2 className="text-sm font-bold text-[var(--ink)]">[fetch] retrieve upstream source</h2>
-          <p className="text-xs text-[var(--body)] leading-relaxed">
+          <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">
             Synopsis: <code className="text-[var(--ink)]">tessera fetch [options] &lt;source/slug&gt;</code>.
             The only network command. Files are written, never executed; collisions are skipped unless{' '}
             <code className="text-[var(--ink)]">--force</code> is passed; upstream paths escaping{' '}
@@ -209,7 +209,7 @@ Tessera wrote these files only because you asked. Nothing was installed or execu
 
         <section id="mcp" className="scroll-target space-y-3">
           <h2 className="text-sm font-bold text-[var(--ink)]">[mcp] start the MCP server</h2>
-          <p className="text-xs text-[var(--body)] leading-relaxed">
+          <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">
             Synopsis: <code className="text-[var(--ink)]">tessera mcp [options]</code>. Speaks MCP over
             stdin/stdout (JSON-RPC 2.0). No flags besides <code className="text-[var(--ink)]">--registry</code>.
             Full protocol detail lives on the <a href="/docs/mcp" className="link-sweep font-bold text-[var(--ink)]">MCP page</a>.
@@ -234,7 +234,7 @@ All checks passed.`}
 
         <section id="exit-codes" className="scroll-target space-y-3">
           <h2 className="text-sm font-bold text-[var(--ink)]">[exit codes] and --json</h2>
-          <p className="text-xs text-[var(--body)] leading-relaxed">
+          <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">
             Exit <code className="text-[var(--ink)]">0</code> on success,{' '}
             <code className="text-[var(--ink)]">1</code> on any handled error. Errors print as JSON on
             stderr: <code className="text-[var(--ink)]">{'{ "error": { "code": "...", "message": "..." } }'}</code>.

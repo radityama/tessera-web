@@ -63,15 +63,15 @@ export function Compatibility({ limit }: { limit?: number }) {
       <Table>
         <TableHeader>
           <TableRow className="bg-[var(--canvas)] text-[var(--mute)] hover:bg-transparent">
-            <TableHead className="py-3 px-6 md:px-8">HARNESS / ENVIRONMENT</TableHead>
+            <TableHead className="py-3 px-5 sm:px-8 md:px-10">HARNESS / ENVIRONMENT</TableHead>
             <TableHead className="py-3 px-4">VERIFICATION LEVEL</TableHead>
-            <TableHead className="py-3 px-6 md:px-8">VERIFICATION EVIDENCE & NOTES</TableHead>
+            <TableHead className="py-3 px-5 sm:px-8 md:px-10">VERIFICATION EVIDENCE & NOTES</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody className="bg-[var(--canvas)]">
           {rows.map((harness) => (
-            <TableRow key={harness.name} className="text-[var(--ink)]">
-              <TableCell className="py-3.5 px-6 md:px-8 font-semibold">
+            <TableRow key={harness.name}>
+              <TableCell className="py-3.5 px-5 sm:px-8 md:px-10 font-semibold">
                 {harness.name}
               </TableCell>
               <TableCell className="py-3.5 px-4 whitespace-nowrap">
@@ -87,7 +87,7 @@ export function Compatibility({ limit }: { limit?: number }) {
                   <span>[{harness.status}]</span>
                 </Badge>
               </TableCell>
-              <TableCell className="py-3.5 px-6 md:px-8 text-xs text-[var(--stone)]">
+              <TableCell className="py-3.5 px-5 sm:px-8 md:px-10 text-xs text-[var(--stone)]">
                 {harness.notes}
               </TableCell>
             </TableRow>
@@ -95,7 +95,7 @@ export function Compatibility({ limit }: { limit?: number }) {
         </TableBody>
       </Table>
 
-      <div className="p-4 md:px-8 border-t border-[var(--hairline)] bg-[var(--surface-soft)] text-[11px] text-[var(--stone)]">
+      <div className="p-4 md:px-8 border-t border-[var(--hairline)] bg-[var(--surface-soft)] text-xs text-[var(--stone)]">
         <strong>Verification criteria:</strong> <em>Runtime verified</em> means live agent execution and test task completion were validated. <em>Config verified</em> means tool configurations and MCP definitions match vendor guidelines. <em>Protocol verified</em> means the server passes Model Context Protocol JSON-RPC specification tests.
         {limit && AGENT_HARNESSES.length > limit ? (
           <span>

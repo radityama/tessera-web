@@ -13,7 +13,7 @@ export function DocsPager() {
       <div className="px-5 sm:px-8 py-4">
         {prev ? (
           <a href={prev.href} className="block group">
-            <span className="block text-[11px] text-[var(--mute)]">← prev</span>
+            <span className="block text-xs text-[var(--mute)]">← prev</span>
             <span className="block text-xs font-bold text-[var(--ink)] link-sweep w-fit">
               {prev.label}
             </span>
@@ -23,7 +23,7 @@ export function DocsPager() {
       <div className="px-5 sm:px-8 py-4 sm:text-right border-t sm:border-t-0 sm:border-l border-[var(--line)]">
         {next ? (
           <a href={next.href} className="block group sm:ml-auto">
-            <span className="block text-[11px] text-[var(--mute)]">next →</span>
+            <span className="block text-xs text-[var(--mute)]">next →</span>
             <span className="block text-xs font-bold text-[var(--ink)] link-sweep w-fit sm:ml-auto">
               {next.label}
             </span>

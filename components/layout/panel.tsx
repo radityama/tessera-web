@@ -71,12 +71,12 @@ export function PanelHeader({
               </div>
             )}
             {title && (
-              <h2 className="text-xl md:text-2xl font-bold tracking-tight text-[var(--ink)]">
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[var(--ink)]">
                 {title}
               </h2>
             )}
             {description && (
-              <p className="text-xs sm:text-sm text-[var(--body)] leading-relaxed">
+              <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">
                 {description}
               </p>
             )}

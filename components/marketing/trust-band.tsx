@@ -31,7 +31,7 @@ export function TrustBand() {
           {GUARANTEES.map((g) => (
             <div key={g.title} className="space-y-1">
               <div className="text-xs font-bold text-[var(--ink)]">{g.title}</div>
-              <p className="text-xs text-[var(--body)] leading-relaxed">{g.body}</p>
+              <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">{g.body}</p>
             </div>
           ))}
         </div>
@@ -40,7 +40,7 @@ export function TrustBand() {
           {SAFETY_PRINCIPLES.slice(0, 3).map((g) => (
             <div key={g.title} className="space-y-1">
               <div className="text-xs font-bold text-[var(--ink)]">{g.title}</div>
-              <p className="text-xs text-[var(--body)] leading-relaxed">{g.description}</p>
+              <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">{g.description}</p>
             </div>
           ))}
         </div>
@@ -49,12 +49,12 @@ export function TrustBand() {
           {LIMITATIONS.slice(0, 3).map((g) => (
             <div key={g.title} className="space-y-1">
               <div className="text-xs font-bold text-[var(--ink)]">{g.title}</div>
-              <p className="text-xs text-[var(--body)] leading-relaxed">{g.description}</p>
+              <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">{g.description}</p>
             </div>
           ))}
         </div>
       </div>
-      <div className="px-6 md:px-8 py-3 bg-[var(--surface-soft)] border-t border-[var(--line)] text-xs">
+      <div className="px-5 sm:px-8 md:px-10 py-3 bg-[var(--surface-soft)] border-t border-[var(--line)] text-xs">
         <a href="/trust" className="link-sweep font-bold text-[var(--ink)]">
           trust and limits →
         </a>

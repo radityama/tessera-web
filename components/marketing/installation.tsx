@@ -41,7 +41,7 @@ export function Installation() {
       />
 
       {/* Structured Tab Selector Bar */}
-      <div className="px-6 md:px-8 py-3 bg-[var(--surface-soft)] border-b border-[var(--line)] flex items-center justify-between gap-4">
+      <div className="px-5 sm:px-8 md:px-10 py-3 bg-[var(--surface-soft)] border-b border-[var(--line)] flex items-center justify-between gap-4">
         <Tabs
           value={packageManager}
           onValueChange={(value) =>
@@ -68,7 +68,7 @@ export function Installation() {
       </div>
 
       {/* Integrated Code Execution Pane with motion transition */}
-      <div className="px-6 md:px-8 py-6 bg-[var(--canvas)] text-xs md:text-sm font-mono text-[var(--ink)] min-h-[90px] overflow-hidden">
+      <div className="px-5 sm:px-8 md:px-10 py-6 bg-[var(--canvas)] text-xs md:text-sm font-mono text-[var(--ink)] min-h-[90px] overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
             key={packageManager}
@@ -85,7 +85,7 @@ export function Installation() {
       </div>
 
       {/* Structured Notes & Action Sub-Bar */}
-      <div className="border-t border-[var(--line)] px-6 md:px-8 py-3 bg-[var(--surface-soft)] flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--mute)]">
+      <div className="border-t border-[var(--line)] px-5 sm:px-8 md:px-10 py-3 bg-[var(--surface-soft)] flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--mute)]">
         <AnimatePresence mode="wait">
           <motion.span
             key={`notes-${packageManager}`}

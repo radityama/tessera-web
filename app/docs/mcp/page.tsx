@@ -88,7 +88,7 @@ export default function McpDocsPage() {
       <div className="px-5 sm:px-8 py-6 space-y-8">
         <section className="space-y-3">
           <h2 className="text-sm font-bold text-[var(--ink)]">[setup]</h2>
-          <p className="text-xs text-[var(--body)] leading-relaxed">
+          <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">
             Transport: stdio, JSON-RPC 2.0. Tools only — no resources, no sampling. The server never
             executes shell commands, never installs dependencies, and never runs retrieved code.
           </p>
@@ -109,31 +109,31 @@ export default function McpDocsPage() {
               <h2 className="text-sm font-bold text-[var(--ink)]">
                 [{String(i + 1).padStart(2, '0')}] {tool.name}
               </h2>
-              <p className="text-xs text-[var(--body)] leading-relaxed">{tool.purpose}</p>
-              <div className="text-[11px] text-[var(--mute)]">
+              <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">{tool.purpose}</p>
+              <div className="text-xs text-[var(--mute)]">
                 signature: <code className="text-[var(--ink)]">{tool.signature}</code>
               </div>
               {detail ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div className="border border-[var(--line)] rounded-[4px] overflow-hidden">
-                    <div className="px-3 py-1.5 bg-[var(--surface-soft)] border-b border-[var(--line)] text-[11px] text-[var(--mute)]">
+                    <div className="px-3 py-1.5 bg-[var(--surface-soft)] border-b border-[var(--line)] text-xs text-[var(--mute)]">
                       sample request
                     </div>
-                    <pre className="px-3 py-3 text-[11px] leading-relaxed text-[var(--body)] overflow-x-auto whitespace-pre">
+                    <pre className="px-3 py-3 text-xs leading-relaxed text-[var(--body)] overflow-x-auto whitespace-pre">
                       {detail.input}
                     </pre>
                   </div>
                   <div className="border border-[var(--line)] rounded-[4px] overflow-hidden">
-                    <div className="px-3 py-1.5 bg-[var(--surface-soft)] border-b border-[var(--line)] text-[11px] text-[var(--mute)]">
+                    <div className="px-3 py-1.5 bg-[var(--surface-soft)] border-b border-[var(--line)] text-xs text-[var(--mute)]">
                       sample response (excerpt)
                     </div>
-                    <pre className="px-3 py-3 text-[11px] leading-relaxed text-[var(--body)] overflow-x-auto whitespace-pre">
+                    <pre className="px-3 py-3 text-xs leading-relaxed text-[var(--body)] overflow-x-auto whitespace-pre">
                       {detail.response}
                     </pre>
                   </div>
                 </div>
               ) : null}
-              {detail ? <p className="text-[11px] text-[var(--mute)] leading-relaxed">{detail.note}</p> : null}
+              {detail ? <p className="text-xs text-[var(--mute)] leading-relaxed">{detail.note}</p> : null}
             </section>
           );
         })}

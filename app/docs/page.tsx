@@ -64,7 +64,7 @@ export default function DocsPage() {
             <div className="text-sm font-bold text-[var(--ink)]">
               <span className="link-sweep">{card.title} →</span>
             </div>
-            <p className="text-xs text-[var(--body)] leading-relaxed">{card.body}</p>
+            <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">{card.body}</p>
           </a>
         ))}
       </div>

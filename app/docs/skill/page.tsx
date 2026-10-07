@@ -33,7 +33,7 @@ export default function SkillDocsPage() {
       <div className="px-5 sm:px-8 py-6 space-y-8">
         <section className="space-y-3">
           <h2 className="text-sm font-bold text-[var(--ink)]">[what it does]</h2>
-          <p className="text-xs text-[var(--body)] leading-relaxed">
+          <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">
             The skill (<code className="text-[var(--ink)]">skills/tessera/SKILL.md</code> in the main
             repository, v0.1.0) sets the design language first, then searches one targeted query per
             page section, inspects license / retrievability / dependencies / framework fit, retrieves
@@ -45,7 +45,7 @@ export default function SkillDocsPage() {
 
         <section className="space-y-3">
           <h2 className="text-sm font-bold text-[var(--ink)]">[install]</h2>
-          <p className="text-xs text-[var(--body)] leading-relaxed">
+          <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">
             The skill is not bundled in the CLI package. Copy{' '}
             <code className="text-[var(--ink)]">SKILL.md</code> from{' '}
             <a
@@ -66,7 +66,7 @@ export default function SkillDocsPage() {
             {SKILL_DIRS.map(([harness, dir], i) => (
               <div
                 key={harness}
-                className={`grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-1 px-3 py-2 text-[11px] md:text-xs ${
+                className={`grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-1 px-3 py-2 text-xs md:text-xs ${
                   i > 0 ? 'border-t border-[var(--line)]' : ''
                 }`}
               >
@@ -82,8 +82,8 @@ export default function SkillDocsPage() {
           <div className="border border-[var(--line)] rounded-[4px] overflow-hidden divide-y divide-[var(--line)]">
             {AGENT_SKILL_STEPS.map((s) => (
               <div key={s.step} className="px-3 py-3 space-y-1">
-                <div className="text-[11px] font-bold text-[var(--mute)]">[{s.step}] {s.title}</div>
-                <p className="text-xs text-[var(--body)] leading-relaxed">{s.desc}</p>
+                <div className="text-xs font-bold text-[var(--mute)]">[{s.step}] {s.title}</div>
+                <p className="text-[13px] sm:text-sm text-[var(--body)] leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>

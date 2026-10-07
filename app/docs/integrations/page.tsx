@@ -22,13 +22,13 @@ export default function IntegrationsPage() {
         description="Copy-paste configs below. Configs follow each harness's official docs as checked in the main repo (last verified 2026-10-06). Only Claude Code is runtime-verified; the rest are config-verified against vendor schemas."
       />
       <div className="px-5 sm:px-8 py-4 border-b border-[var(--line)] bg-[var(--surface-soft)]">
-        <div className="text-[11px] text-[var(--mute)] mb-2">[jump to]</div>
+        <div className="text-xs text-[var(--mute)] mb-2">[jump to]</div>
         <div className="flex flex-wrap gap-1.5">
           {INTEGRATIONS.map((h) => (
             <a
               key={h.slug}
               href={`#${h.slug}`}
-              className="text-[11px] px-2 py-0.5 border border-[var(--line)] rounded-[4px] text-[var(--body)] hover:text-[var(--ink)] hover:border-[var(--ink)] transition-colors"
+              className="text-xs px-2 py-0.5 border border-[var(--line)] rounded-[4px] text-[var(--body)] hover:text-[var(--ink)] hover:border-[var(--ink)] transition-colors"
             >
               {h.name}
             </a>
@@ -43,34 +43,34 @@ export default function IntegrationsPage() {
               <h2 className="text-sm font-bold text-[var(--ink)]">
                 [{String(i + 1).padStart(2, '0')}] {h.name}
               </h2>
-              <span className="text-[11px] px-1.5 py-0.5 border border-[var(--line)] rounded-[4px] text-[var(--body)]">
+              <span className="text-xs px-1.5 py-0.5 border border-[var(--line)] rounded-[4px] text-[var(--body)]">
                 [{h.status}]{h.lastVerified ? ` · ${h.lastVerified}` : ' · date unrecorded'}
               </span>
               {!h.snippetVerified ? (
-                <span className="text-[11px] px-1.5 py-0.5 border border-[var(--danger-text)] rounded-[4px] text-[var(--danger-text)]">
+                <span className="text-xs px-1.5 py-0.5 border border-[var(--danger-text)] rounded-[4px] text-[var(--danger-text)]">
                   [unverified — check vendor docs]
                 </span>
               ) : null}
             </div>
-            <div className="text-[11px] text-[var(--mute)]">
+            <div className="text-xs text-[var(--mute)]">
               config: <code className="text-[var(--body)]">{h.configPath}</code>
             </div>
             <div className="border border-[var(--line)] rounded-[4px] overflow-hidden">
               <div className="flex items-center justify-between gap-3 px-3 py-1.5 bg-[var(--surface-soft)] border-b border-[var(--line)]">
-                <span className="text-[11px] text-[var(--mute)]">{h.configPath}</span>
+                <span className="text-xs text-[var(--mute)]">{h.configPath}</span>
                 <CopyButton text={h.snippet} label="copy" className="shrink-0" />
               </div>
-              <pre className="px-3 py-3 text-[11px] md:text-xs leading-relaxed text-[var(--body)] overflow-x-auto whitespace-pre">
+              <pre className="px-3 py-3 text-xs md:text-xs leading-relaxed text-[var(--body)] overflow-x-auto whitespace-pre">
                 {h.snippet}
               </pre>
             </div>
             {h.verifyCommand ? (
-              <div className="text-[11px] text-[var(--mute)]">
+              <div className="text-xs text-[var(--mute)]">
                 verify: <code className="text-[var(--body)]">{h.verifyCommand}</code>
               </div>
             ) : null}
-            {h.note ? <p className="text-[11px] text-[var(--mute)] leading-relaxed">{h.note}</p> : null}
-            <div className="text-[11px] text-[var(--mute)]">
+            {h.note ? <p className="text-xs text-[var(--mute)] leading-relaxed">{h.note}</p> : null}
+            <div className="text-xs text-[var(--mute)]">
               official docs:{' '}
               {h.officialDocs.map((url) => (
                 <a key={url} href={url} target="_blank" rel="noopener noreferrer" className="link-sweep text-[var(--body)]">

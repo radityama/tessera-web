@@ -83,14 +83,14 @@ export function Composition() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.12, ease: 'easeOut' }}
-            className="font-mono text-[11px] md:text-xs leading-relaxed text-[var(--body)] whitespace-pre"
+            className="font-mono text-xs md:text-xs leading-relaxed text-[var(--body)] whitespace-pre"
           >
             {view === 'upstream' ? UPSTREAM : ADAPTED}
           </motion.pre>
         </AnimatePresence>
       </div>
 
-      <div className="px-5 sm:px-8 md:px-10 py-4 bg-[var(--surface-soft)] text-xs text-[var(--body)] leading-relaxed space-y-1.5">
+      <div className="px-5 sm:px-8 md:px-10 py-4 bg-[var(--surface-soft)] text-[13px] sm:text-sm text-[var(--body)] leading-relaxed space-y-1.5">
         <div>
           <span className="font-bold text-[var(--ink)]">kept:</span> DOM structure, context-based
           sequencing, typing timings, keyboard-readable pre/code output.
