@@ -12,7 +12,8 @@ import {
   TableRow,
 } from '@/components/ui/table';
 
-export function Compatibility() {
+export function Compatibility({ limit }: { limit?: number }) {
+  const rows = limit ? AGENT_HARNESSES.slice(0, limit) : AGENT_HARNESSES;
   const getBadgeVariant = (status: VerificationStatus) => {
     switch (status) {
       case 'runtime verified':
@@ -68,7 +69,7 @@ export function Compatibility() {
           </TableRow>
         </TableHeader>
         <TableBody className="bg-[var(--canvas)]">
-          {AGENT_HARNESSES.map((harness) => (
+          {rows.map((harness) => (
             <TableRow key={harness.name} className="text-[var(--ink)]">
               <TableCell className="py-3.5 px-6 md:px-8 font-semibold">
                 {harness.name}
@@ -96,6 +97,14 @@ export function Compatibility() {
 
       <div className="p-4 md:px-8 border-t border-[var(--hairline)] bg-[var(--surface-soft)] text-[11px] text-[var(--stone)]">
         <strong>Verification criteria:</strong> <em>Runtime verified</em> means live agent execution and test task completion were validated. <em>Config verified</em> means tool configurations and MCP definitions match vendor guidelines. <em>Protocol verified</em> means the server passes Model Context Protocol JSON-RPC specification tests.
+        {limit && AGENT_HARNESSES.length > limit ? (
+          <span>
+            {' '}
+            <a href="/docs/integrations" className="link-sweep font-bold text-[var(--ink)]">
+              all {AGENT_HARNESSES.length} harnesses →
+            </a>
+          </span>
+        ) : null}
       </div>
     </div>
   );

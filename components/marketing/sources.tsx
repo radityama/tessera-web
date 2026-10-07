@@ -98,6 +98,11 @@ heroui ─────────┘`}
       </Table>
 
       {/* Mandatory legal and non-affiliation notice */}
+      <div className="p-4 md:px-8 border-t border-[var(--line)] bg-[var(--surface-soft)] text-xs">
+        <a href="/catalog" className="link-sweep font-bold text-[var(--ink)]">
+          Browse all {TOTAL_COMPONENTS} →
+        </a>
+      </div>
       <div className="p-4 md:px-8 border-t border-[var(--line)] bg-[var(--canvas)] text-[11px] text-[var(--stone)]">
         <strong>Notice:</strong> Tessera indexes metadata and retrieval mechanisms. Tessera is an independent open-source project and is not affiliated with, sponsored by, or endorsed by Aceternity UI, beUI, Efferd, Magic UI, or HeroUI.
       </div>

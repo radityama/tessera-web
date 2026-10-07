@@ -1,26 +1,59 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { siteConfig } from '@/lib/site';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { Button } from '@/components/ui/button';
 
+const NAV_LINKS = [
+  { label: 'Why', href: '/#why', section: 'why' },
+  { label: 'Workflow', href: '/#workflow', section: 'workflow' },
+  { label: 'Sources', href: '/#sources', section: 'sources' },
+  { label: 'Docs', href: '/docs', section: null },
+  { label: 'Catalog', href: '/catalog', section: null },
+  { label: 'Trust', href: '/trust', section: null },
+];
+
+const SPY_SECTIONS = ['why', 'workflow', 'composition', 'sources', 'use-it', 'compatibility', 'trust', 'install', 'faq'];
+
 export function SiteHeader() {
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
   const wasOpen = useRef(false);
 
-  const navLinks = [
-    { label: 'Why', href: '#why' },
-    { label: 'Workflow', href: '#workflow' },
-    { label: 'Sources', href: '#sources' },
-    { label: 'CLI', href: '#cli' },
-    { label: 'MCP', href: '#mcp' },
-    { label: 'Compatibility', href: '#compatibility' },
-  ];
+  const onHome = pathname === '/';
+
+  useEffect(() => {
+    if (!onHome) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        }
+      },
+      { rootMargin: '-40% 0px -55% 0px' }
+    );
+    for (const id of SPY_SECTIONS) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
+  }, [onHome]);
+
+  const isActive = (link: (typeof NAV_LINKS)[number]) => {
+    if (onHome) {
+      if (link.section) return activeSection === link.section;
+      return false;
+    }
+    if (link.href === '/docs') return pathname.startsWith('/docs');
+    return pathname === link.href;
+  };
 
   useEffect(() => {
     if (!mobileMenuOpen) return;
@@ -59,7 +92,7 @@ export function SiteHeader() {
       <div className="panel-frame h-14 flex items-center justify-between px-4 sm:px-6 screen-line-bottom">
         {/* Brand Zone */}
         <a
-          href="#"
+          href="/"
           className="flex items-center gap-2.5 font-bold tracking-tight text-[var(--ink)] text-sm md:text-base hover:opacity-80 transition-opacity"
         >
           {/* Missing-piece geometric mark: 3 solid tiles with 1 cut-out tile forming an open tessera */}
@@ -74,11 +107,14 @@ export function SiteHeader() {
 
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-6 text-xs text-[var(--mute)]">
-          {navLinks.map((link) => (
+          {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="hover:text-[var(--ink)] transition-colors link-sweep"
+              aria-current={isActive(link) ? 'true' : undefined}
+              className={`transition-colors link-sweep ${
+                isActive(link) ? 'text-[var(--ink)] [background-size:100%_1px]' : 'hover:text-[var(--ink)]'
+              }`}
             >
               {link.label}
             </a>
@@ -109,7 +145,7 @@ export function SiteHeader() {
             size="sm"
             className="px-3 py-1.5 font-medium"
           >
-            <a href="#install">Get started</a>
+            <a href="/#install">Get started</a>
           </Button>
           <Button
             ref={toggleRef}
@@ -143,7 +179,7 @@ export function SiteHeader() {
           >
             <div className="p-4 space-y-4">
               <nav className="flex flex-col space-y-3 text-xs text-[var(--body)]">
-                {navLinks.map((link) => (
+                {NAV_LINKS.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
